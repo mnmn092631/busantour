@@ -6,7 +6,9 @@ const Layout = () => {
   return (
     <>
       <LayoutContainer>
-        <Logo>Busan Tour</Logo>
+        <Logo>
+          <Link to="/">Busan Tour</Link>
+        </Logo>
         <nav>
           <NavUl>
             <li>

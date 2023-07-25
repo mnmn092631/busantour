@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
-import { media } from "./theme";
+import { media, theme } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   html {
     font-size: 16px;
+    color:${theme.color.black};
     -webkit-text-size-adjust: none;
     font-family: 'Noto Sans KR', sans-serif;
     font-display: fallback;
