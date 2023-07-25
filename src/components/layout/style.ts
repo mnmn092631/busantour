@@ -29,7 +29,7 @@ export const NavUl = styled.ul`
     display: block;
     height: 100%;
     flex-shrink: 0;
-    margin: 0 10px;
+    margin: 0 15px;
     padding: 20px 10px;
     cursor: pointer;
     z-index: 1;
