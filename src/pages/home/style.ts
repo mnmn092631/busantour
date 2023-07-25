@@ -2,13 +2,24 @@ import { theme } from "src/styles/theme";
 import styled from "styled-components";
 
 export const FesContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+`;
+
+export const Carousel = styled.div<{ count: number }>`
+  display: flex;
+  transition: ${({ count }) => (count === 0 ? "" : "all 750ms ease-in-out")};
+  transform: ${({ count }) => `translateX(-${count * 100}vw)`};
+`;
+
+export const FesCard = styled.div`
+  position: relative;
 `;
 
 export const FesImg = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 `;
 
 export const FesContent = styled.div`
