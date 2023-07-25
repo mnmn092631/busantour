@@ -2,7 +2,8 @@ import { theme } from "src/styles/theme";
 import { styled } from "styled-components";
 
 export const LayoutContainer = styled.header`
-  padding: 0 3%;
+  position: relative;
+  padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,11 +25,24 @@ export const NavUl = styled.ul`
   font-weight: 600;
 
   & > li {
+    position: relative;
     display: block;
     height: 100%;
     flex-shrink: 0;
     margin: 0 10px;
     padding: 20px 10px;
     cursor: pointer;
+    z-index: 1;
+
+    &:hover::after {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 30%;
+      content: "";
+      background-color: ${theme.color.blue};
+      z-index: -1;
+    }
   }
 `;
