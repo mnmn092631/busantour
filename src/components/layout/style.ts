@@ -37,15 +37,21 @@ export const NavUl = styled.ul`
     cursor: pointer;
     z-index: 1;
 
-    &:hover::after {
+    &::after {
       position: absolute;
       top: 50%;
       left: 0;
       right: 0;
       height: 30%;
       content: "";
-      background-color: ${theme.color.blue};
+      background-color: transparent;
       z-index: -1;
+      transition: background-color 350ms cubic-bezier(0.54, 0, 0.53, 1);
+    }
+
+    &:hover::after {
+      background-color: ${theme.color.blue};
+      transition: background-color 350ms cubic-bezier(0.54, 0, 0.53, 1);
     }
   }
 `;
