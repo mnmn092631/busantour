@@ -1,5 +1,5 @@
 import React from "react";
-import { FoodContainer } from "./foodStyle";
+import { FoodContainer } from "./styles/foodStyle";
 
 const FoodSection = () => {
   return <FoodContainer></FoodContainer>;

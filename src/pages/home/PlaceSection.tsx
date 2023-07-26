@@ -1,5 +1,5 @@
 import React from "react";
-import { PlaceConatiner } from "./placeStyle";
+import { PlaceConatiner } from "./styles/placeStyle";
 
 const PlaceSection = () => {
   return <PlaceConatiner></PlaceConatiner>;

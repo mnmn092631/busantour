@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionTitle, Tag, TagContainer, TourContainer } from "./tourStyle";
+import { SectionTitle, Tag, TagContainer, TourContainer } from "./styles/tourStyle";
 
 const TourSection = () => {
   const tags = [
