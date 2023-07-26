@@ -1,7 +1,8 @@
 import { theme } from "src/styles/theme";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const FesContainer = styled.div`
+  position: relative;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -63,4 +64,36 @@ export const FesTag = styled.span`
   border-radius: 10px;
   padding: 2px 6px;
   margin: 5px 3px;
+`;
+
+export const BtnContainer = styled.div`
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+`;
+
+export const PageBtn = styled.div<{ active: boolean }>`
+  width: 15px;
+  height: 15px;
+  border: 2px solid ${theme.color.white};
+  border-radius: 50%;
+  background-color: ${theme.color.white};
+  margin: 0 5px;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+  ${({ active }) =>
+    active &&
+    css`
+      border-color: ${theme.color.blue};
+      background-color: ${theme.color.blue};
+      transform: scale(1.3);
+    `}
+
+  &:hover {
+    border-color: ${theme.color.lightGray};
+    background-color: ${theme.color.lightGray};
+    transform: scale(1.3);
+  }
 `;

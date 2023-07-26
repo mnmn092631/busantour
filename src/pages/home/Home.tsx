@@ -1,11 +1,11 @@
 import React from "react";
-import Section1 from "./Section1";
+import FesSection from "./FesSection";
 
 const Home = () => {
   return (
-    <div>
-      <Section1 />
-    </div>
+    <>
+      <FesSection />
+    </>
   );
 };
 
