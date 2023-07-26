@@ -1,8 +1,8 @@
 import { theme } from "src/styles/theme";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
-export const LayoutContainer = styled.header`
-  position: absolute;
+export const LayoutContainer = styled.header<{ $bgWhite: boolean }>`
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -10,20 +10,28 @@ export const LayoutContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${({ $bgWhite }) =>
+    $bgWhite
+      ? css`
+          color: ${theme.color.black};
+          background-color: ${theme.color.white};
+        `
+      : css`
+          color: ${theme.color.white};
+        `}
+  z-index: 1;
 `;
 
 export const Logo = styled.h1`
-  color: ${theme.color.white};
   font-size: ${theme.fontSize.xxl};
   font-weight: 600;
   z-index: 1;
 `;
 
-export const NavUl = styled.ul`
+export const NavUl = styled.ul<{ $bgWhite: boolean }>`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: ${theme.color.white};
   font-size: ${theme.fontSize.xl};
   font-weight: 600;
 
@@ -44,13 +52,17 @@ export const NavUl = styled.ul`
       right: 0;
       height: 30%;
       content: "";
-      background-color: transparent;
+      transition: all 350ms cubic-bezier(0.54, 0, 0.53, 1);
       z-index: -1;
-      transition: background-color 350ms cubic-bezier(0.54, 0, 0.53, 1);
     }
 
     &:hover::after {
       background-color: ${theme.color.blue};
+      ${({ $bgWhite }) =>
+        $bgWhite &&
+        css`
+          opacity: 0.7;
+        `}
       transition: background-color 350ms cubic-bezier(0.54, 0, 0.53, 1);
     }
   }

@@ -8,10 +8,10 @@ export const FesContainer = styled.div`
   overflow-x: hidden;
 `;
 
-export const Carousel = styled.div<{ count: number }>`
+export const Carousel = styled.div<{ $count: number }>`
   display: flex;
-  transition: ${({ count }) => (count === 0 ? "" : "all 750ms ease-in-out")};
-  transform: ${({ count }) => `translateX(-${count * 100}vw)`};
+  transition: ${({ $count }) => ($count === 0 ? "" : "all 750ms ease-in-out")};
+  transform: ${({ $count }) => `translateX(-${$count * 100}vw)`};
 `;
 
 export const FesCard = styled.div`
@@ -74,7 +74,7 @@ export const BtnContainer = styled.div`
   display: flex;
 `;
 
-export const PageBtn = styled.div<{ active: boolean }>`
+export const PageBtn = styled.div<{ $active: boolean }>`
   width: 15px;
   height: 15px;
   border: 2px solid ${theme.color.white};
@@ -83,8 +83,8 @@ export const PageBtn = styled.div<{ active: boolean }>`
   margin: 0 5px;
   transition: all 250ms ease-in-out;
   cursor: pointer;
-  ${({ active }) =>
-    active &&
+  ${({ $active }) =>
+    $active &&
     css`
       border-color: ${theme.color.blue};
       background-color: ${theme.color.blue};

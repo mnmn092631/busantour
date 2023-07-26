@@ -49,7 +49,6 @@ const FesSection = () => {
           flag.current = true;
           setCount(0);
         }
-        console.log(currentPage);
       },
       flag.current ? 0 : 3000,
     );
@@ -68,16 +67,16 @@ const FesSection = () => {
 
   return (
     <FesContainer>
-      <Carousel count={count} ref={carouselRef}>
-        {imgs.map(imgs => (
-          <FesCard>
-            <FesImg src={imgs} alt="축제임시사진" />
+      <Carousel $count={count} ref={carouselRef}>
+        {imgs.map((img, idx) => (
+          <FesCard key={idx}>
+            <FesImg src={img} alt="축제임시사진" />
             <FesContent>
               <FesTitle>동래읍성역사축제</FesTitle>
               <FesDate>10월 13일~10월 15일</FesDate>
               <FesTags>
-                {tags.map(tag => (
-                  <FesTag>{`#${tag}`}</FesTag>
+                {tags.map((tag, idx) => (
+                  <FesTag key={idx}>{`#${tag}`}</FesTag>
                 ))}
               </FesTags>
             </FesContent>
@@ -85,10 +84,10 @@ const FesSection = () => {
         ))}
       </Carousel>
       <BtnContainer>
-        <PageBtn active={currentPage === 0 || currentPage === 4} onClick={() => movePage(0)} />
-        <PageBtn active={currentPage === 1} onClick={() => movePage(1)} />
-        <PageBtn active={currentPage === 2} onClick={() => movePage(2)} />
-        <PageBtn active={currentPage === 3} onClick={() => movePage(3)} />
+        <PageBtn $active={currentPage === 0 || currentPage === 4} onClick={() => movePage(0)} />
+        <PageBtn $active={currentPage === 1} onClick={() => movePage(1)} />
+        <PageBtn $active={currentPage === 2} onClick={() => movePage(2)} />
+        <PageBtn $active={currentPage === 3} onClick={() => movePage(3)} />
       </BtnContainer>
     </FesContainer>
   );
