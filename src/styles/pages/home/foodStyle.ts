@@ -12,15 +12,15 @@ export const FoodTitle = styled.h2`
   font-size: ${theme.fontSize.xxl};
   font-weight: 600;
   text-align: center;
-  margin-bottom: 5%;
+  height: 10%;
 
   &::after {
     content: "";
     position: absolute;
-    bottom: -15%;
+    top: 25%;
     left: 50%;
-    width: 20%;
-    height: 60%;
+    width: 150px;
+    height: 25%;
     background-color: ${theme.color.blue};
     transform: translateX(-50%);
     z-index: -1;
