@@ -15,7 +15,7 @@ import {
   FesTags,
   FesTitle,
   PageBtn,
-} from "./styles/fesStyle";
+} from "src/styles/pages/home/fesStyle";
 
 const FesSection = () => {
   const imgs = [tempimg1, tempimg2, tempimg3, tempimg4, tempimg1];

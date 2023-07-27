@@ -15,7 +15,7 @@ export const theme: DefaultTheme = {
     sm: "14px",
     base: "16px",
     md: "18px",
-    lg: "24px",
+    lg: "20px",
     xl: "24px",
     xxl: "32px",
     logo: "40px",

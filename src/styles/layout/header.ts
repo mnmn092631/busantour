@@ -1,7 +1,7 @@
 import { theme } from "src/styles/theme";
 import { css, styled } from "styled-components";
 
-export const LayoutContainer = styled.header<{ $bgWhite: boolean }>`
+export const HeaderContainer = styled.header<{ $bgWhite: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
