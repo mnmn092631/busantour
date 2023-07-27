@@ -33,7 +33,7 @@ export const Logo = styled.h1`
   z-index: 1;
 `;
 
-export const NavUl = styled.ul<{ $bgWhite: boolean }>`
+export const NavUl = styled.ul<{ $bgWhite: boolean; $isIndex: boolean }>`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -63,8 +63,8 @@ export const NavUl = styled.ul<{ $bgWhite: boolean }>`
 
     &:hover::after {
       background-color: ${theme.color.blue};
-      ${({ $bgWhite }) =>
-        $bgWhite &&
+      ${({ $bgWhite, $isIndex }) =>
+        ($bgWhite || !$isIndex) &&
         css`
           opacity: 0.7;
         `}

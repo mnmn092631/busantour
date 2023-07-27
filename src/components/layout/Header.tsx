@@ -30,7 +30,7 @@ const Header = () => {
         <Link to="/">Busan Tour</Link>
       </Logo>
       <nav>
-        <NavUl $bgWhite={bgWhite}>
+        <NavUl $bgWhite={bgWhite} $isIndex={loc === "/"}>
           <li>
             <Link to="/place">관광명소</Link>
           </li>
