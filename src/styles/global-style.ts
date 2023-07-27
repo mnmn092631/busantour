@@ -15,8 +15,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   html {
-    font-size: 16px;
-    color:${theme.color.black};
+    font-size: ${theme.fontSize.base};
+    color: ${theme.color.black};
     -webkit-text-size-adjust: none;
     font-family: 'Noto Sans KR', sans-serif;
     font-display: fallback;
