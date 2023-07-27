@@ -1,20 +1,25 @@
 import { theme } from "src/styles/theme";
 import { css, styled } from "styled-components";
 
-export const HeaderContainer = styled.header<{ $bgWhite: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isIndex: boolean }>`
+  ${({ $isIndex }) =>
+    $isIndex &&
+    css`
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    `}
   padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${({ $bgWhite }) =>
-    $bgWhite
+  ${({ $bgWhite, $isIndex }) =>
+    $bgWhite || !$isIndex
       ? css`
           color: ${theme.color.black};
           background-color: ${theme.color.white};
+          border-bottom: 4px solid ${theme.color.deepBlue};
         `
       : css`
           color: ${theme.color.white};
