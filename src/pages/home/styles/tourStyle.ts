@@ -17,13 +17,11 @@ export const SectionTitle = styled.h2`
 
 export const TagContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 125px;
+  padding: 0 300px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow: scroll;
-  width: 100%;
-  cursor: pointer;
+  overflow-x: scroll;
 `;
 
 export const Tag = styled.button`
@@ -34,4 +32,5 @@ export const Tag = styled.button`
   border: 2px solid ${theme.color.white};
   color: ${theme.color.white};
   font-size: ${theme.fontSize.md};
+  cursor: pointer;
 `;

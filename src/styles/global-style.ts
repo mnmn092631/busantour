@@ -8,9 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     border: none;
   }
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     display: none;
-  }
+  } */
   * {
     box-sizing: border-box;
   }
@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     &:disabled {
       cursor: default;
-      fill: #767676;
+      fill: ${theme.color.gray};
     }
   }
   input, button, textarea {

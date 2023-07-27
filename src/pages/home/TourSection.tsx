@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SectionTitle, Tag, TagContainer, TourContainer } from "./styles/tourStyle";
 
 const TourSection = () => {
@@ -18,10 +18,30 @@ const TourSection = () => {
     "감성사진",
     "모노레일",
   ];
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scroll = scrollRef.current;
+    if (!scroll) return;
+    scroll.scrollTo({ left: (scroll.scrollWidth - scroll.clientWidth) / 2 });
+    const onWheel = (e: WheelEvent) => {
+      if (e.deltaY === 0) return;
+      if (scroll.scrollLeft + e.deltaY > 0 && scroll.scrollLeft + e.deltaY <= scroll.scrollWidth - scroll.clientWidth)
+        e.preventDefault();
+      scroll.scrollTo({
+        left: scroll.scrollLeft + e.deltaY,
+        behavior: "smooth",
+      });
+    };
+    scroll.addEventListener("wheel", e => onWheel(e));
+    return () => scroll.removeEventListener("wheel", e => onWheel(e));
+  }, []);
+
   return (
     <TourContainer>
       <SectionTitle>#테마여행</SectionTitle>
-      <TagContainer>
+      <TagContainer ref={scrollRef}>
         {tags.map((tag, idx) => (
           <Tag key={idx}>{tag}</Tag>
         ))}
