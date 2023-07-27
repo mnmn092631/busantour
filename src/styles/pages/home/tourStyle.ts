@@ -22,10 +22,11 @@ export const TagContainer = styled.div`
   display: flex;
   align-items: center;
   overflow-x: scroll;
+  cursor: ew-resize;
 
   &::-webkit-scrollbar {
     display: block;
-    height: 5px;
+    height: 8px;
     background-color: transparent;
   }
 
