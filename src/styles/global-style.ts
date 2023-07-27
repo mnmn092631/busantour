@@ -8,9 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     border: none;
   }
-  /* ::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     display: none;
-  } */
+  }
   * {
     box-sizing: border-box;
   }

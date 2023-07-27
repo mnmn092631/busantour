@@ -22,6 +22,17 @@ export const TagContainer = styled.div`
   display: flex;
   align-items: center;
   overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: block;
+    height: 5px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${theme.color.white};
+    border-radius: 50px;
+  }
 `;
 
 export const Tag = styled.button`

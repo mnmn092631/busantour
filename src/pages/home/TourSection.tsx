@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { SectionTitle, Tag, TagContainer, TourContainer } from "./styles/tourStyle";
 
 const TourSection = () => {
@@ -22,18 +22,24 @@ const TourSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!scrollRef.current) return;
+
     const scroll = scrollRef.current;
-    if (!scroll) return;
-    scroll.scrollTo({ left: (scroll.scrollWidth - scroll.clientWidth) / 2 });
+    const scrollWidth = scroll.scrollWidth;
+    const clientWidth = scroll.clientWidth;
+    scroll.scrollTo({ left: (scrollWidth - clientWidth) / 2 });
+
     const onWheel = (e: WheelEvent) => {
       if (e.deltaY === 0) return;
-      if (scroll.scrollLeft + e.deltaY > 0 && scroll.scrollLeft + e.deltaY <= scroll.scrollWidth - scroll.clientWidth)
+      if (scroll.scrollLeft + e.deltaY > 0 && scroll.scrollLeft + e.deltaY <= scrollWidth - clientWidth) {
         e.preventDefault();
+      }
       scroll.scrollTo({
         left: scroll.scrollLeft + e.deltaY,
         behavior: "smooth",
       });
     };
+
     scroll.addEventListener("wheel", e => onWheel(e));
     return () => scroll.removeEventListener("wheel", e => onWheel(e));
   }, []);
