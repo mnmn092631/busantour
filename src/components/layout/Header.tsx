@@ -5,11 +5,9 @@ import { Link, useLocation } from "react-router-dom";
 const Header = () => {
   const [bgWhite, setBgWhite] = useState<boolean>(false);
   const headerRef = useRef<HTMLHeadElement>(null);
-  const loc = useLocation().pathname;
 
   useEffect(() => {
     const scrollEvent = () => {
-      if (loc !== "/") return;
       if (!headerRef.current) return;
       if (window.scrollY > headerRef.current?.clientHeight) {
         setBgWhite(() => true);
@@ -22,15 +20,15 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", scrollEvent);
     };
-  }, [loc]);
+  }, []);
 
   return (
-    <HeaderContainer $bgWhite={bgWhite} ref={headerRef} $isIndex={loc === "/"}>
+    <HeaderContainer $bgWhite={bgWhite} ref={headerRef}>
       <Logo>
         <Link to="/">Busan Tour</Link>
       </Logo>
       <nav>
-        <NavUl $bgWhite={bgWhite} $isIndex={loc === "/"}>
+        <NavUl $bgWhite={bgWhite}>
           <li>
             <Link to="/place">관광명소</Link>
           </li>

@@ -1,21 +1,17 @@
 import { theme } from "src/styles/theme";
 import { css, styled } from "styled-components";
 
-export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isIndex: boolean }>`
-  ${({ $isIndex }) =>
-    $isIndex &&
-    css`
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-    `}
+export const HeaderContainer = styled.header<{ $bgWhite: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${({ $bgWhite, $isIndex }) =>
-    $bgWhite || !$isIndex
+  ${({ $bgWhite }) =>
+    $bgWhite
       ? css`
           color: ${theme.color.black};
           background-color: ${theme.color.white};
@@ -33,7 +29,7 @@ export const Logo = styled.h1`
   z-index: 1;
 `;
 
-export const NavUl = styled.ul<{ $bgWhite: boolean; $isIndex: boolean }>`
+export const NavUl = styled.ul<{ $bgWhite: boolean }>`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -63,8 +59,8 @@ export const NavUl = styled.ul<{ $bgWhite: boolean; $isIndex: boolean }>`
 
     &:hover::after {
       background-color: ${theme.color.blue};
-      ${({ $bgWhite, $isIndex }) =>
-        ($bgWhite || !$isIndex) &&
+      ${({ $bgWhite }) =>
+        $bgWhite &&
         css`
           opacity: 0.7;
         `}

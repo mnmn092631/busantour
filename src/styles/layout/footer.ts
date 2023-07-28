@@ -12,6 +12,7 @@ export const FooterContainer = styled.footer`
 
 export const FooterHeader = styled.header`
   display: flex;
+  justify-content: center;
   align-items: end;
   margin-bottom: 5%;
 `;
