@@ -10,20 +10,39 @@ import {
 import tempimg1 from "../../assets/축제2.jpg";
 import { getData } from "src/api";
 
-interface GetPlace {
+interface PlaceData {
   id: number;
   name: string;
+  gugun: string;
+  lat: string;
+  lng: string;
+  travel_place: string;
+  title: string;
+  subtitle: string;
+  addr1: string;
+  place_category: string;
+  tags: string | null;
+  homepage_u: string;
+  trfc_info: string;
+  usage_day: string;
+  hldy_info: string;
+  usage_time: string;
+  usage_amou: string;
+  middle_siz: string;
+  main_img_n: string;
+  main_img_t: string;
+  itemcntnts: string;
+  geometry: string;
 }
 
 const Places = () => {
   const [selectGugun, setSelectGugun] = useState<string>("전체");
   const gugun = ["전체", "북구", "강서구", "부산진구", "연제구", "서구", "금정구", "사상구", "동구", "영도구"];
 
-  const getPlace = async (): Promise<GetPlace> => {
+  const getPlace = async () => {
     try {
-      const response = await getData<GetPlace>("/busanplace");
-      console.info(response);
-      return response.result;
+      const response: PlaceData[] = await getData("/busanplace");
+      console.log(response);
     } catch (error) {
       console.error(error);
       throw new Error("Failed to get user");
