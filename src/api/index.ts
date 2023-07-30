@@ -9,9 +9,14 @@ const client: Axios = axios.create({
   withCredentials: true,
 });
 
-export const getData = async <T>(url: string): Promise<T[]> => {
+const sendHttpRequest = async <T>(method: "GET" | "POST" | "PUT" | "DELETE", url: string, data?: any): Promise<T> => {
   try {
-    const res = await client.get<T[]>(url);
+    const res = await client.request<T>({
+      method,
+      url,
+      data,
+    });
+
     return res.data;
   } catch (e) {
     let message = "Unknown Error";
@@ -21,38 +26,7 @@ export const getData = async <T>(url: string): Promise<T[]> => {
   }
 };
 
-export const postData = async <T>(url: string, data?: any): Promise<T> => {
-  try {
-    const res = await client.post<T>(url, data);
-    return res.data;
-  } catch (e) {
-    let message = "Unknown Error";
-    if (e instanceof Error) message = e.message;
-    else message = String(e);
-    throw new Error(message);
-  }
-};
-
-export const putData = async <T>(url: string, data?: any): Promise<T> => {
-  try {
-    const res = await client.put<T>(url, data);
-    return res.data;
-  } catch (e) {
-    let message = "Unknown Error";
-    if (e instanceof Error) message = e.message;
-    else message = String(e);
-    throw new Error(message);
-  }
-};
-
-export const deleteData = async <T>(url: string): Promise<T> => {
-  try {
-    const res = await client.delete<T>(url);
-    return res.data;
-  } catch (e) {
-    let message = "Unknown Error";
-    if (e instanceof Error) message = e.message;
-    else message = String(e);
-    throw new Error(message);
-  }
-};
+export const getData = <T>(url: string): Promise<T> => sendHttpRequest<T>("GET", url);
+export const postData = <T>(url: string, data?: any): Promise<T> => sendHttpRequest<T>("POST", url, data);
+export const putData = <T>(url: string, data?: any): Promise<T> => sendHttpRequest<T>("PUT", url, data);
+export const deleteData = <T>(url: string): Promise<T> => sendHttpRequest<T>("DELETE", url);

@@ -41,8 +41,7 @@ const Places = () => {
 
   const getPlace = async () => {
     try {
-      const response: PlaceData[] = await getData("/busanplace");
-      console.log(response);
+      const response: PlaceData[] = await getData<PlaceData[]>("/busanplace");
     } catch (error) {
       console.error(error);
       throw new Error("Failed to get user");
