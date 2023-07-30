@@ -25,6 +25,12 @@ const BusanMap = () => {
       baseProfile="tiny"
       version="1.2"
       viewBox="0 0 3507 2480"
+      style={{
+        position: "absolute",
+        top: "50%",
+        right: 0,
+        transform: "translateY(-50%)",
+      }}
     >
       <Buk />
       <Dong />

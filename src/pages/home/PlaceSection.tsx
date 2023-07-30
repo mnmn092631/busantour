@@ -1,12 +1,12 @@
 import React from "react";
 import BusanMap from "src/assets/BusanMap";
-import { PlaceConatiner } from "src/styles/pages/home/placeStyle";
+import { PlaceContainer } from "src/styles/pages/home/placeStyle";
 
 const PlaceSection = () => {
   return (
-    <PlaceConatiner>
+    <PlaceContainer>
       <BusanMap />
-    </PlaceConatiner>
+    </PlaceContainer>
   );
 };
 
