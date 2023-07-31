@@ -35,8 +35,8 @@ const FesSection = () => {
 
   const getFestival = async () => {
     try {
-      const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival");
-      setFestivals(response.slice(0, 4).concat(response[0]));
+      const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival/upcoming");
+      setFestivals(response.concat(response[0]));
     } catch (error) {
       console.error(error);
       throw new Error("Failed to get user");
