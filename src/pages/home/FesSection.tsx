@@ -1,8 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import tempimg1 from "../../assets/축제1.jpg";
-import tempimg2 from "../../assets/축제2.jpg";
-import tempimg3 from "../../assets/축제3.jpg";
-import tempimg4 from "../../assets/축제4.jpg";
 import {
   BtnContainer,
   Carousel,
@@ -11,31 +7,45 @@ import {
   FesContent,
   FesDate,
   FesImg,
-  FesTag,
-  FesTags,
+  FesSubTitle,
   FesTitle,
   PageBtn,
 } from "src/styles/pages/home/fesStyle";
+import { getData } from "src/api";
+
+interface FestivalData {
+  id: number;
+  gugun: string;
+  name: string;
+  subname: string;
+  type: string;
+  startDate: Date;
+  end_date: Date;
+  place: string;
+  hosting_method: string;
+  tags: string;
+  main_img: string;
+}
 
 const FesSection = () => {
-  const imgs = [tempimg1, tempimg2, tempimg3, tempimg4, tempimg1];
-  const tags = [
-    "부산여행",
-    "부산축제",
-    "가을축제",
-    "동래읍성",
-    "역사축제",
-    "동래읍성역사축제",
-    "전통문화체험",
-    "이색체험",
-    "거리공연",
-    "퍼레이드",
-    "가볼만한축제",
-  ];
-
+  const [festivals, setFestivals] = useState<FestivalData[]>([]);
   const [count, setCount] = useState<number>(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const getFestival = async () => {
+    try {
+      const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival");
+      setFestivals(response.slice(0, 4).concat(response[0]));
+    } catch (error) {
+      console.error(error);
+      throw new Error("Failed to get user");
+    }
+  };
+
+  useEffect(() => {
+    getFestival();
+  }, []);
 
   const flag = useRef<boolean>(false);
   useEffect(() => {
@@ -68,17 +78,13 @@ const FesSection = () => {
   return (
     <FesContainer>
       <Carousel $count={count} ref={carouselRef}>
-        {imgs.map((img, idx) => (
+        {festivals.map((fes, idx) => (
           <FesCard key={idx}>
-            <FesImg src={img} alt="축제임시사진" />
+            <FesImg src={fes.main_img} alt={fes.name} />
             <FesContent>
-              <FesTitle>동래읍성역사축제</FesTitle>
-              <FesDate>10월 13일~10월 15일</FesDate>
-              <FesTags>
-                {tags.map((tag, idx) => (
-                  <FesTag key={idx}>{`#${tag}`}</FesTag>
-                ))}
-              </FesTags>
+              <FesTitle>{fes.name}</FesTitle>
+              <FesDate>{`${fes.startDate}~${fes.end_date}`}</FesDate>
+              <FesSubTitle>{fes.subname}</FesSubTitle>
             </FesContent>
           </FesCard>
         ))}

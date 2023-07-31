@@ -55,7 +55,6 @@ const Places = () => {
         <Title>관광명소</Title>
       </TitleContainer>
       <ContentContainer>
-        <button onClick={getPlace}>버튼</button>
         <SelectContainer>
           {gugun.map((gu, idx) => (
             <SelectItem key={idx} onClick={() => setSelectGugun(gu)} $active={selectGugun === gu}>
