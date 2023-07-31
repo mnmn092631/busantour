@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { getData } from "src/api";
 import { SectionTitle, Tag, TagContainer, TourContainer } from "src/styles/pages/home/tourStyle";
 
 const TourSection = () => {
@@ -18,6 +19,19 @@ const TourSection = () => {
     "감성사진",
     "모노레일",
   ];
+
+  const getTourTags = async () => {
+    try {
+      const response: string[] = await getData<string[]>("/busantour/tags");
+    } catch (error) {
+      console.error(error);
+      throw new Error("Failed to get user");
+    }
+  };
+
+  useEffect(() => {
+    getTourTags();
+  }, []);
 
   const scrollRef = useRef<HTMLDivElement>(null);
 

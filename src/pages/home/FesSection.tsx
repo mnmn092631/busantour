@@ -33,7 +33,7 @@ const FesSection = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const getFestival = async () => {
+  const getFestivalUpcoming = async () => {
     try {
       const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival/upcoming");
       setFestivals(response.concat(response[0]));
@@ -44,7 +44,7 @@ const FesSection = () => {
   };
 
   useEffect(() => {
-    getFestival();
+    getFestivalUpcoming();
   }, []);
 
   const flag = useRef<boolean>(false);
