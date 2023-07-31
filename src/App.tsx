@@ -9,9 +9,8 @@ import Places from "./pages/place/Places";
 import Tour from "./pages/tour/Tour";
 import Foods from "./pages/food/Foods";
 import Festival from "./pages/festival/Festival";
-import Place from "./pages/place/Place";
-import Food from "./pages/food/Food";
 import ScrollToTop from "./components/ScrollToTop";
+import Place from "./pages/place/Place";
 
 function App() {
   return (
@@ -20,14 +19,11 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Home />}></Route>
-          <Route path="/place" element={<Places />}>
-            <Route path=":id" element={<Place />} />
-          </Route>
-          <Route path="/tour" element={<Tour />}></Route>
-          <Route path="/food" element={<Foods />}>
-            <Route path=":id" element={<Food />} />
-          </Route>
+          <Route index element={<Home />} />
+          <Route path="/place" element={<Places />} />
+          <Route path="/place/:id" element={<Place />} />
+          <Route path="/tour" element={<Tour />} />
+          <Route path="/food" element={<Foods />} />
           <Route path="/festival" element={<Festival />}></Route>
         </Route>
       </Routes>

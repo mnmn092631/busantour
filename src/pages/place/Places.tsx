@@ -43,16 +43,37 @@ interface PlaceData {
 }
 
 const Places = () => {
-  const [places, setPlaces] = useState<PlaceData[]>([]);
+  const [places, setPlaces] = useState<PlaceData[]>();
+  const [numPage, setNumPage] = useState<number>();
   const [page, setPage] = useState<number>(1);
   const offset = (page - 1) * 12;
   const [selectGugun, setSelectGugun] = useState<string>("전체");
-  const gugun = ["전체", "북구", "강서구", "부산진구", "연제구", "서구", "금정구", "사상구", "동구", "영도구"];
+  const gugun = [
+    "전체",
+    "강서구",
+    "금정구",
+    "기장군",
+    "남구",
+    "동구",
+    "동래구",
+    "부산진구",
+    "북구",
+    "사상구",
+    "사하구",
+    "서구",
+    "수영구",
+    "연제구",
+    "영도구",
+    "중구",
+    "해운대구",
+  ];
+  const category: { [key: string]: number } = { 공원: 1, 문화: 2, 역사: 3, 자연: 4, 체험: 5 };
 
   const getPlace = async () => {
     try {
       const response: PlaceData[] = await getData<PlaceData[]>("/busanplace");
       setPlaces(response);
+      setNumPage(Math.ceil(response.length / 12));
     } catch (error) {
       console.error(error);
       throw new Error("Failed to get user");
@@ -63,10 +84,23 @@ const Places = () => {
     getPlace();
   }, []);
 
+  useEffect(() => {
+    setPage(1);
+    places &&
+      setNumPage(
+        Math.ceil(
+          places.filter(place => {
+            if (selectGugun === "전체") return place;
+            else return place.gugun === selectGugun;
+          }).length / 12,
+        ),
+      );
+  }, [places, selectGugun]);
+
   return (
     <>
       <TitleContainer>
-        <img src={tempimg1} alt="임시" />
+        {places && <img src={places[0].main_img_n} alt={places[0].name} />}
         <Title>관광명소</Title>
       </TitleContainer>
       <ContentContainer>
@@ -78,54 +112,37 @@ const Places = () => {
           ))}
         </SelectContainer>
         <CardContainer>
-          {places
-            .filter(place => {
-              if (selectGugun === "전체") return place;
-              else return place.gugun === selectGugun;
-            })
-            .slice(offset, offset + 12)
-            .map(place => (
-              <Card key={place.id}>
-                <CardImg src={place.main_img_n} alt={place.name} />
-                <CardTitle>
-                  <CardCategory>{place.place_category}</CardCategory>
-                  {place.name}
-                </CardTitle>
-                <CardContent>{place.addr1}</CardContent>
-              </Card>
-            ))}
+          {places &&
+            places
+              .filter(place => {
+                if (selectGugun === "전체") return place;
+                else return place.gugun === selectGugun;
+              })
+              .slice(offset, offset + 12)
+              .map(place => (
+                <Card key={place.id} to={`${place.id}`}>
+                  <CardImg src={place.main_img_n} alt={place.name} />
+                  <CardTitle>
+                    <CardCategory $category={category[place.place_category]}>{place.place_category}</CardCategory>
+                    {place.name}
+                  </CardTitle>
+                  <CardContent>{place.addr1}</CardContent>
+                </Card>
+              ))}
         </CardContainer>
       </ContentContainer>
       <Pagination>
         <button onClick={() => setPage(page - 1)} disabled={page === 1}>
           &lt;prev
         </button>
-        {Array(
-          Math.ceil(
-            places.filter(place => {
-              if (selectGugun === "전체") return place;
-              else return place.gugun === selectGugun;
-            }).length / 12,
-          ),
-        )
+        {Array(numPage)
           .fill(null)
           .map((_, i) => (
-            <PageBtn onClick={() => setPage(i + 1)} $active={i + 1 === page}>
+            <PageBtn key={i} onClick={() => setPage(i + 1)} $active={i + 1 === page}>
               {i + 1}
             </PageBtn>
           ))}
-        <button
-          onClick={() => setPage(page + 1)}
-          disabled={
-            page ===
-            Math.ceil(
-              places.filter(place => {
-                if (selectGugun === "전체") return place;
-                else return place.gugun === selectGugun;
-              }).length / 12,
-            )
-          }
-        >
+        <button onClick={() => setPage(page + 1)} disabled={page === numPage}>
           next&gt;
         </button>
       </Pagination>

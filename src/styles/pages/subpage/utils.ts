@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { theme } from "src/styles/theme";
 import styled, { css } from "styled-components";
 
@@ -28,6 +29,7 @@ export const SelectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
+  max-width: 75%;
 `;
 
 export const SelectItem = styled.span<{ $active: boolean }>`
@@ -61,14 +63,13 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Card = styled.div`
+export const Card = styled(Link)`
   margin-right: 2%;
   margin-bottom: 2%;
   width: 23%;
   border-radius: 20px;
   box-shadow: 10px 10px 15px #bebebe, -10px -10px 15px #ffffff;
   overflow: hidden;
-  cursor: pointer;
 `;
 
 export const CardImg = styled.img`
@@ -84,14 +85,34 @@ export const CardTitle = styled.h2`
   margin-bottom: 5px;
 `;
 
-export const CardCategory = styled.strong`
+export const CardCategory = styled.strong<{ $category?: number }>`
   padding: 0 3px;
   margin-right: 3px;
   border-radius: 5px;
-  background-color: ${theme.color.blue};
   color: ${theme.color.white};
   font-size: ${theme.fontSize.sm};
   font-weight: 400;
+
+  ${({ $category }) =>
+    $category === 1
+      ? css`
+          background-color: #6e8c03;
+        `
+      : $category === 2
+      ? css`
+          background-color: #d98b2b;
+        `
+      : $category === 3
+      ? css`
+          background-color: #585859;
+        `
+      : $category === 4
+      ? css`
+          background-color: #049dd9;
+        `
+      : css`
+          background-color: #8c0303;
+        `}
 `;
 
 export const CardContent = styled.p`
