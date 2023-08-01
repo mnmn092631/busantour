@@ -10,7 +10,6 @@ const Geumjeong = ({ onClick, selectedGugun }: GugunProps) => {
       </MapGroup>
       {/* 마커 */}
       <Marker $active={"금정구" === selectedGugun}>
-        {" "}
         <g fill="#6e8c03" stroke="#232323">
           <path
             d="M2023.26 700.691c0 9.784-7.94 17.716-17.72 17.716-9.79 0-17.72-7.932-17.72-17.716 0-9.785 7.93-17.717 17.72-17.717 9.78 0 17.72 7.932 17.72 17.717"

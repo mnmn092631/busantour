@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getData } from "src/api";
 import BusanMap from "src/assets/BusanMap";
+import { FoodTitle } from "src/styles/pages/home/foodStyle";
 import {
   GugunName,
   MapCardContent,
@@ -42,7 +43,7 @@ const PlaceSection = () => {
     <PlaceContainer>
       <BusanMap selectedGugun={selectedGugun} setSelectedGugun={setSelectedGugun} />
       <PlaceInfo>
-        <GugunName>{selectedGugun}</GugunName>
+        <GugunName>{selectedGugun} 명소</GugunName>
         <PlaceListContainer>
           {places &&
             places

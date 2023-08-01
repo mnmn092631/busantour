@@ -11,13 +11,12 @@ export const PlaceContainer = styled.section`
 
 export const PlaceInfo = styled.div`
   position: absolute;
-  top: 45%;
+  top: 0;
   left: 10%;
   width: 45%;
-  padding: 2% 5%;
-  transform: translateY(-50%);
-  border-radius: 50px;
-  box-shadow: 0px 10px 10px ${theme.color.lightBlue};
+  padding: 6% 5% 2%;
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0px 5px 5px ${theme.color.lightGray};
   background-color: ${theme.color.white};
 `;
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { HeaderContainer, Logo, NavUl } from "src/styles/layout/header";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [bgWhite, setBgWhite] = useState<boolean>(false);
