@@ -16,9 +16,12 @@ import Suyeong from "./Suyeong";
 import Yeongdo from "./Yeongdo";
 import Yeonje from "./Yeonje";
 
-const BusanMap = () => {
-  const [selectedGugun, setSelectedGugun] = useState<string>("금정구");
+interface BusanMapProps {
+  selectedGugun: string;
+  setSelectedGugun: React.Dispatch<React.SetStateAction<string>>;
+}
 
+const BusanMap = ({ selectedGugun, setSelectedGugun }: BusanMapProps) => {
   const onClick = (gugun: string): void => {
     setSelectedGugun(gugun);
   };
@@ -30,12 +33,12 @@ const BusanMap = () => {
       version="1.2"
       viewBox="0 0 3507 2480"
       style={{
-        width: "90vw",
+        width: "70vw",
         height: "90vh",
         position: "absolute",
-        top: "50%",
-        right: 0,
-        transform: "translate(10%, -50%)",
+        top: "55%",
+        right: "-5%",
+        transform: "translateY(-50%)",
       }}
     >
       <Buk onClick={onClick} selectedGugun={selectedGugun} />
