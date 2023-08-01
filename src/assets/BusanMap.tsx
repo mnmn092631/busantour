@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Buk from "./Buk";
 import Dong from "./Dong";
 import Dongrae from "./Dongrae";
@@ -17,37 +17,43 @@ import Yeongdo from "./Yeongdo";
 import Yeonje from "./Yeonje";
 
 const BusanMap = () => {
+  const [selectedGugun, setSelectedGugun] = useState<string>("금정구");
+
+  const onClick = (gugun: string): void => {
+    setSelectedGugun(gugun);
+  };
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1122.24"
-      height="793.599"
       baseProfile="tiny"
       version="1.2"
       viewBox="0 0 3507 2480"
       style={{
+        width: "90vw",
+        height: "90vh",
         position: "absolute",
         top: "50%",
         right: 0,
-        transform: "translateY(-50%)",
+        transform: "translate(10%, -50%)",
       }}
     >
-      <Buk />
-      <Dong />
-      <Busanjin />
-      <Dongrae />
-      <Gangseo />
-      <Gijang />
-      <Geumjeong />
-      <Haeundae />
-      <Jung />
-      <Nam />
-      <Saha />
-      <Sasang />
-      <Seo />
-      <Suyeong />
-      <Yeongdo />
-      <Yeonje />
+      <Buk onClick={onClick} selectedGugun={selectedGugun} />
+      <Dong onClick={onClick} selectedGugun={selectedGugun} />
+      <Busanjin onClick={onClick} selectedGugun={selectedGugun} />
+      <Dongrae onClick={onClick} selectedGugun={selectedGugun} />
+      <Gangseo onClick={onClick} selectedGugun={selectedGugun} />
+      <Gijang onClick={onClick} selectedGugun={selectedGugun} />
+      <Geumjeong onClick={onClick} selectedGugun={selectedGugun} />
+      <Haeundae onClick={onClick} selectedGugun={selectedGugun} />
+      <Jung onClick={onClick} selectedGugun={selectedGugun} />
+      <Nam onClick={onClick} selectedGugun={selectedGugun} />
+      <Saha onClick={onClick} selectedGugun={selectedGugun} />
+      <Sasang onClick={onClick} selectedGugun={selectedGugun} />
+      <Seo onClick={onClick} selectedGugun={selectedGugun} />
+      <Suyeong onClick={onClick} selectedGugun={selectedGugun} />
+      <Yeongdo onClick={onClick} selectedGugun={selectedGugun} />
+      <Yeonje onClick={onClick} selectedGugun={selectedGugun} />
     </svg>
   );
 };
