@@ -9,7 +9,7 @@ import {
   PlaceInfo,
   PlaceListContainer,
 } from "src/styles/pages/home/placeStyle";
-import { CardCategory, CardContent, CardTitle } from "src/styles/pages/subpage/utils";
+import { CardCategory } from "src/styles/pages/subpage/utils";
 
 interface PlaceData {
   id: number;
