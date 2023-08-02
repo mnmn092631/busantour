@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import apiService from "src/api";
+import Pagination from "src/components/Pagination";
 import {
   Card,
   CardCategory,
@@ -7,40 +9,12 @@ import {
   CardImg,
   CardTitle,
   ContentContainer,
-  PageBtn,
-  Pagination,
   SelectContainer,
   SelectItem,
   Title,
   TitleContainer,
 } from "src/styles/pages/subpage/utils";
-import tempimg1 from "../../assets/축제2.jpg";
-import { getData } from "src/api";
-
-interface PlaceData {
-  id: number;
-  name: string;
-  gugun: string;
-  lat: string;
-  lng: string;
-  travel_place: string;
-  title: string;
-  subtitle: string;
-  addr1: string;
-  place_category: string;
-  tags: string;
-  homepage_u: string;
-  trfc_info: string;
-  usage_day: string;
-  hldy_info: string;
-  usage_time: string;
-  usage_amou: string;
-  middle_siz: string;
-  main_img_n: string;
-  main_img_t: string;
-  itemcntnts: string;
-  geometry: string;
-}
+import { PlaceData } from "src/types/api";
 
 const Places = () => {
   const [places, setPlaces] = useState<PlaceData[]>();
@@ -69,19 +43,16 @@ const Places = () => {
   ];
   const category: { [key: string]: number } = { 공원: 1, 문화: 2, 역사: 3, 자연: 4, 체험: 5 };
 
-  const getPlace = async () => {
-    try {
-      const response: PlaceData[] = await getData<PlaceData[]>("/busanplace");
-      setPlaces(response);
-      setNumPage(Math.ceil(response.length / 12));
-    } catch (error) {
-      console.error(error);
-      throw new Error("Failed to get user");
-    }
-  };
-
   useEffect(() => {
-    getPlace();
+    const fetchPlaces = async () => {
+      try {
+        const data = await apiService.placeService.getPlace();
+        setPlaces(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchPlaces();
   }, []);
 
   useEffect(() => {
@@ -123,7 +94,7 @@ const Places = () => {
                 <Card key={place.id} to={`${place.id}`}>
                   <CardImg src={place.main_img_n} alt={place.name} />
                   <CardTitle>
-                    <CardCategory $category={category[place.place_category]}>{place.place_category}</CardCategory>
+                    <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
                     {place.name}
                   </CardTitle>
                   <CardContent>{place.addr1}</CardContent>
@@ -131,21 +102,7 @@ const Places = () => {
               ))}
         </CardContainer>
       </ContentContainer>
-      <Pagination>
-        <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-          &lt;prev
-        </button>
-        {Array(numPage)
-          .fill(null)
-          .map((_, i) => (
-            <PageBtn key={i} onClick={() => setPage(i + 1)} $active={i + 1 === page}>
-              {i + 1}
-            </PageBtn>
-          ))}
-        <button onClick={() => setPage(page + 1)} disabled={page === numPage}>
-          next&gt;
-        </button>
-      </Pagination>
+      <Pagination page={page} setPage={setPage} numPage={numPage} />
     </>
   );
 };

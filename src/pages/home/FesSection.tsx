@@ -12,20 +12,7 @@ import {
   PageBtn,
 } from "src/styles/pages/home/fesStyle";
 import { getData } from "src/api";
-
-interface FestivalData {
-  id: number;
-  gugun: string;
-  name: string;
-  subname: string;
-  type: string;
-  startDate: Date;
-  end_date: Date;
-  place: string;
-  hosting_method: string;
-  tags: string;
-  main_img: string;
-}
+import { FestivalData } from "src/types/api";
 
 const FesSection = () => {
   const [festivals, setFestivals] = useState<FestivalData[]>([]);
@@ -33,17 +20,16 @@ const FesSection = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const getFestivalUpcoming = async () => {
-    try {
-      const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival/upcoming");
-      setFestivals(response.concat(response[0]));
-    } catch (error) {
-      console.error(error);
-      throw new Error("Failed to get user");
-    }
-  };
-
   useEffect(() => {
+    const getFestivalUpcoming = async () => {
+      try {
+        const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival/upcoming");
+        setFestivals(response.concat(response[0]));
+      } catch (error) {
+        console.error(error);
+        throw new Error("Failed to get festival upcoming");
+      }
+    };
     getFestivalUpcoming();
   }, []);
 

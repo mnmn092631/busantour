@@ -121,7 +121,7 @@ export const CardContent = styled.p`
   font-size: ${theme.fontSize.sm};
 `;
 
-export const Pagination = styled.div`
+export const PaginationContainer = styled.div`
   padding: 2% 16%;
   width: 70vw;
   margin: 0 auto;
