@@ -11,6 +11,7 @@ import Foods from "./pages/food/Foods";
 import Festival from "./pages/festival/Festival";
 import ScrollToTop from "./components/ScrollToTop";
 import Place from "./pages/place/Place";
+import Login from "./styles/pages/login/Login";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/food" element={<Foods />} />
           <Route path="/festival" element={<Festival />}></Route>
         </Route>
+        <Route path="login" element={<Login />} />
       </Routes>
     </ThemeProvider>
   );
