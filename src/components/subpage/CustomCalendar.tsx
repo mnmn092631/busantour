@@ -1,22 +1,52 @@
-import React, { useState } from "react";
-import Calendar from "react-calendar";
-import { CalendarConatiner } from "src/styles/components/customCalendar";
+import React, { useState, useEffect } from "react";
+import { CalendarContainer } from "src/styles/components/customCalendar";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import { FestivalData } from "./../../types/api";
+import apiService from "src/api";
+import koLocale from "@fullcalendar/core/locales/ko";
 
-type ValuePiece = Date | null;
+interface EventInput {
+  id: string;
+  title: string;
+  start: Date;
+  end: Date;
+}
 
-export type Value = ValuePiece | [ValuePiece, ValuePiece];
+const convertToFestivalEvent = (festival: FestivalData): EventInput => {
+  const startDate = new Date(festival.startDate);
+  const endDate = new Date(festival.end_date);
+
+  return {
+    id: festival.id.toString(),
+    title: festival.name,
+    start: startDate,
+    end: endDate,
+  };
+};
 
 const CustomCalendar = () => {
-  const [value, onChange] = useState<ValuePiece | [ValuePiece, ValuePiece]>(new Date());
+  const [festivals, setFestivals] = useState<EventInput[]>();
+
+  useEffect(() => {
+    const getFestival = async () => {
+      try {
+        const response: FestivalData[] = await apiService.festivalService.getFestival();
+        const convertedFestivals = response.map(convertToFestivalEvent);
+        console.log(convertedFestivals);
+        setFestivals(convertedFestivals);
+      } catch (error) {
+        console.error(error);
+        throw new Error("Failed to get festival");
+      }
+    };
+    getFestival();
+  }, []);
 
   return (
-    <CalendarConatiner>
-      <Calendar
-        onChange={onChange}
-        value={value}
-        formatDay={(locale, date) => date.toLocaleString("en", { day: "numeric" })}
-      />
-    </CalendarConatiner>
+    <CalendarContainer>
+      <FullCalendar plugins={[dayGridPlugin]} events={festivals} displayEventTime={false} locale={koLocale} />
+    </CalendarContainer>
   );
 };
 

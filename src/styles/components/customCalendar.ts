@@ -1,25 +1,46 @@
 import styled from "styled-components";
 import { theme } from "../theme";
 
-export const CalendarConatiner = styled.div`
-  font-family: "Noto Sans KR", sans-serif;
-
-  .react-calendar {
-    width: 100%;
+export const CalendarContainer = styled.div`
+  .fc-day-sun .fc-col-header-cell-cushion,
+  .fc-day-sun .fc-daygrid-day-number {
+    color: red;
   }
 
-  .react-calendar__navigation {
-    text-align: center;
-    display: flex;
+  .fc-day-sat .fc-col-header-cell-cushion,
+  .fc-day-sat .fc-daygrid-day-number {
+    color: blue;
+  }
 
-    & > button {
-      font-size: ${theme.fontSize.lg};
-      font-weight: 600;
+  .fc-toolbar-chunk > .fc-today-button.fc-button.fc-button-primary {
+    background-color: ${theme.color.lightBlue};
+    border: none;
+    transition: all 350ms ease-in-out;
+
+    &:hover {
+      background-color: ${theme.color.blue};
     }
 
-    .react-calendar__navigation__prev2-button,
-    .react-calendar__navigation__next2-button {
-      display: none;
+    &:disabled {
+      background-color: ${theme.color.lightGray};
+
+      &:hover {
+        background-color: ${theme.color.lightGray};
+      }
+    }
+  }
+
+  .fc-button-group > button {
+    background-color: ${theme.color.lightBlue};
+    border: none;
+    transition: all 350ms ease-in-out;
+
+    &:hover {
+      background-color: ${theme.color.blue};
+    }
+
+    &:focus {
+      box-shadow: none;
     }
   }
 `;
