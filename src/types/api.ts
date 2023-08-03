@@ -47,6 +47,11 @@ export interface TourData {
   main_img_t: string;
 }
 
+export interface TourTagsData {
+  tagWord: string;
+  tagCount: number;
+}
+
 export interface FoodData {
   id: number;
   name: string;
@@ -57,7 +62,7 @@ export interface FoodData {
   address1: string;
   url: string;
   usage_open: string;
-  usage_colse: string;
+  usage_close: string;
   usage_breaktime: string;
   menu: string;
   main_img_n: string;

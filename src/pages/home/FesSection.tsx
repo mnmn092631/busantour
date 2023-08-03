@@ -11,7 +11,7 @@ import {
   FesTitle,
   PageBtn,
 } from "src/styles/pages/home/fesStyle";
-import { getData } from "src/api";
+import apiService, { getData } from "src/api";
 import { FestivalData } from "src/types/api";
 
 const FesSection = () => {
@@ -23,7 +23,7 @@ const FesSection = () => {
   useEffect(() => {
     const getFestivalUpcoming = async () => {
       try {
-        const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival/upcoming");
+        const response: FestivalData[] = await apiService.festivalService.getFestivalUpcoming();
         setFestivals(response.concat(response[0]));
       } catch (error) {
         console.error(error);

@@ -1,37 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import apiService from "src/api";
 import { SectionTitle, Tag, TagContainer, TourContainer } from "src/styles/pages/home/tourStyle";
+import { TourTagsData } from "src/types/api";
 
 const TourSection = () => {
-  const tags = [
-    "덕후투어",
-    "봄여행",
-    "부산당일코스",
-    "인생샷",
-    "자전거투어",
-    "부산야경투어",
-    "자연",
-    "부산일주일여행",
-    "반려견과함께",
-    "전시관",
-    "부산2박3일코스",
-    "부산이색여행",
-    "감성사진",
-    "모노레일",
-  ];
+  const [tags, setTags] = useState<TourTagsData[]>();
 
-  // useEffect(() => {
-  //   const getTourTags = async () => {
-  //     try {
-  //       const response: string[] = await apiService.tourService.getTourTags();
-  //       setTags(response);
-  //     } catch (error) {
-  //       console.error(error);
-  //       throw new Error("Failed to get festival upcoming");
-  //     }
-  //   };
-  //   getTourTags();
-  // }, []);
+  useEffect(() => {
+    const getTourTags = async () => {
+      try {
+        const response: TourTagsData[] = await apiService.tourService.getTourTags();
+        setTags(response);
+      } catch (error) {
+        console.error(error);
+        throw new Error("Failed to get tour tags");
+      }
+    };
+    getTourTags();
+  }, []);
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -45,6 +31,7 @@ const TourSection = () => {
 
     const onWheel = (e: WheelEvent) => {
       if (e.deltaY === 0) return;
+      e.preventDefault();
       if (scroll.scrollLeft + e.deltaY > 0 && scroll.scrollLeft + e.deltaY <= scrollWidth - clientWidth) {
         e.preventDefault();
       }
@@ -56,16 +43,12 @@ const TourSection = () => {
 
     scroll.addEventListener("wheel", e => onWheel(e));
     return () => scroll.removeEventListener("wheel", e => onWheel(e));
-  }, []);
+  }, [tags]);
 
   return (
     <TourContainer>
       <SectionTitle>#테마여행</SectionTitle>
-      <TagContainer ref={scrollRef}>
-        {tags.map((tag, idx) => (
-          <Tag key={idx}>{tag}</Tag>
-        ))}
-      </TagContainer>
+      <TagContainer ref={scrollRef}>{tags && tags.map((tag, idx) => <Tag key={idx}>{tag.tagWord}</Tag>)}</TagContainer>
     </TourContainer>
   );
 };

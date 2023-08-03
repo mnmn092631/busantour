@@ -89,8 +89,8 @@ export const FoodContent = styled.div`
   }
 
   &:hover > h2 {
-    margin-bottom: 10%;
-    transform: scale(0.8);
+    margin-bottom: 20px;
+    transform: scale(0.9);
     transition: all 350ms ease-in-out;
   }
 
@@ -102,6 +102,15 @@ export const FoodContent = styled.div`
     height: 0;
     opacity: 0;
     transition: all 350ms ease-in-out;
+    font-size: ${theme.fontSize.md};
+
+    & > span {
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &:hover > div {

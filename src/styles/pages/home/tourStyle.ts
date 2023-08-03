@@ -37,12 +37,17 @@ export const TagContainer = styled.div`
 `;
 
 export const Tag = styled.button`
-  width: 150px;
-  height: 40px;
+  width: 180px;
+  height: 50px;
   margin: 0 8px;
   flex-shrink: 0;
   border: 2px solid ${theme.color.white};
   color: ${theme.color.white};
   font-size: ${theme.fontSize.md};
-  cursor: pointer;
+  transition: all 350ms ease-in-out;
+
+  &:hover {
+    background-color: ${theme.color.blue};
+    transition: all 350ms ease-in-out;
+  }
 `;

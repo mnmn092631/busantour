@@ -11,6 +11,16 @@ const getFestival = async () => {
   }
 };
 
-const festivalService = { getFestival };
+const getFestivalUpcoming = async () => {
+  try {
+    const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival/upcoming");
+    return response;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to get festival upcoming");
+  }
+};
+
+const festivalService = { getFestival, getFestivalUpcoming };
 
 export default festivalService;

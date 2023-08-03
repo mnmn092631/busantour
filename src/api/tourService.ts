@@ -1,4 +1,4 @@
-import { TourData } from "src/types/api";
+import { TourData, TourTagsData } from "src/types/api";
 import { getData } from ".";
 
 const getTour = async () => {
@@ -13,7 +13,7 @@ const getTour = async () => {
 
 const getTourTags = async () => {
   try {
-    const response: string[] = await getData<string[]>("/busantour/tags");
+    const response: TourTagsData[] = await getData<TourTagsData[]>("/tourtagtop15");
     return response;
   } catch (error) {
     console.error(error);
