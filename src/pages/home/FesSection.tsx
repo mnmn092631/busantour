@@ -11,7 +11,7 @@ import {
   FesTitle,
   PageBtn,
 } from "src/styles/pages/home/fesStyle";
-import apiService, { getData } from "src/api";
+import apiService from "src/api";
 import { FestivalData } from "src/types/api";
 
 const FesSection = () => {
