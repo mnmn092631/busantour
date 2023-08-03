@@ -6,6 +6,7 @@ const login = async ({ id, password }: { id: string; password: string }) => {
       id: id,
       password: password,
     });
+    return response;
   } catch (error) {
     console.error("로그인 실패: ", error);
   }
