@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import apiService from "src/api";
-import { SectionTitle, Tag, TagContainer, TourContainer } from "src/styles/pages/home/tourStyle";
-import { TourTagsData } from "src/types/api";
+import apiService from "api";
+import { SectionTitle, Tag, TagContainer, TourContainer } from "styles/pages/home/tourStyle";
+import { TourTagsData } from "types/api";
 
 const TourSection = () => {
   const [tags, setTags] = useState<TourTagsData[]>();

@@ -1,4 +1,4 @@
-import { TourData, TourTagsData } from "src/types/api";
+import { TourData, TourTagsData } from "types/api";
 import { getData } from ".";
 
 const getTour = async () => {

@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
-import apiService from "src/api";
-import {
-  CardContainer,
-  FoodCard,
-  FoodContainer,
-  FoodContent,
-  FoodImg,
-  FoodTitle,
-} from "src/styles/pages/home/foodStyle";
-import { FoodData } from "src/types/api";
+import apiService from "api";
+import { CardContainer, FoodCard, FoodContainer, FoodContent, FoodImg, FoodTitle } from "styles/pages/home/foodStyle";
+import { FoodData } from "types/api";
 
 const FoodSection = () => {
   const [foods, setFoods] = useState<FoodData[]>();

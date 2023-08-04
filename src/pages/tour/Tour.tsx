@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { ContentContainer, Title, TitleContainer } from "src/styles/pages/subpage/utils";
-import { TourData } from "src/types/api";
-import apiService from "src/api";
+import { ContentContainer, Title, TitleContainer } from "styles/pages/subpage/utils";
+import { TourData } from "types/api";
+import apiService from "api";
 
 const Tour = () => {
   const [tours, setTours] = useState<TourData[]>();

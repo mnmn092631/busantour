@@ -1,4 +1,4 @@
-import { PlaceData } from "src/types/api";
+import { PlaceData } from "types/api";
 import { getData } from ".";
 
 const getPlace = async () => {

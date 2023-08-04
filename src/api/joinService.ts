@@ -1,6 +1,7 @@
+import { JoinData } from "types/api";
 import { postData } from ".";
 
-const join = async ({ id, username, password }: { id: string; username: string; password: string }) => {
+const join = async ({ id, username, password }: JoinData) => {
   try {
     const response = await postData("/api/signup", {
       id: id,
@@ -9,7 +10,8 @@ const join = async ({ id, username, password }: { id: string; username: string; 
     });
     return response;
   } catch (error) {
-    console.error("회원가입 실패: ", error);
+    console.error(error);
+    throw new Error("Failed to post join");
   }
 };
 

@@ -1,4 +1,4 @@
-import { FestivalData } from "src/types/api";
+import { FestivalData } from "types/api";
 import { getData } from ".";
 
 const getFestival = async () => {

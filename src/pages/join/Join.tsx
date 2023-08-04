@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import apiService from "src/api";
+import apiService from "api";
 
 const Join = () => {
   const [form, setForm] = useState({ id: "", password: "", username: "" });

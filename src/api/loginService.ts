@@ -1,6 +1,7 @@
+import { LoginData } from "types/api";
 import { postData } from ".";
 
-const login = async ({ id, password }: { id: string; password: string }) => {
+const login = async ({ id, password }: LoginData) => {
   try {
     const response = await postData("/api/login", {
       id: id,
@@ -8,7 +9,8 @@ const login = async ({ id, password }: { id: string; password: string }) => {
     });
     return response;
   } catch (error) {
-    console.error("로그인 실패: ", error);
+    console.error(error);
+    throw new Error("Failed to post login");
   }
 };
 

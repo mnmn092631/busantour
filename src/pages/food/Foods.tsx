@@ -10,10 +10,10 @@ import {
   SelectItem,
   Title,
   TitleContainer,
-} from "src/styles/pages/subpage/utils";
-import { FoodData } from "src/types/api";
-import apiService from "src/api";
-import Pagination from "src/components/Pagination";
+} from "styles/pages/subpage/utils";
+import { FoodData } from "types/api";
+import apiService from "api";
+import Pagination from "components/Pagination";
 
 const Foods = () => {
   const [foods, setFoods] = useState<FoodData[]>();

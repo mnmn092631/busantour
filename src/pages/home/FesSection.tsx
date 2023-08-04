@@ -10,9 +10,9 @@ import {
   FesSubTitle,
   FesTitle,
   PageBtn,
-} from "src/styles/pages/home/fesStyle";
-import apiService from "src/api";
-import { FestivalData } from "src/types/api";
+} from "styles/pages/home/fesStyle";
+import apiService from "api";
+import { FestivalData } from "types/api";
 
 const FesSection = () => {
   const [festivals, setFestivals] = useState<FestivalData[]>([]);

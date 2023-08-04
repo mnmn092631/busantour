@@ -3,7 +3,7 @@ import placeService from "./placeService";
 import tourService from "./tourService";
 import festivalService from "./festivalService";
 import foodService from "./foodService";
-import loginService from "./login";
+import loginService from "./loginService";
 import joinService from "./joinService";
 
 const axiosInstance: AxiosInstance = axios.create({

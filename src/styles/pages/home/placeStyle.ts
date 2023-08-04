@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { CardContent, CardTitle } from "../subpage/utils";
-import { theme } from "src/styles/theme";
+import { theme } from "styles/theme";
 
 export const PlaceContainer = styled.section`
   position: relative;

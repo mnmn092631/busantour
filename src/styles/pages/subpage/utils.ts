@@ -1,5 +1,5 @@
 import { GrFormClose } from "react-icons/gr";
-import { theme } from "src/styles/theme";
+import { theme } from "styles/theme";
 import styled, { css } from "styled-components";
 
 export const TitleContainer = styled.div`

@@ -84,3 +84,14 @@ export interface FestivalData {
   tags: string;
   main_img: string;
 }
+
+export interface JoinData {
+  id: string;
+  username: string;
+  password: string;
+}
+
+export interface LoginData {
+  id: string;
+  password: string;
+}

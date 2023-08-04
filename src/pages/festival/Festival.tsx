@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { ContentContainer, Title, TitleContainer } from "src/styles/pages/subpage/utils";
-import { FestivalData } from "src/types/api";
-import apiService from "src/api";
-import CustomCalendar from "src/components/subpage/CustomCalendar";
+import { ContentContainer, Title, TitleContainer } from "styles/pages/subpage/utils";
+import { FestivalData } from "types/api";
+import apiService from "api";
+import CustomCalendar from "components/subpage/CustomCalendar";
 
 const Festival = () => {
   const [festivals, setFestivals] = useState<FestivalData[]>();

@@ -1,4 +1,4 @@
-import { FoodData } from "src/types/api";
+import { FoodData } from "types/api";
 import { getData } from ".";
 
 const getFood = async () => {

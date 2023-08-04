@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import apiService from "src/api";
-import Pagination from "src/components/Pagination";
+import apiService from "api";
+import Pagination from "components/Pagination";
 import {
   Card,
   CardCategory,
@@ -14,8 +14,8 @@ import {
   SelectItem,
   Title,
   TitleContainer,
-} from "src/styles/pages/subpage/utils";
-import { PlaceData } from "src/types/api";
+} from "styles/pages/subpage/utils";
+import { PlaceData } from "types/api";
 
 const Places = () => {
   const [places, setPlaces] = useState<PlaceData[]>();

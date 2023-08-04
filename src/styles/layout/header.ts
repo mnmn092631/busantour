@@ -1,4 +1,4 @@
-import { theme } from "src/styles/theme";
+import { theme } from "styles/theme";
 import { css, styled } from "styled-components";
 
 export const HeaderContainer = styled.header<{ $bgWhite: boolean }>`
