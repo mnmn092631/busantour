@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { HeaderContainer, Logo, NavUl } from "src/styles/layout/header";
+import { HeaderContainer, Logo, NavUl } from "styles/layout/header";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -9,11 +9,10 @@ const Header = () => {
   useEffect(() => {
     const scrollEvent = () => {
       if (!headerRef.current) return;
-      if (window.scrollY > headerRef.current?.clientHeight) {
-        setBgWhite(() => true);
-      } else {
-        setBgWhite(() => false);
-      }
+
+      const clientHeight = headerRef.current.clientHeight;
+      if (window.scrollY > clientHeight) setBgWhite(() => true);
+      else setBgWhite(() => false);
     };
 
     window.addEventListener("scroll", scrollEvent);

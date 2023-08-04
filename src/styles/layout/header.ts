@@ -10,6 +10,8 @@ export const HeaderContainer = styled.header<{ $bgWhite: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 1;
+
   ${({ $bgWhite }) =>
     $bgWhite
       ? css`
@@ -20,7 +22,6 @@ export const HeaderContainer = styled.header<{ $bgWhite: boolean }>`
       : css`
           color: ${theme.color.white};
         `}
-  z-index: 1;
 `;
 
 export const Logo = styled.h1`
@@ -59,11 +60,13 @@ export const NavUl = styled.ul<{ $bgWhite: boolean }>`
 
     &:hover::after {
       background-color: ${theme.color.blue};
+
       ${({ $bgWhite }) =>
         $bgWhite &&
         css`
           opacity: 0.7;
         `}
+
       transition: background-color 350ms cubic-bezier(0.54, 0, 0.53, 1);
     }
   }

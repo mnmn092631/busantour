@@ -1,13 +1,8 @@
 import React from "react";
-import { PaginationContainer, PageBtn } from "src/styles/pages/subpage/utils";
+import { PaginationContainer, PageBtn } from "styles/pages/subpage/utils";
+import { PaginationProps } from "types/components";
 
-interface Props {
-  setPage: React.Dispatch<React.SetStateAction<number>>;
-  page: number;
-  numPage: number | undefined;
-}
-
-const Pagination = ({ setPage, page, numPage }: Props) => {
+const Pagination = ({ setPage, page, numPage }: PaginationProps) => {
   return (
     <PaginationContainer>
       <button onClick={() => setPage(page - 1)} disabled={page === 1}>

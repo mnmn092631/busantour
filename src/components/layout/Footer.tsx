@@ -1,5 +1,5 @@
 import React from "react";
-import { Copyright, FLogo, FNav, FooterContainer, FooterHeader, SocialIcons } from "src/styles/layout/footer";
+import { Copyright, FLogo, FNav, FooterContainer, FooterHeader, SocialIcons } from "styles/layout/footer";
 import { AiFillTwitterCircle, AiFillInstagram, AiFillFacebook, AiFillYoutube } from "react-icons/ai";
 
 const Footer = () => {

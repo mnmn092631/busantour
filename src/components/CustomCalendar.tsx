@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { CalendarContainer } from "src/styles/components/customCalendar";
+import { CalendarContainer } from "styles/components/customCalendar";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import { FestivalData } from "./../../types/api";
-import apiService from "src/api";
+import { FestivalData } from "types/api";
+import apiService from "api";
 import koLocale from "@fullcalendar/core/locales/ko";
+import { CalendarEvent } from "types/components";
 
-interface EventInput {
-  id: string;
-  title: string;
-  start: Date;
-  end: Date;
-}
-
-const convertToFestivalEvent = (festival: FestivalData): EventInput => {
+const convertToFestivalEvent = (festival: FestivalData): CalendarEvent => {
   const startDate = new Date(festival.startDate);
   const endDate = new Date(festival.end_date);
 
@@ -26,18 +20,17 @@ const convertToFestivalEvent = (festival: FestivalData): EventInput => {
 };
 
 const CustomCalendar = () => {
-  const [festivals, setFestivals] = useState<EventInput[]>();
+  const [festivals, setFestivals] = useState<CalendarEvent[]>();
 
   useEffect(() => {
     const getFestival = async () => {
       try {
         const response: FestivalData[] = await apiService.festivalService.getFestival();
         const convertedFestivals = response.map(convertToFestivalEvent);
-        console.log(convertedFestivals);
         setFestivals(convertedFestivals);
       } catch (error) {
         console.error(error);
-        throw new Error("Failed to get festival");
+        throw new Error("CustomCalendar");
       }
     };
     getFestival();

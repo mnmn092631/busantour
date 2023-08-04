@@ -10,7 +10,6 @@ import Tour from "./pages/tour/Tour";
 import Foods from "./pages/food/Foods";
 import Festival from "./pages/festival/Festival";
 import ScrollToTop from "./components/ScrollToTop";
-import Place from "./pages/place/Place";
 import Login from "./pages/login/Login";
 import Join from "./pages/join/Join";
 
