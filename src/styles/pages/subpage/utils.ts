@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { GrFormClose } from "react-icons/gr";
 import { theme } from "src/styles/theme";
 import styled, { css } from "styled-components";
 
@@ -61,15 +61,54 @@ export const SelectItem = styled.span<{ $active: boolean }>`
 export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  height: 65vh;
 `;
 
-export const Card = styled(Link)`
+export const Card = styled.div<{ $active?: number }>`
+  position: relative;
   margin-right: 2%;
   margin-bottom: 2%;
   width: 23%;
   border-radius: 20px;
   box-shadow: 10px 10px 15px #bebebe, -10px -10px 15px #ffffff;
   overflow: hidden;
+
+  ${({ $active }) =>
+    $active === 2
+      ? css`
+          display: flex;
+          width: 100%;
+          height: 100%;
+
+          & > img {
+            width: 50%;
+            height: 100%;
+            margin-bottom: 0;
+          }
+
+          & > div {
+            padding: 5%;
+            flex-grow: 1;
+          }
+
+          & > svg {
+            display: block;
+          }
+        `
+      : $active === 3 &&
+        css`
+          display: none;
+        `};
+`;
+
+export const CloseBtn = styled(GrFormClose)`
+  display: none;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  font-size: ${theme.fontSize.xl};
+  cursor: pointer;
 `;
 
 export const CardImg = styled.img`

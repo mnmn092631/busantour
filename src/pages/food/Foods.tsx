@@ -72,7 +72,7 @@ const Foods = () => {
               })
               .slice(offset, offset + 12)
               .map(food => (
-                <Card key={food.id} to={`${food.id}`}>
+                <Card key={food.id}>
                   <CardImg src={food.main_img_n} alt={food.name} />
                   <CardTitle>{food.name}</CardTitle>
                   <CardContent>{food.address1}</CardContent>

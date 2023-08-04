@@ -8,6 +8,7 @@ import {
   CardContent,
   CardImg,
   CardTitle,
+  CloseBtn,
   ContentContainer,
   SelectContainer,
   SelectItem,
@@ -18,10 +19,11 @@ import { PlaceData } from "src/types/api";
 
 const Places = () => {
   const [places, setPlaces] = useState<PlaceData[]>();
-  const [numPage, setNumPage] = useState<number>();
+  const [numPage, setNumPage] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
   const offset = (page - 1) * 12;
   const [selectGugun, setSelectGugun] = useState<string>("전체");
+  const [selectedPlaceId, setSelectedPlaceId] = useState<number>(0);
   const gugun = [
     "전체",
     "강서구",
@@ -68,6 +70,10 @@ const Places = () => {
       );
   }, [places, selectGugun]);
 
+  useEffect(() => {
+    setSelectedPlaceId(0);
+  }, [page]);
+
   return (
     <>
       <TitleContainer>
@@ -91,13 +97,27 @@ const Places = () => {
               })
               .slice(offset, offset + 12)
               .map(place => (
-                <Card key={place.id} to={`${place.id}`}>
+                <Card
+                  key={place.id}
+                  // 전체일 때 1, 자신이 선택된 경우 2, 그 외 3
+                  $active={selectedPlaceId === 0 ? 1 : place.id === selectedPlaceId ? 2 : 3}
+                  onClick={() => setSelectedPlaceId(place.id)}
+                >
+                  <CloseBtn
+                    onClick={e => {
+                      e.stopPropagation();
+                      setSelectedPlaceId(0);
+                    }}
+                  />
                   <CardImg src={place.main_img_n} alt={place.name} />
-                  <CardTitle>
-                    <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
-                    {place.name}
-                  </CardTitle>
-                  <CardContent>{place.addr1}</CardContent>
+                  <div>
+                    <CardTitle>
+                      <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
+                      {place.name}
+                    </CardTitle>
+                    <CardContent>{place.addr1}</CardContent>
+                    <div></div>
+                  </div>
                 </Card>
               ))}
         </CardContainer>
