@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { ContentContainer, Title, TitleContainer } from "styles/pages/subpage/utils";
+import { ContentContainer } from "styles/subpage/utils";
 import { FestivalData } from "types/api";
 import apiService from "api";
 import CustomCalendar from "components/CustomCalendar";
+import PageTitle from "components/subpage/PageTitle";
 
 const Festival = () => {
   const [festivals, setFestivals] = useState<FestivalData[]>();
@@ -22,10 +23,7 @@ const Festival = () => {
 
   return (
     <>
-      <TitleContainer>
-        {festivals && <img src={festivals[0].main_img} alt={festivals[0].name} />}
-        <Title>지역축제</Title>
-      </TitleContainer>
+      {festivals && <PageTitle pageName="지역축제" imgSrc={festivals[0].main_img} imgName={festivals[0].name} />}
       <ContentContainer>
         <CustomCalendar />
       </ContentContainer>

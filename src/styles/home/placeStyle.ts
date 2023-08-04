@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CardContent, CardTitle } from "../subpage/utils";
+import { CardContent, CardTitle } from "styles/components/subpage/card";
 import { theme } from "styles/theme";
 
 export const PlaceContainer = styled.section`

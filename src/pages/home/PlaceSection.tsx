@@ -8,9 +8,9 @@ import {
   PlaceContainer,
   PlaceInfo,
   PlaceListContainer,
-} from "styles/pages/home/placeStyle";
-import { CardCategory } from "styles/pages/subpage/utils";
+} from "styles/home/placeStyle";
 import { PlaceData } from "types/api";
+import { CardCategory } from "styles/components/subpage/card";
 
 const PlaceSection = () => {
   const [selectedGugun, setSelectedGugun] = useState<string>("금정구");

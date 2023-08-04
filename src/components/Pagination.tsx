@@ -1,5 +1,5 @@
 import React from "react";
-import { PaginationContainer, PageBtn } from "styles/pages/subpage/utils";
+import { PaginationContainer, PageBtn } from "styles/subpage/utils";
 import { PaginationProps } from "types/components";
 
 const Pagination = ({ setPage, page, numPage }: PaginationProps) => {

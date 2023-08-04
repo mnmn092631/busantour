@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import apiService from "api";
-import { SectionTitle, Tag, TagContainer, TourContainer } from "styles/pages/home/tourStyle";
+import { SectionTitle, Tag, TagContainer, TourContainer } from "styles/home/tourStyle";
 import { TourTagsData } from "types/api";
 
 const TourSection = () => {

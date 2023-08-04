@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import apiService from "api";
-import { CardContainer, FoodCard, FoodContainer, FoodContent, FoodImg, FoodTitle } from "styles/pages/home/foodStyle";
+import { CardContainer, FoodCard, FoodContainer, FoodContent, FoodImg, FoodTitle } from "styles/home/foodStyle";
 import { FoodData } from "types/api";
 
 const FoodSection = () => {
@@ -33,7 +33,7 @@ const FoodSection = () => {
                   <span>
                     영업시간: {food.usage_open}~{food.usage_close}
                   </span>
-                  <span>주소: {food.address1}</span>
+                  <span>주소: {food.addr1}</span>
                 </div>
               </FoodContent>
             </FoodCard>

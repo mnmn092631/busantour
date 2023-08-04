@@ -1,76 +1,13 @@
-import { GrFormClose } from "react-icons/gr";
-import { theme } from "styles/theme";
 import styled, { css } from "styled-components";
+import { theme } from "styles/theme";
+import { GrFormClose } from "react-icons/gr";
 
-export const TitleContainer = styled.div`
-  position: relative;
-
-  & > img {
-    width: 100vw;
-    height: 70vh;
-  }
-`;
-
-export const Title = styled.h2`
-  position: absolute;
-  bottom: 5%;
-  left: 15%;
-  text-align: center;
-  font-size: ${theme.fontSize.xxl};
-  font-weight: 600;
-  color: ${theme.color.white};
-`;
-
-export const ContentContainer = styled.div`
-  padding: 2% 16%;
-`;
-
-export const SelectContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  max-width: 75%;
-`;
-
-export const SelectItem = styled.span<{ $active: boolean }>`
-  position: relative;
-  padding-bottom: 5px;
-  margin: 0 15px 5px 0;
-  font-weight: 600;
-  color: ${theme.color.gray};
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
-
-  &:hover {
-    ${({ $active }) =>
-      !$active &&
-      css`
-        color: ${theme.color.lightBlue};
-      `}
-    transition: all 250ms ease-in-out;
-  }
-
-  ${({ $active }) =>
-    $active &&
-    css`
-      color: ${theme.color.deepBlue};
-      transform: scale(1.1);
-    `}
-`;
-
-export const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 65vh;
-`;
-
-export const Card = styled.div<{ $active?: number }>`
+export const CardElement = styled.div<{ $active?: number }>`
   position: relative;
   margin-right: 2%;
   margin-bottom: 2%;
   width: 23%;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 10px 10px 15px #bebebe, -10px -10px 15px #ffffff;
   overflow: hidden;
 
@@ -158,25 +95,4 @@ export const CardContent = styled.p`
   padding: 0 15px 10px;
   text-align: center;
   font-size: ${theme.fontSize.sm};
-`;
-
-export const PaginationContainer = styled.div`
-  padding: 2% 16%;
-  width: 70vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const PageBtn = styled.div<{ $active?: boolean }>`
-  ${({ $active }) =>
-    $active &&
-    css`
-      color: ${theme.color.deepBlue};
-      font-weight: 600;
-      transform: scale(1.2);
-      transition: all 350ms ease-in-out;
-    `}
-  transition:all 350ms ease-in-out;
-  cursor: pointer;
 `;

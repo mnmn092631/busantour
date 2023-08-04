@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { ContentContainer, Title, TitleContainer } from "styles/pages/subpage/utils";
+import { ContentContainer } from "styles/subpage/utils";
 import { TourData } from "types/api";
 import apiService from "api";
+import PageTitle from "components/subpage/PageTitle";
 
 const Tour = () => {
   const [tours, setTours] = useState<TourData[]>();
@@ -21,10 +22,7 @@ const Tour = () => {
 
   return (
     <>
-      <TitleContainer>
-        {tours && <img src={tours[0].main_img_n} alt={tours[0].name} />}
-        <Title>테마여행</Title>
-      </TitleContainer>
+      {tours && <PageTitle pageName="테마여행" imgSrc={tours[1].main_img_n} imgName={tours[1].name} />}
       <ContentContainer></ContentContainer>
     </>
   );

@@ -59,7 +59,7 @@ export interface FoodData {
   category: string;
   lat: number;
   lng: number;
-  address1: string;
+  addr1: string;
   url: string;
   usage_open: string;
   usage_close: string;

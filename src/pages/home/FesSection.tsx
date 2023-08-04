@@ -10,7 +10,7 @@ import {
   FesSubTitle,
   FesTitle,
   PageBtn,
-} from "styles/pages/home/fesStyle";
+} from "styles/home/fesStyle";
 import apiService from "api";
 import { FestivalData } from "types/api";
 

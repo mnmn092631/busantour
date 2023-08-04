@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {
-  Card,
-  CardContainer,
-  CardContent,
-  CardImg,
-  CardTitle,
-  ContentContainer,
-  SelectContainer,
-  SelectItem,
-  Title,
-  TitleContainer,
-} from "styles/pages/subpage/utils";
+import { CardContainer, ContentContainer } from "styles/subpage/utils";
 import { FoodData } from "types/api";
 import apiService from "api";
 import Pagination from "components/Pagination";
+import PageTitle from "components/subpage/PageTitle";
+import CategorySelect from "components/subpage/CategorySelect";
+import Card from "components/subpage/Card";
 
 const Foods = () => {
   const [foods, setFoods] = useState<FoodData[]>();
@@ -21,7 +13,8 @@ const Foods = () => {
   const [page, setPage] = useState<number>(1);
   const offset = (page - 1) * 12;
   const [selectFood, setSelectFood] = useState<string>("전체");
-  const foodcate = ["전체", "한식", "중식", "일식", "아세안요리", "양식", "카페&베이커리", "해산물", "그릴"];
+  const [selectedFoodId, setSelectedFoodId] = useState<number>(0);
+  const foodCate = ["전체", "한식", "중식", "일식", "아세안요리", "양식", "카페&베이커리", "해산물", "그릴"];
 
   useEffect(() => {
     const getFoods = async () => {
@@ -51,18 +44,9 @@ const Foods = () => {
 
   return (
     <>
-      <TitleContainer>
-        {foods && <img src={foods[2].main_img_n} alt={foods[2].name} />}
-        <Title>맛집정보</Title>
-      </TitleContainer>
+      {foods && <PageTitle pageName="맛집정보" imgSrc={foods[2].main_img_n} imgName={foods[2].name} />}
       <ContentContainer>
-        <SelectContainer>
-          {foodcate.map((cate, idx) => (
-            <SelectItem key={idx} onClick={() => setSelectFood(cate)} $active={selectFood === cate}>
-              {cate}
-            </SelectItem>
-          ))}
-        </SelectContainer>
+        <CategorySelect categories={foodCate} state={selectFood} setState={setSelectFood} />
         <CardContainer>
           {foods &&
             foods
@@ -72,11 +56,7 @@ const Foods = () => {
               })
               .slice(offset, offset + 12)
               .map(food => (
-                <Card key={food.id}>
-                  <CardImg src={food.main_img_n} alt={food.name} />
-                  <CardTitle>{food.name}</CardTitle>
-                  <CardContent>{food.address1}</CardContent>
-                </Card>
+                <Card item={food} selectedStateId={selectedFoodId} setSelectedStateId={setSelectedFoodId} />
               ))}
         </CardContainer>
       </ContentContainer>

@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from "react";
 import apiService from "api";
 import Pagination from "components/Pagination";
-import {
-  Card,
-  CardCategory,
-  CardContainer,
-  CardContent,
-  CardImg,
-  CardTitle,
-  CloseBtn,
-  ContentContainer,
-  SelectContainer,
-  SelectItem,
-  Title,
-  TitleContainer,
-} from "styles/pages/subpage/utils";
+import { CardContainer, ContentContainer } from "styles/subpage/utils";
 import { PlaceData } from "types/api";
+import PageTitle from "components/subpage/PageTitle";
+import CategorySelect from "components/subpage/CategorySelect";
+import Card from "components/subpage/Card";
 
 const Places = () => {
   const [places, setPlaces] = useState<PlaceData[]>();
@@ -24,7 +14,7 @@ const Places = () => {
   const offset = (page - 1) * 12;
   const [selectGugun, setSelectGugun] = useState<string>("전체");
   const [selectedPlaceId, setSelectedPlaceId] = useState<number>(0);
-  const gugun = [
+  const placeCate = [
     "전체",
     "강서구",
     "금정구",
@@ -76,18 +66,9 @@ const Places = () => {
 
   return (
     <>
-      <TitleContainer>
-        {places && <img src={places[0].main_img_n} alt={places[0].name} />}
-        <Title>관광명소</Title>
-      </TitleContainer>
+      {places && <PageTitle pageName="관광명소" imgSrc={places[1].main_img_n} imgName={places[1].name} />}
       <ContentContainer>
-        <SelectContainer>
-          {gugun.map((gu, idx) => (
-            <SelectItem key={idx} onClick={() => setSelectGugun(gu)} $active={selectGugun === gu}>
-              {gu}
-            </SelectItem>
-          ))}
-        </SelectContainer>
+        <CategorySelect categories={placeCate} state={selectGugun} setState={setSelectGugun} />
         <CardContainer>
           {places &&
             places
@@ -98,27 +79,11 @@ const Places = () => {
               .slice(offset, offset + 12)
               .map(place => (
                 <Card
-                  key={place.id}
-                  // 전체일 때 1, 자신이 선택된 경우 2, 그 외 3
-                  $active={selectedPlaceId === 0 ? 1 : place.id === selectedPlaceId ? 2 : 3}
-                  onClick={() => setSelectedPlaceId(place.id)}
-                >
-                  <CloseBtn
-                    onClick={e => {
-                      e.stopPropagation();
-                      setSelectedPlaceId(0);
-                    }}
-                  />
-                  <CardImg src={place.main_img_n} alt={place.name} />
-                  <div>
-                    <CardTitle>
-                      <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
-                      {place.name}
-                    </CardTitle>
-                    <CardContent>{place.addr1}</CardContent>
-                    <div></div>
-                  </div>
-                </Card>
+                  item={place}
+                  selectedStateId={selectedPlaceId}
+                  setSelectedStateId={setSelectedPlaceId}
+                  subCategories={category}
+                />
               ))}
         </CardContainer>
       </ContentContainer>
