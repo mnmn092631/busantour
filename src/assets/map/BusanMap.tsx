@@ -15,11 +15,7 @@ import Seo from "./Seo";
 import Suyeong from "./Suyeong";
 import Yeongdo from "./Yeongdo";
 import Yeonje from "./Yeonje";
-
-interface BusanMapProps {
-  selectedGugun: string;
-  setSelectedGugun: React.Dispatch<React.SetStateAction<string>>;
-}
+import { BusanMapProps } from "types/map";
 
 const BusanMap = ({ selectedGugun, setSelectedGugun }: BusanMapProps) => {
   const onClick = (gugun: string): void => {

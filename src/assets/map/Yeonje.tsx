@@ -1,8 +1,8 @@
 import React from "react";
-import { GugunName, MapGroup } from "./mapStyle";
-import { GugunProps } from "./type";
+import { GugunName, MapGroup } from "styles/map/map";
+import { GugunProps } from "types/map";
 
-const Yeonje = ({ onClick, selectedGugun }: GugunProps) => {
+const Yeonje = ({ onClick }: GugunProps) => {
   return (
     <>
       <MapGroup fill="#4292c1" onClick={() => onClick("연제구")}>

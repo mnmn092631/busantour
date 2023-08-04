@@ -1,6 +1,6 @@
 import React from "react";
-import { GugunName, MapGroup, Marker } from "./mapStyle";
-import { GugunProps } from "./type";
+import { GugunName, MapGroup, Marker } from "styles/map/map";
+import { GugunProps } from "types/map";
 
 const Suyeong = ({ onClick, selectedGugun }: GugunProps) => {
   return (

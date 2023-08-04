@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import apiService from "src/api";
-import BusanMap from "src/assets/BusanMap";
+import apiService from "api";
+import BusanMap from "assets/map/BusanMap";
 import {
   GugunName,
   MapCardContent,
@@ -8,9 +8,9 @@ import {
   PlaceContainer,
   PlaceInfo,
   PlaceListContainer,
-} from "src/styles/pages/home/placeStyle";
-import { CardCategory } from "src/styles/pages/subpage/utils";
-import { PlaceData } from "src/types/api";
+} from "styles/pages/home/placeStyle";
+import { CardCategory } from "styles/pages/subpage/utils";
+import { PlaceData } from "types/api";
 
 const PlaceSection = () => {
   const [selectedGugun, setSelectedGugun] = useState<string>("금정구");
