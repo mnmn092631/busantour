@@ -33,7 +33,7 @@ const FoodSection = () => {
                   <span>
                     영업시간: {food.usage_open}~{food.usage_close}
                   </span>
-                  <span>주소: {food.addr1}</span>
+                  <span>주소: {food.addr}</span>
                 </div>
               </FoodContent>
             </FoodCard>

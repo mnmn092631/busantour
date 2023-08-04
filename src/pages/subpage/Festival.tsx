@@ -23,7 +23,7 @@ const Festival = () => {
 
   return (
     <>
-      {festivals && <PageTitle pageName="지역축제" imgSrc={festivals[0].main_img} imgName={festivals[0].name} />}
+      {festivals && <PageTitle pageName="지역축제" imgSrc={festivals[0].main_img_n} imgName={festivals[0].name} />}
       <ContentContainer>
         <CustomCalendar />
       </ContentContainer>

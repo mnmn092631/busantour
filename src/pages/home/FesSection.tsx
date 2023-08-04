@@ -66,7 +66,7 @@ const FesSection = () => {
       <Carousel $count={count} ref={carouselRef}>
         {festivals.map((fes, idx) => (
           <FesCard key={idx}>
-            <FesImg src={fes.main_img} alt={fes.name} />
+            <FesImg src={fes.main_img_n} alt={fes.name} />
             <FesContent>
               <FesTitle>{fes.name}</FesTitle>
               <FesDate>{`${fes.startDate}~${fes.end_date}`}</FesDate>

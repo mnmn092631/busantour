@@ -22,7 +22,7 @@ const Card = ({ item, selectedStateId, setSelectedStateId, subCategories }: Card
           {subCategories && <CardCategory $category={subCategories[item.category]}>{item.category}</CardCategory>}
           {item.name}
         </CardTitle>
-        <CardContent>{item.addr1}</CardContent>
+        <CardContent>{item.addr}</CardContent>
       </div>
     </CardElement>
   );

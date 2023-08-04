@@ -43,7 +43,7 @@ const PlaceSection = () => {
                   <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
                   {place.name}
                 </MapCardTitle>
-                <MapCardContent>{place.addr1}</MapCardContent>
+                <MapCardContent>{place.addr}</MapCardContent>
               </div>
             ))}
         </PlaceListContainer>

@@ -4,10 +4,9 @@ export interface PlaceData {
   gugun: string;
   lat: number;
   lng: number;
-  travel_place: string;
   title: string;
   subtitle: string;
-  addr1: string;
+  addr: string;
   category: string;
   tags: string;
   homepage_u: string;
@@ -27,7 +26,7 @@ export interface TourData {
   id: number;
   name: string;
   gugun: string;
-  cate2_nm: string;
+  category: string;
   lat: number;
   lng: number;
   plage: string;
@@ -35,8 +34,7 @@ export interface TourData {
   title: string;
   subtitle: string;
   main_place: string;
-  addr1: string;
-  homepage: string;
+  addr: string;
   trfc_info: string;
   usage_day: string;
   hldy_info: string;
@@ -59,8 +57,7 @@ export interface FoodData {
   category: string;
   lat: number;
   lng: number;
-  addr1: string;
-  url: string;
+  addr: string;
   usage_open: string;
   usage_close: string;
   usage_breaktime: string;
@@ -73,16 +70,16 @@ export interface FoodData {
 
 export interface FestivalData {
   id: number;
-  gugun: string;
   name: string;
   subname: string;
-  type: string;
+  gugun: string;
+  category: string;
   startDate: string;
   end_date: string;
   place: string;
   hosting_method: string;
   tags: string;
-  main_img: string;
+  main_img_n: string;
 }
 
 export interface JoinData {

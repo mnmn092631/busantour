@@ -7,8 +7,8 @@ import loginService from "./loginService";
 import joinService from "./joinService";
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: "http://10.125.121.178:8080",
-  // baseURL: "http://localhost:8080",
+  // baseURL: "http://10.125.121.178:8080",
+  baseURL: "http://localhost:8080",
   headers: {
     "Content-Type": "application/json",
   },
