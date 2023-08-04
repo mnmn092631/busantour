@@ -16,6 +16,18 @@ const convertToFestivalEvent = (festival: FestivalData): CalendarEvent => {
     title: festival.name,
     start: startDate,
     end: endDate,
+    color:
+      festival.category === "전통역사"
+        ? "rgba(88, 88, 89, 0.8)"
+        : festival.category === "문화예술"
+        ? "rgba(217, 139, 43, 0.8)"
+        : festival.category === "생태자연"
+        ? "rgba(110, 140, 3, 0.8)"
+        : festival.category === "지역특산물"
+        ? "rgba(4, 157, 217, 0.8)"
+        : festival.category === "주민화합"
+        ? "rgba(140, 3, 3, 0.8)"
+        : "rgba(0, 0, 85, 0.8)",
   };
 };
 
