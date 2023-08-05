@@ -12,7 +12,7 @@ export const CalendarContainer = styled.div`
     color: blue;
   }
 
-  .fc-toolbar-chunk > .fc-today-button.fc-button.fc-button-primary {
+  .fc-toolbar-chunk > .fc-today-button .fc-button .fc-button-primary {
     background-color: ${theme.color.lightBlue};
     border: none;
     transition: all 350ms ease-in-out;
@@ -42,5 +42,16 @@ export const CalendarContainer = styled.div`
     &:focus {
       box-shadow: none;
     }
+  }
+
+  .fc .fc-popover {
+    z-index: 100;
+  }
+
+  .fc-event {
+    height: 25px;
+    line-height: 20px;
+    padding-left: 5px;
+    cursor: pointer;
   }
 `;

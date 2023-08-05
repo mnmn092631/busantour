@@ -49,7 +49,7 @@ const Festival = () => {
   return (
     <>
       {festivals.length !== 0 && (
-        <PageTitle pageName="지역축제" imgSrc={festivals[0].main_img_n} imgName={festivals[0].name} />
+        <PageTitle pageName="지역축제" imgSrc={festivals[5].main_img_n} imgName={festivals[5].name} />
       )}
       <ContentContainer>{events && <CustomCalendar events={events} />}</ContentContainer>
     </>
