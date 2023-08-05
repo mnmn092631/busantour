@@ -14,7 +14,6 @@ export interface CategorySelectProps {
 
 export interface CardProps {
   item: PlaceData | FoodData;
-  selectedStateId: number;
-  setSelectedStateId: React.Dispatch<React.SetStateAction<number>>;
   subCategories?: { [key: string]: number };
+  onClick: () => void;
 }

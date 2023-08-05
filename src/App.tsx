@@ -14,6 +14,7 @@ import Login from "./pages/login/Login";
 import Join from "./pages/join/Join";
 import { Provider as ReduxProvider } from "react-redux";
 import { useStore } from "store";
+import Modal from "components/Modal";
 
 function App() {
   const store = useStore();
@@ -23,6 +24,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <ScrollToTop />
+        <Modal />
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />

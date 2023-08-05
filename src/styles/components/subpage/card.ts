@@ -10,33 +10,7 @@ export const CardElement = styled.div<{ $active?: number }>`
   border-radius: 10px;
   box-shadow: 10px 10px 15px #bebebe, -10px -10px 15px #ffffff;
   overflow: hidden;
-
-  ${({ $active }) =>
-    $active === 2
-      ? css`
-          display: flex;
-          width: 100%;
-          height: 100%;
-
-          & > img {
-            width: 50%;
-            height: 100%;
-            margin-bottom: 0;
-          }
-
-          & > div {
-            padding: 5%;
-            flex-grow: 1;
-          }
-
-          & > svg {
-            display: block;
-          }
-        `
-      : $active === 3 &&
-        css`
-          display: none;
-        `};
+  cursor: pointer;
 `;
 
 export const CloseBtn = styled(GrFormClose)`

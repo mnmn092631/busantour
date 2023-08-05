@@ -7,6 +7,7 @@ import Card from "components/subpage/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { getPlaceAsync } from "store/place";
+import { openModal } from "store/modal";
 
 const Places = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,6 @@ const Places = () => {
   const [page, setPage] = useState<number>(1);
   const offset = (page - 1) * 12;
   const [selectGugun, setSelectGugun] = useState<string>("전체");
-  const [selectedPlaceId, setSelectedPlaceId] = useState<number>(0);
   const placeCate = [
     "전체",
     "강서구",
@@ -54,10 +54,6 @@ const Places = () => {
       );
   }, [places, selectGugun]);
 
-  useEffect(() => {
-    setSelectedPlaceId(0);
-  }, [page]);
-
   return (
     <>
       {places.length !== 0 && <PageTitle pageName="관광명소" imgSrc={places[1].main_img_n} imgName={places[1].name} />}
@@ -73,9 +69,9 @@ const Places = () => {
               .slice(offset, offset + 12)
               .map(place => (
                 <Card
+                  key={place.id}
                   item={place}
-                  selectedStateId={selectedPlaceId}
-                  setSelectedStateId={setSelectedPlaceId}
+                  onClick={() => dispatch(openModal("places", place.id))}
                   subCategories={category}
                 />
               ))}
