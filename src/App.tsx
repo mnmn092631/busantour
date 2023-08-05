@@ -12,24 +12,30 @@ import Festival from "pages/subpage/Festival";
 import ScrollToTop from "./components/ScrollToTop";
 import Login from "./pages/login/Login";
 import Join from "./pages/join/Join";
+import { Provider as ReduxProvider } from "react-redux";
+import { useStore } from "store";
 
 function App() {
+  const store = useStore();
+
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <ScrollToTop />
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/place" element={<Places />} />
-          <Route path="/tour" element={<Tour />} />
-          <Route path="/food" element={<Foods />} />
-          <Route path="/festival" element={<Festival />}></Route>
-        </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/join" element={<Join />} />
-      </Routes>
-    </ThemeProvider>
+    <ReduxProvider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <ScrollToTop />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/place" element={<Places />} />
+            <Route path="/tour" element={<Tour />} />
+            <Route path="/food" element={<Foods />} />
+            <Route path="/festival" element={<Festival />}></Route>
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/join" element={<Join />} />
+        </Routes>
+      </ThemeProvider>
+    </ReduxProvider>
   );
 }
 

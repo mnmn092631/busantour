@@ -11,8 +11,8 @@ import {
   FesTitle,
   PageBtn,
 } from "styles/home/fesStyle";
-import apiService from "api";
 import { FestivalData } from "types/api";
+import apiService from "api";
 
 const FesSection = () => {
   const [festivals, setFestivals] = useState<FestivalData[]>([]);

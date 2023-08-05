@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import apiService from "api";
 import Pagination from "components/Pagination";
 import { CardContainer, ContentContainer } from "styles/subpage/utils";
-import { PlaceData } from "types/api";
 import PageTitle from "components/subpage/PageTitle";
 import CategorySelect from "components/subpage/CategorySelect";
 import Card from "components/subpage/Card";
+import { useDispatch, useSelector } from "react-redux";
+import { AppState } from "store";
+import { getPlaceAsync } from "store/place";
 
 const Places = () => {
-  const [places, setPlaces] = useState<PlaceData[]>();
+  const dispatch = useDispatch();
+  const places: AppState["places"] = useSelector((state: AppState) => state.places);
   const [numPage, setNumPage] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
   const offset = (page - 1) * 12;
@@ -36,20 +38,12 @@ const Places = () => {
   const category: { [key: string]: number } = { 공원: 1, 문화: 2, 역사: 3, 자연: 4, 체험: 5 };
 
   useEffect(() => {
-    const fetchPlaces = async () => {
-      try {
-        const data = await apiService.placeService.getPlace();
-        setPlaces(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchPlaces();
-  }, []);
+    dispatch<any>(getPlaceAsync());
+  }, [dispatch]);
 
   useEffect(() => {
     setPage(1);
-    places &&
+    places.length !== 0 &&
       setNumPage(
         Math.ceil(
           places.filter(place => {
@@ -66,11 +60,11 @@ const Places = () => {
 
   return (
     <>
-      {places && <PageTitle pageName="관광명소" imgSrc={places[1].main_img_n} imgName={places[1].name} />}
+      {places.length !== 0 && <PageTitle pageName="관광명소" imgSrc={places[1].main_img_n} imgName={places[1].name} />}
       <ContentContainer>
         <CategorySelect categories={placeCate} state={selectGugun} setState={setSelectGugun} />
         <CardContainer>
-          {places &&
+          {places.length !== 0 &&
             places
               .filter(place => {
                 if (selectGugun === "전체") return place;
