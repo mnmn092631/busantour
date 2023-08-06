@@ -6,6 +6,7 @@ export const FooterContainer = styled.footer`
   position: relative;
   padding: 5%;
   width: 100vw;
+  height: 40vh;
   background-color: ${theme.color.deepBlue};
   color: ${theme.color.white};
 `;

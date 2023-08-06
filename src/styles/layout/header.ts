@@ -1,7 +1,8 @@
 import { theme } from "styles/theme";
 import { css, styled } from "styled-components";
+import { Link } from "react-router-dom";
 
-export const HeaderContainer = styled.header<{ $bgWhite: boolean }>`
+export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isLoginPage: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -12,14 +13,17 @@ export const HeaderContainer = styled.header<{ $bgWhite: boolean }>`
   justify-content: space-between;
   z-index: 1;
 
-  ${({ $bgWhite }) =>
-    $bgWhite
+  ${({ $bgWhite, $isLoginPage }) =>
+    $bgWhite || $isLoginPage
       ? css`
           color: ${theme.color.black};
           background-color: ${theme.color.white};
           border-bottom: 4px solid ${theme.color.deepBlue};
         `
       : css`
+          & button {
+            color: ${theme.color.white};
+          }
           color: ${theme.color.white};
         `}
 `;
@@ -30,7 +34,7 @@ export const Logo = styled.h1`
   z-index: 1;
 `;
 
-export const NavUl = styled.ul<{ $bgWhite: boolean }>`
+export const NavUl = styled.ul<{ $bgWhite: boolean; $isLoginPage: boolean }>`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -61,8 +65,8 @@ export const NavUl = styled.ul<{ $bgWhite: boolean }>`
     &:hover::after {
       background-color: ${theme.color.blue};
 
-      ${({ $bgWhite }) =>
-        $bgWhite &&
+      ${({ $bgWhite, $isLoginPage }) =>
+        ($bgWhite || $isLoginPage) &&
         css`
           opacity: 0.7;
         `}
@@ -70,4 +74,14 @@ export const NavUl = styled.ul<{ $bgWhite: boolean }>`
       transition: background-color 350ms cubic-bezier(0.54, 0, 0.53, 1);
     }
   }
+`;
+
+export const LoginBtn = styled(Link)`
+  font-size: ${theme.fontSize.xl};
+  font-weight: 600;
+`;
+
+export const LogoutBtn = styled.button`
+  font-size: ${theme.fontSize.xl};
+  font-weight: 600;
 `;

@@ -32,9 +32,9 @@ function App() {
             <Route path="/tour" element={<Tour />} />
             <Route path="/food" element={<Foods />} />
             <Route path="/festival" element={<Festival />}></Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/join" element={<Join />} />
           </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/join" element={<Join />} />
         </Routes>
       </ThemeProvider>
     </ReduxProvider>
