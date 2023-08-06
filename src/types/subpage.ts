@@ -1,4 +1,4 @@
-import { FoodData, PlaceData } from "./api";
+import { FoodData, PlaceData, TourData } from "./api";
 
 export interface PageTitleProps {
   pageName: string;
@@ -13,7 +13,7 @@ export interface CategorySelectProps {
 }
 
 export interface CardProps {
-  item: PlaceData | FoodData;
+  item: PlaceData | FoodData | TourData;
   subCategories?: { [key: string]: number };
   onClick: () => void;
 }

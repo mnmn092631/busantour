@@ -6,11 +6,13 @@ import { CloseModalBtn, ModalBackdrop, ModalContainer, ModalView } from "styles/
 import PlaceModal from "./PlaceModal";
 import FoodModal from "./FoodModal";
 import FestivalModal from "./FestivalModal";
+import TourModal from "./TourModal";
 
 const MODAL_COMPONENT = [
   { type: "places", component: <PlaceModal /> },
   { type: "foods", component: <FoodModal /> },
   { type: "festivals", component: <FestivalModal /> },
+  { type: "tours", component: <TourModal /> },
 ];
 
 const Modal = () => {
