@@ -7,8 +7,8 @@ export const getFoodAsync =
   (): ThunkAction<void, T.State, unknown, T.SetFoodAction> =>
   async (dispatch: ThunkDispatch<T.State, unknown, T.SetFoodAction>) => {
     try {
-      const foods: T.State = await apiService.foodService.getFood();
-      dispatch(setFood(foods));
+      const { data } = await apiService.foodService.getFood();
+      dispatch(setFood(data));
     } catch (error) {
       console.error(error);
     }

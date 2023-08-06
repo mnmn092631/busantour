@@ -21,16 +21,15 @@ const FesSection = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   useEffect(() => {
-    const getFestivalUpcoming = async () => {
+    const fetchFestivals = async () => {
       try {
-        const response: FestivalData[] = await apiService.festivalService.getFestivalUpcoming();
-        setFestivals(response.concat(response[0]));
+        const { data } = await apiService.festivalService.getFestivalUpcoming();
+        setFestivals(data.concat(data[0]));
       } catch (error) {
-        console.error(error);
-        throw new Error("Failed to get festival upcoming");
+        console.error("Error fetching festivals:", error);
       }
     };
-    getFestivalUpcoming();
+    fetchFestivals();
   }, []);
 
   const flag = useRef<boolean>(false);

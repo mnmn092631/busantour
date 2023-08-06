@@ -1,19 +1,12 @@
 import { JoinData } from "types/api";
-import { postData } from ".";
+import { axiosInstance } from "./index";
 
-const join = async ({ id, username, password }: JoinData) => {
-  try {
-    const response = await postData("/api/signup", {
-      id: id,
-      username: username,
-      password: password,
-    });
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to post join");
-  }
-};
+const join = ({ id, username, password }: JoinData) =>
+  axiosInstance.post("/api/signup", {
+    id: id,
+    username: username,
+    password: password,
+  });
 
 const joinService = { join };
 

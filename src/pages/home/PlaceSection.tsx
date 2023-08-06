@@ -20,8 +20,8 @@ const PlaceSection = () => {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const data = await apiService.placeService.getPlace();
-        setPlaces(data);
+        const response = await apiService.placeService.getPlace();
+        setPlaces(response.data);
       } catch (error) {
         console.error(error);
       }

@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
-import apiService from "api";
+import React, { useEffect } from "react";
 import { CardContainer, FoodCard, FoodContainer, FoodContent, FoodImg, FoodTitle } from "styles/home/foodStyle";
-import { FoodData } from "types/api";
+import { AppState } from "store";
+import { useDispatch, useSelector } from "react-redux";
+import { getFoodAsync } from "store/food";
 
 const FoodSection = () => {
-  const [foods, setFoods] = useState<FoodData[]>();
+  const dispatch = useDispatch();
+  const foods: AppState["foods"] = useSelector((state: AppState) => state.foods.slice(0, 8));
 
   useEffect(() => {
-    const getFood = async () => {
-      try {
-        const response: FoodData[] = await apiService.foodService.getFood();
-        setFoods(response.slice(0, 8));
-      } catch (error) {
-        console.error(error);
-        throw new Error("Failed to get food");
-      }
-    };
-    getFood();
+    dispatch<any>(getFoodAsync());
+    console.log("foodsec");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -43,4 +38,4 @@ const FoodSection = () => {
   );
 };
 
-export default FoodSection;
+export default React.memo(FoodSection);

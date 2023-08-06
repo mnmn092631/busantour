@@ -1,18 +1,7 @@
+import { axiosInstance } from "api";
 import { LoginData } from "types/api";
-import { postData } from ".";
 
-const login = async ({ id, password }: LoginData) => {
-  try {
-    const response = await postData("/api/login", {
-      id: id,
-      password: password,
-    });
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to post login");
-  }
-};
+const login = ({ id, password }: LoginData) => axiosInstance.post("/api/login", { id: id, password: password });
 
 const loginService = { login };
 

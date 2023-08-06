@@ -1,25 +1,9 @@
+import { axiosInstance } from "api";
 import { PlaceData } from "types/api";
-import { getData } from ".";
 
-const getPlace = async () => {
-  try {
-    const response: PlaceData[] = await getData<PlaceData[]>("/busanplace");
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to get place");
-  }
-};
+export const getPlace = () => axiosInstance.get<PlaceData[]>("/busanplace");
 
-const getPlaceById = async (id: number) => {
-  try {
-    const response: PlaceData = await getData<PlaceData>(`/busanplace/${id}`);
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to get place by id");
-  }
-};
+const getPlaceById = (id: number) => axiosInstance.get<PlaceData>(`/busanplace/${id}`);
 
 const placeService = { getPlace, getPlaceById };
 

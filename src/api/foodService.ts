@@ -1,15 +1,7 @@
+import { axiosInstance } from "api";
 import { FoodData } from "types/api";
-import { getData } from ".";
 
-const getFood = async () => {
-  try {
-    const response: FoodData[] = await getData<FoodData[]>("/busanfood");
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to get food");
-  }
-};
+const getFood = () => axiosInstance.get<FoodData[]>("/busanfood");
 
 const foodService = { getFood };
 

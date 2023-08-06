@@ -1,25 +1,9 @@
+import { axiosInstance } from "api";
 import { TourData, TourTagsData } from "types/api";
-import { getData } from ".";
 
-const getTour = async () => {
-  try {
-    const response: TourData[] = await getData<TourData[]>("/busantour");
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to get tour");
-  }
-};
+const getTour = () => axiosInstance.get<TourData[]>("/busantour");
 
-const getTourTags = async () => {
-  try {
-    const response: TourTagsData[] = await getData<TourTagsData[]>("/tourtagtop15");
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to get tour tags");
-  }
-};
+const getTourTags = () => axiosInstance.get<TourTagsData[]>("/tourtagtop15");
 
 const tourService = { getTour, getTourTags };
 

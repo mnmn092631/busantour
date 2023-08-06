@@ -1,25 +1,9 @@
 import { FestivalData } from "types/api";
-import { getData } from ".";
+import { axiosInstance } from "./index";
 
-const getFestival = async () => {
-  try {
-    const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival");
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to get festival");
-  }
-};
+const getFestival = () => axiosInstance.get<FestivalData[]>("/busanfestival");
 
-const getFestivalUpcoming = async () => {
-  try {
-    const response: FestivalData[] = await getData<FestivalData[]>("/busanfestival/upcoming");
-    return response;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to get festival upcoming");
-  }
-};
+const getFestivalUpcoming = () => axiosInstance.get<FestivalData[]>("/busanfestival/upcoming");
 
 const festivalService = { getFestival, getFestivalUpcoming };
 

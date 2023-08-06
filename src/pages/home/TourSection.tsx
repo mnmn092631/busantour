@@ -9,8 +9,8 @@ const TourSection = () => {
   useEffect(() => {
     const getTourTags = async () => {
       try {
-        const response: TourTagsData[] = await apiService.tourService.getTourTags();
-        setTags(response);
+        const response = await apiService.tourService.getTourTags();
+        setTags(response.data);
       } catch (error) {
         console.error(error);
         throw new Error("Failed to get tour tags");

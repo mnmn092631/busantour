@@ -7,8 +7,8 @@ export const getPlaceAsync =
   (): ThunkAction<void, T.State, unknown, T.SetPlaceAction> =>
   async (dispatch: ThunkDispatch<T.State, unknown, T.SetPlaceAction>) => {
     try {
-      const places: T.State = await apiService.placeService.getPlace();
-      dispatch(setPlace(places));
+      const { data } = await apiService.placeService.getPlace();
+      dispatch(setPlace(data));
     } catch (error) {
       console.error(error);
     }
