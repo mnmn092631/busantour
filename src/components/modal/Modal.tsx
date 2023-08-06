@@ -1,9 +1,8 @@
 import React from "react";
-import { GrClose } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { closeModal } from "store/modal";
-import { ModalBackdrop, ModalContainer, ModalView } from "styles/components/modal";
+import { CloseModalBtn, ModalBackdrop, ModalContainer, ModalView } from "styles/components/modal";
 import PlaceModal from "./PlaceModal";
 import FoodModal from "./FoodModal";
 import FestivalModal from "./FestivalModal";
@@ -30,7 +29,7 @@ const Modal = () => {
     <ModalContainer>
       <ModalBackdrop onClick={() => dispatch(closeModal())}>
         <ModalView>
-          <GrClose onClick={() => dispatch(closeModal())} />
+          <CloseModalBtn onClick={() => dispatch(closeModal())} />
           {renderModal()}
         </ModalView>
       </ModalBackdrop>

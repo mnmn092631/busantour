@@ -6,20 +6,18 @@ import { getFoodAsync } from "store/food";
 
 const FoodSection = () => {
   const dispatch = useDispatch();
-  const foods: AppState["foods"] = useSelector((state: AppState) => state.foods.slice(0, 8));
+  const foods: AppState["foods"] = useSelector((state: AppState) => state.foods);
 
   useEffect(() => {
     dispatch<any>(getFoodAsync());
-    console.log("foodsec");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <FoodContainer>
       <FoodTitle>부산맛집</FoodTitle>
       <CardContainer>
         {foods &&
-          foods.map(food => (
+          foods.slice(0, 8).map(food => (
             <FoodCard key={food.id}>
               <FoodImg src={food.main_img_n} alt={food.name} />
               <FoodContent>

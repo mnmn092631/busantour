@@ -22,7 +22,6 @@ const Foods = () => {
 
   useEffect(() => {
     dispatch<any>(getFoodAsync());
-    console.log("Foods");
   }, [dispatch]);
 
   useEffect(() => {

@@ -14,7 +14,7 @@ import Login from "./pages/login/Login";
 import Join from "./pages/join/Join";
 import { Provider as ReduxProvider } from "react-redux";
 import { useStore } from "store";
-import Modal from "components/Modal";
+import Modal from "components/modal/Modal";
 
 function App() {
   const store = useStore();
