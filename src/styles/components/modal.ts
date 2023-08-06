@@ -36,6 +36,7 @@ export const ModalViewImg = styled.img`
   width: 100%;
   height: 50%;
   margin-bottom: 10px;
+  border-radius: 10px 10px 0 0;
 `;
 
 export const CloseModalBtn = styled(GrClose)`
@@ -43,6 +44,7 @@ export const CloseModalBtn = styled(GrClose)`
   top: 1%;
   right: 1%;
   font-size: ${theme.fontSize.xl};
+  cursor: pointer;
 
   & > path {
     stroke: ${theme.color.white};

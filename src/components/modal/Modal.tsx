@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { closeModal } from "store/modal";
@@ -16,6 +16,19 @@ const MODAL_COMPONENT = [
 const Modal = () => {
   const { isOpen, modalType } = useSelector((state: AppState) => state.modal);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.cssText = "overflow-y: hidden;";
+
+      return () => {
+        document.body.style.cssText = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const renderModal = () => {
@@ -27,12 +40,11 @@ const Modal = () => {
 
   return (
     <ModalContainer>
-      <ModalBackdrop onClick={() => dispatch(closeModal())}>
-        <ModalView>
-          <CloseModalBtn onClick={() => dispatch(closeModal())} />
-          {renderModal()}
-        </ModalView>
-      </ModalBackdrop>
+      <ModalBackdrop onClick={() => dispatch(closeModal())} />
+      <ModalView>
+        <CloseModalBtn onClick={() => dispatch(closeModal())} />
+        {renderModal()}
+      </ModalView>
     </ModalContainer>
   );
 };
