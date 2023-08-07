@@ -8,14 +8,18 @@ import {
   PlaceContainer,
   PlaceInfo,
   PlaceListContainer,
+  MorePlaceBtn,
 } from "styles/home/placeStyle";
 import { PlaceData } from "types/api";
 import { CardCategory } from "styles/components/subpage/card";
+import { turncate } from "components/turncate";
+import { useNavigate } from "react-router-dom";
 
 const PlaceSection = () => {
   const [selectedGugun, setSelectedGugun] = useState<string>("금정구");
   const [places, setPlaces] = useState<PlaceData[]>([]);
   const category: { [key: string]: number } = { 공원: 1, 문화: 2, 역사: 3, 자연: 4, 체험: 5 };
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -41,12 +45,13 @@ const PlaceSection = () => {
               <div key={place.id}>
                 <MapCardTitle>
                   <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
-                  {place.name}
+                  {turncate(place.name, 14)}
                 </MapCardTitle>
-                <MapCardContent>{place.addr}</MapCardContent>
+                <MapCardContent>{turncate(place.addr, 24)}</MapCardContent>
               </div>
             ))}
         </PlaceListContainer>
+        <MorePlaceBtn onClick={() => navigate(`/place?cate=${selectedGugun}`)}>자세히 보기→</MorePlaceBtn>
       </PlaceInfo>
     </PlaceContainer>
   );

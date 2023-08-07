@@ -24,7 +24,7 @@ export const GugunName = styled.h2`
   font-size: ${theme.fontSize.xxl};
   font-weight: 600;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 export const PlaceListContainer = styled.div`
@@ -46,4 +46,10 @@ export const MapCardTitle = styled(CardTitle)`
 export const MapCardContent = styled(CardContent)`
   padding: 0;
   text-align: left;
+`;
+
+export const MorePlaceBtn = styled.button`
+  margin-top: 10px;
+  margin-left: 80%;
+  font-weight: 600;
 `;
