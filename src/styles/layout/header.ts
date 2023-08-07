@@ -157,4 +157,10 @@ export const LogoutBtn = styled.button`
 
 export const Hamburger = styled(GiHamburgerMenu)`
   font-size: ${theme.fontSize.xxl};
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    color: ${theme.color.lightBlue};
+    transform: scale(1.1);
+  }
 `;
