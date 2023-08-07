@@ -3,6 +3,8 @@ import { PaginationContainer, PageBtn } from "styles/subpage/utils";
 import { PaginationProps } from "types/components";
 
 const Pagination = ({ cate, page, setSearchParams, numPage }: PaginationProps) => {
+  if (numPage === 0) return null;
+
   return (
     <PaginationContainer>
       <button onClick={() => setSearchParams({ cate, page: (page - 1).toString() })} disabled={page === 1}>
