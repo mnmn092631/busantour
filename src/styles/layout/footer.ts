@@ -20,6 +20,7 @@ export const FooterHeader = styled.header`
 
 export const FLogo = styled(Logo)`
   margin-right: 5%;
+  cursor: default;
 `;
 
 export const SocialIcons = styled.div`
@@ -32,6 +33,12 @@ export const SocialIcons = styled.div`
 
   & > * {
     font-size: ${theme.fontSize.xl};
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+  }
+
+  & > *:hover {
+    transform: scale(1.2);
   }
 `;
 
