@@ -17,7 +17,7 @@ const FoodSection = () => {
     <FoodContainer>
       <FoodTitle>부산맛집</FoodTitle>
       <CardContainer>
-        {foods &&
+        {foods.length !== 0 &&
           foodCate.map((cate, idx) => (
             <FoodCard key={idx}>
               <FoodImg

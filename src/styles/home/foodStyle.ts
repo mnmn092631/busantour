@@ -78,13 +78,6 @@ export const FoodContent = styled.h2`
     transition: all 350ms ease-in-out;
   }
 
-  &:hover::after {
-    top: 0;
-    bottom: 0;
-    opacity: 0.4;
-    transition: all 350ms ease-in-out;
-  }
-
   &:hover {
     font-size: ${theme.fontSize.xxl};
     transition: all 350ms ease-in-out;
