@@ -29,8 +29,8 @@ const BusanMap = ({ selectedGugun, setSelectedGugun }: BusanMapProps) => {
       version="1.2"
       viewBox="0 0 3407 2480"
       style={{
-        width: "70vw",
-        height: "90vh",
+        width: "70vmax",
+        height: "90vmax",
         position: "absolute",
         top: "55%",
         right: "-5%",

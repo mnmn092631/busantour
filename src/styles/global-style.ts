@@ -15,13 +15,28 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   html {
-    font-size: ${theme.fontSize.base};
     color: ${theme.color.black};
     -webkit-text-size-adjust: none;
     font-family: 'Noto Sans KR', sans-serif;
     font-display: fallback;
     -ms-overflow-style: none;
     scrollbar-width: none;
+
+    ${media.pc}{
+      font-size: 16px;
+    }
+
+    ${media.tabletMax}{
+      font-size: 14px;
+    }
+
+    ${media.tabletMin}{
+      font-size: 12px;
+    }
+    
+    ${media.mobile}{
+      font-size: 11px;
+    }
   }
   button {
     background: none;
@@ -39,7 +54,7 @@ export const GlobalStyle = createGlobalStyle`
   img {
     display: block;
   }
-  a{
+  a {
     text-decoration: none;
     color: inherit;
   }
@@ -50,9 +65,15 @@ export const GlobalStyle = createGlobalStyle`
       display: none;
     }
   }
-  .tablet-mobile-only{
+  .tablet-moblie-only{
     display: none;
-    ${media.tablet} {
+    ${media.tabletMax}{
+      display: block;
+    }
+  }
+  .tabletMin-mobile-only{
+    display: none;
+    ${media.tabletMin} {
       display: block;
     }
   }

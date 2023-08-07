@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isLoginPage: 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 2;
 
   ${({ $bgWhite, $isLoginPage }) =>
     $bgWhite || $isLoginPage

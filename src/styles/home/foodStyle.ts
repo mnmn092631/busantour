@@ -1,4 +1,4 @@
-import { theme } from "styles/theme";
+import { media, theme } from "styles/theme";
 import styled from "styled-components";
 
 export const FoodContainer = styled.section`
@@ -12,12 +12,12 @@ export const FoodTitle = styled.h2`
   font-size: ${theme.fontSize.xxl};
   font-weight: 600;
   text-align: center;
-  height: 10%;
+  padding: 20px 10px;
 
   &::after {
     content: "";
     position: absolute;
-    top: 25%;
+    top: 50%;
     left: 50%;
     width: 150px;
     height: 25%;
@@ -42,6 +42,11 @@ export const FoodCard = styled.div`
   width: 24%;
   height: 49%;
   cursor: pointer;
+
+  ${media.tabletMax} {
+    width: 48%;
+    height: 23%;
+  }
 `;
 
 export const FoodImg = styled.img`

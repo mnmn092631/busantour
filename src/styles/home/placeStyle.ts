@@ -5,8 +5,9 @@ import { theme } from "styles/theme";
 export const PlaceContainer = styled.section`
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100vmin;
   padding: 5%;
+  overflow: hidden;
 `;
 
 export const PlaceInfo = styled.div`

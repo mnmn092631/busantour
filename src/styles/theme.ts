@@ -11,14 +11,14 @@ export const theme: DefaultTheme = {
     gray: "#767676",
   },
   fontSize: {
-    xs: "12px",
-    sm: "14px",
-    base: "16px",
-    md: "18px",
-    lg: "20px",
-    xl: "24px",
-    xxl: "32px",
-    logo: "40px",
+    xs: "0.75rem",
+    sm: "0.875rem",
+    base: "1rem",
+    md: "1.125rem",
+    lg: "1.25rem",
+    xl: "1.5rem",
+    xxl: "2rem",
+    logo: "2.5rem",
   },
 };
 
@@ -28,7 +28,8 @@ export const MIXINS = {};
 
 export const media = {
   custom: customMediaQuery,
-  pc: customMediaQuery(1440),
-  tablet: customMediaQuery(768),
-  mobile: customMediaQuery(576),
+  pc: customMediaQuery(1279),
+  tabletMax: customMediaQuery(1023),
+  tabletMin: customMediaQuery(767),
+  mobile: customMediaQuery(479),
 };
