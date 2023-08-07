@@ -3,7 +3,7 @@ import { PaginationContainer, PageBtn } from "styles/subpage/utils";
 import { PaginationProps } from "types/components";
 
 const Pagination = ({ cate, page, setSearchParams, numPage }: PaginationProps) => {
-  if (numPage === 0) return null;
+  if (!numPage || numPage < 2) return null;
 
   return (
     <PaginationContainer>

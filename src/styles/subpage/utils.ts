@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
-  height: 65vh;
 `;
 
 export const ContentContainer = styled.div`
@@ -13,9 +13,10 @@ export const ContentContainer = styled.div`
 `;
 
 export const PaginationContainer = styled.div`
-  padding: 2% 16%;
+  padding: 0 16%;
   width: 70vw;
   margin: 0 auto;
+  margin-bottom: 3%;
   display: flex;
   justify-content: space-between;
 `;

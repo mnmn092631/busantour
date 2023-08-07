@@ -4,7 +4,6 @@ import { GrFormClose } from "react-icons/gr";
 
 export const CardElement = styled.div<{ $active?: number }>`
   position: relative;
-  margin-right: 2%;
   margin-bottom: 2%;
   width: 23%;
   border-radius: 10px;
@@ -29,6 +28,7 @@ export const CardImg = styled.img`
 `;
 
 export const CardTitle = styled.h2`
+  padding: 0 10px;
   text-align: center;
   font-size: ${theme.fontSize.md};
   font-weight: 600;
