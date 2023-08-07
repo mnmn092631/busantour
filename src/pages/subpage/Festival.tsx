@@ -10,7 +10,8 @@ import { CalendarEvent } from "types/components";
 
 const convertToFestivalEvent = (festival: FestivalData): CalendarEvent => {
   const startDate = new Date(festival.startDate);
-  const endDate = new Date(festival.end_date);
+  let endDate = new Date(festival.endDate);
+  endDate.setDate(endDate.getDate() + 1);
 
   return {
     id: festival.id.toString(),

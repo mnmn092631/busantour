@@ -74,8 +74,8 @@ export interface FestivalData {
   subname: string;
   gugun: string;
   category: string;
-  startDate: string;
-  end_date: string;
+  startDate: Date;
+  endDate: Date;
   place: string;
   hosting_method: string;
   tags: string;

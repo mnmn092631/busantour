@@ -8,7 +8,7 @@ const FestivalModal = () => {
   const data = useSelector((state: AppState) => state.festivals.find(festival => festival.id === dataId));
 
   if (!data) return null;
-  const { main_img_n, name, category, tags, startDate, end_date, subname, place } = data;
+  const { main_img_n, name, category, tags, startDate, endDate, subname, place } = data;
 
   const tagList = tags.split(", ");
 
@@ -21,7 +21,7 @@ const FestivalModal = () => {
       </ModalViewTitle>
       <p> {subname}</p>
       <p>
-        {startDate} ~ {end_date}
+        {startDate.toISOString().slice(0, 10)} ~ {endDate.toISOString().slice(0, 10)}
       </p>
       <p>{place}</p>
       <p>

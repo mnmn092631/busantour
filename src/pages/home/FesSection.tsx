@@ -24,7 +24,12 @@ const FesSection = () => {
     const fetchFestivals = async () => {
       try {
         const { data } = await apiService.festivalService.getFestivalUpcoming();
-        setFestivals(data.concat(data[0]));
+        const parsedData: FestivalData[] = data.map((item: FestivalData) => ({
+          ...item,
+          startDate: new Date(item.startDate),
+          endDate: new Date(item.endDate),
+        }));
+        setFestivals(parsedData.concat(parsedData));
       } catch (error) {
         console.error("Error fetching festivals:", error);
       }
@@ -68,7 +73,9 @@ const FesSection = () => {
             <FesImg src={fes.main_img_n} alt={fes.name} />
             <FesContent>
               <FesTitle>{fes.name}</FesTitle>
-              <FesDate>{`${fes.startDate}~${fes.end_date}`}</FesDate>
+              <FesDate>{`${fes.startDate.toISOString().slice(0, 10)}~${fes.endDate
+                .toISOString()
+                .slice(0, 10)}`}</FesDate>
               <FesSubTitle>{fes.subname}</FesSubTitle>
             </FesContent>
           </FesCard>
