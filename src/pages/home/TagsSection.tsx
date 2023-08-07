@@ -1,24 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import apiService from "api";
+import React, { useEffect, useRef } from "react";
 import { SectionTitle, Tag, TagContainer, TourContainer } from "styles/home/tourStyle";
-import { TourTagsData } from "types/api";
 
-const TourSection = () => {
-  const [tags, setTags] = useState<TourTagsData[]>();
-
-  useEffect(() => {
-    const getTourTags = async () => {
-      try {
-        const response = await apiService.tourService.getTourTags();
-        setTags(response.data);
-      } catch (error) {
-        console.error(error);
-        throw new Error("Failed to get tour tags");
-      }
-    };
-    getTourTags();
-  }, []);
-
+const TagsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,7 +10,7 @@ const TourSection = () => {
     const scroll = scrollRef.current;
     const scrollWidth = scroll.scrollWidth;
     const clientWidth = scroll.clientWidth;
-    scroll.scrollTo({ left: (scrollWidth - clientWidth) / 2 });
+    scroll.scrollTo({ left: 150 });
 
     const onWheel = (e: WheelEvent) => {
       if (e.deltaY === 0) return;
@@ -43,14 +26,16 @@ const TourSection = () => {
 
     scroll.addEventListener("wheel", e => onWheel(e));
     return () => scroll.removeEventListener("wheel", e => onWheel(e));
-  }, [tags]);
+  }, []);
 
   return (
     <TourContainer>
       <SectionTitle>#테마여행</SectionTitle>
-      <TagContainer ref={scrollRef}>{tags && tags.map((tag, idx) => <Tag key={idx}>{tag.tagWord}</Tag>)}</TagContainer>
+      <TagContainer ref={scrollRef}>
+        <Tag />
+      </TagContainer>
     </TourContainer>
   );
 };
 
-export default TourSection;
+export default TagsSection;

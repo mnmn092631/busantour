@@ -3,8 +3,7 @@ import placeService from "./placeService";
 import tourService from "./tourService";
 import festivalService from "./festivalService";
 import foodService from "./foodService";
-import loginService from "./loginService";
-import joinService from "./joinService";
+import authService from "./authService";
 
 export const axiosInstance: AxiosInstance = axios.create({
   baseURL: "http://10.125.121.178:8080",
@@ -20,8 +19,7 @@ const apiService = {
   tourService,
   festivalService,
   foodService,
-  loginService,
-  joinService,
+  authService,
 };
 
 export default apiService;

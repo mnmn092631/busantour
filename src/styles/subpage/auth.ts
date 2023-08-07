@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "styles/theme";
 
-export const LoginWrapper = styled.div`
+export const AuthWrapper = styled.div`
   width: 100vw;
   height: 60vh;
   display: flex;
@@ -10,14 +10,14 @@ export const LoginWrapper = styled.div`
   align-items: center;
 `;
 
-export const LoginForm = styled.form`
+export const AuthForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-export const LoginInput = styled.input`
+export const AuthInput = styled.input`
   width: 250px;
   margin-bottom: 10px;
   padding: 5px;
@@ -40,7 +40,7 @@ export const BtnContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const JoinBtn = styled(Link)`
+export const SignupBtn = styled(Link)`
   padding: 10px 10px;
   color: ${theme.color.deepBlue};
   border-bottom: 2px solid ${theme.color.deepBlue};
@@ -53,7 +53,7 @@ export const JoinBtn = styled(Link)`
   }
 `;
 
-export const LoginSubmit = styled.button`
+export const AuthSubmit = styled.button`
   background-color: ${theme.color.deepBlue};
   padding: 10px 15px;
   border-radius: 5px;

@@ -9,7 +9,7 @@ const Header = () => {
   const [bgWhite, setBgWhite] = useState<boolean>(false);
   const headerRef = useRef<HTMLHeadElement>(null);
   const loc = useLocation().pathname;
-  const isLoginPage = loc === "/login" || loc === "/join";
+  const isLoginPage = loc === "/login" || loc === "/signup";
   const isLoggedIn = useSelector((state: AppState) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
 
@@ -39,9 +39,9 @@ const Header = () => {
           <li>
             <Link to="/place">관광명소</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/tour">테마여행</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/food">맛집정보</Link>
           </li>

@@ -10,8 +10,8 @@ import Tour from "pages/subpage/Tour";
 import Foods from "pages/subpage/Foods";
 import Festival from "pages/subpage/Festival";
 import ScrollToTop from "./components/ScrollToTop";
-import Login from "./pages/login/Login";
-import Join from "./pages/join/Join";
+import Login from "./pages/auth/Login";
+import Signup from "pages/auth/Signup";
 import { Provider as ReduxProvider } from "react-redux";
 import { useStore } from "store";
 import Modal from "components/modal/Modal";
@@ -33,7 +33,7 @@ function App() {
             <Route path="/food" element={<Foods />} />
             <Route path="/festival" element={<Festival />}></Route>
             <Route path="/login" element={<Login />} />
-            <Route path="/join" element={<Join />} />
+            <Route path="/signup" element={<Signup />} />
           </Route>
         </Routes>
       </ThemeProvider>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import apiService from "api";
-import { BtnContainer, JoinBtn, LoginForm, LoginInput, LoginSubmit, LoginWrapper } from "styles/subpage/login";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "store/auth";
+import { AuthForm, AuthInput, AuthSubmit, AuthWrapper, SignupBtn, BtnContainer } from "styles/subpage/auth";
 
 const Login = () => {
   const [form, setForm] = useState({ id: "", password: "" });
@@ -16,7 +16,7 @@ const Login = () => {
     if (!id || !password) return;
 
     try {
-      const { data, status }: { data: string; status: number } = await apiService.loginService.login({ id, password });
+      const { data, status }: { data: string; status: number } = await apiService.authService.login({ id, password });
       if (status === 200) {
         dispatch(login(id, data));
         navigate("/");
@@ -33,16 +33,16 @@ const Login = () => {
   };
 
   return (
-    <LoginWrapper>
-      <LoginForm onSubmit={e => postLogin(e)}>
-        <LoginInput type="text" name="id" placeholder="ID" value={id} onChange={valueChange} />
-        <LoginInput type="password" name="password" placeholder="PASSWORD" value={password} onChange={valueChange} />
+    <AuthWrapper>
+      <AuthForm onSubmit={e => postLogin(e)}>
+        <AuthInput type="text" name="id" placeholder="ID" value={id} onChange={valueChange} />
+        <AuthInput type="password" name="password" placeholder="PASSWORD" value={password} onChange={valueChange} />
         <BtnContainer>
-          <JoinBtn to="/join">회원가입</JoinBtn>
-          <LoginSubmit type="submit">Login</LoginSubmit>
+          <SignupBtn to="/join">회원가입</SignupBtn>
+          <AuthSubmit type="submit">Login</AuthSubmit>
         </BtnContainer>
-      </LoginForm>
-    </LoginWrapper>
+      </AuthForm>
+    </AuthWrapper>
   );
 };
 

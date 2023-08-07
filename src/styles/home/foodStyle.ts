@@ -49,7 +49,7 @@ export const FoodImg = styled.img`
   height: 100%;
 `;
 
-export const FoodContent = styled.div`
+export const FoodContent = styled.h2`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -62,6 +62,8 @@ export const FoodContent = styled.div`
   align-items: center;
   font-weight: 600;
   color: ${theme.color.white};
+  font-size: ${theme.fontSize.xl};
+  transition: all 350ms ease-in-out;
 
   &::after {
     content: "";
@@ -83,39 +85,8 @@ export const FoodContent = styled.div`
     transition: all 350ms ease-in-out;
   }
 
-  & > h2 {
+  &:hover {
     font-size: ${theme.fontSize.xxl};
-    transition: all 350ms ease-in-out;
-  }
-
-  &:hover > h2 {
-    margin-bottom: 20px;
-    transform: scale(0.9);
-    transition: all 350ms ease-in-out;
-  }
-
-  & > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 0;
-    opacity: 0;
-    transition: all 350ms ease-in-out;
-    font-size: ${theme.fontSize.md};
-
-    & > span {
-      margin-bottom: 5px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &:hover > div {
-    height: auto;
-    opacity: 1;
     transition: all 350ms ease-in-out;
   }
 `;

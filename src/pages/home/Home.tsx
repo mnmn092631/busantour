@@ -1,6 +1,6 @@
 import React from "react";
 import FesSection from "./FesSection";
-import TourSection from "./TourSection";
+import TagsSection from "./TagsSection";
 import FoodSection from "./FoodSection";
 import PlaceSection from "./PlaceSection";
 
@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <FesSection />
       <PlaceSection />
-      <TourSection />
+      <TagsSection />
       <FoodSection />
     </>
   );
