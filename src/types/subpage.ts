@@ -1,3 +1,4 @@
+import { SetURLSearchParams } from "react-router-dom";
 import { FoodData, PlaceData, TourData } from "./api";
 
 export interface PageTitleProps {
@@ -8,8 +9,8 @@ export interface PageTitleProps {
 
 export interface CategorySelectProps {
   categories: string[];
-  state: string;
-  setState: React.Dispatch<React.SetStateAction<string>>;
+  cate: string;
+  setSearchParams: SetURLSearchParams;
 }
 
 export interface CardProps {

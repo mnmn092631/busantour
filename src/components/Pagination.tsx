@@ -2,20 +2,20 @@ import React from "react";
 import { PaginationContainer, PageBtn } from "styles/subpage/utils";
 import { PaginationProps } from "types/components";
 
-const Pagination = ({ setPage, page, numPage }: PaginationProps) => {
+const Pagination = ({ cate, page, setSearchParams, numPage }: PaginationProps) => {
   return (
     <PaginationContainer>
-      <button onClick={() => setPage(page - 1)} disabled={page === 1}>
+      <button onClick={() => setSearchParams({ cate, page: (page - 1).toString() })} disabled={page === 1}>
         &lt;prev
       </button>
       {Array(numPage)
         .fill(null)
         .map((_, i) => (
-          <PageBtn key={i} onClick={() => setPage(i + 1)} $active={i + 1 === page}>
+          <PageBtn key={i} onClick={() => setSearchParams({ cate, page: (i + 1).toString() })} $active={i + 1 === page}>
             {i + 1}
           </PageBtn>
         ))}
-      <button onClick={() => setPage(page + 1)} disabled={page === numPage}>
+      <button onClick={() => setSearchParams({ cate, page: (page + 1).toString() })} disabled={page === numPage}>
         next&gt;
       </button>
     </PaginationContainer>

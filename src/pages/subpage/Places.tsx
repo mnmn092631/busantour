@@ -8,14 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { getPlaceAsync } from "store/place";
 import { openModal } from "store/modal";
+import { useSearchParams } from "react-router-dom";
 
 const Places = () => {
   const dispatch = useDispatch();
   const places: AppState["places"] = useSelector((state: AppState) => state.places);
-  const [numPage, setNumPage] = useState<number>(0);
-  const [page, setPage] = useState<number>(1);
-  const offset = (page - 1) * 12;
-  const [selectGugun, setSelectGugun] = useState<string>("전체");
+
   const placeCate = [
     "전체",
     "강서구",
@@ -37,34 +35,41 @@ const Places = () => {
   ];
   const category: { [key: string]: number } = { 공원: 1, 문화: 2, 역사: 3, 자연: 4, 체험: 5 };
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const cate = searchParams.get("cate") || "전체";
+
+  const page = Number(searchParams.get("page")) || 1;
+  const [numPage, setNumPage] = useState<number>();
+  const offset = (page - 1) * 12;
+
   useEffect(() => {
     dispatch<any>(getPlaceAsync());
   }, [dispatch]);
 
   useEffect(() => {
-    setPage(1);
+    // setPage(1);
     places.length !== 0 &&
       setNumPage(
         Math.ceil(
           places.filter(place => {
-            if (selectGugun === "전체") return place;
-            else return place.gugun === selectGugun;
+            if (cate === "전체") return place;
+            else return place.gugun === cate;
           }).length / 12,
         ),
       );
-  }, [places, selectGugun]);
+  }, [places, cate]);
 
   return (
     <>
       {places.length !== 0 && <PageTitle pageName="관광명소" imgSrc={places[1].main_img_n} imgName={places[1].name} />}
       <ContentContainer>
-        <CategorySelect categories={placeCate} state={selectGugun} setState={setSelectGugun} />
+        <CategorySelect categories={placeCate} cate={cate} setSearchParams={setSearchParams} />
         <CardContainer>
           {places.length !== 0 &&
             places
               .filter(place => {
-                if (selectGugun === "전체") return place;
-                else return place.gugun === selectGugun;
+                if (cate === "전체") return place;
+                else return place.gugun === cate;
               })
               .slice(offset, offset + 12)
               .map(place => (
@@ -77,7 +82,7 @@ const Places = () => {
               ))}
         </CardContainer>
       </ContentContainer>
-      <Pagination page={page} setPage={setPage} numPage={numPage} />
+      <Pagination cate={cate} page={page} setSearchParams={setSearchParams} numPage={numPage} />
     </>
   );
 };

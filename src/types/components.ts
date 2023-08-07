@@ -1,6 +1,9 @@
+import { SetURLSearchParams } from "react-router-dom";
+
 export interface PaginationProps {
-  setPage: React.Dispatch<React.SetStateAction<number>>;
+  cate: string;
   page: number;
+  setSearchParams: SetURLSearchParams;
   numPage: number | undefined;
 }
 
