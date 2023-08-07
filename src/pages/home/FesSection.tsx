@@ -73,9 +73,9 @@ const FesSection = () => {
             <FesImg src={fes.main_img_n} alt={fes.name} />
             <FesContent>
               <FesTitle>{fes.name}</FesTitle>
-              <FesDate>{`${fes.startDate.toISOString().slice(0, 10)}~${fes.endDate
-                .toISOString()
-                .slice(0, 10)}`}</FesDate>
+              <FesDate>{`${fes.startDate.toLocaleDateString("ko-KR", {
+                timeZone: "Asia/Seoul",
+              })} ~ ${fes.endDate.toLocaleDateString("ko-KR", { timeZone: "Asia/Seoul" })}`}</FesDate>
               <FesSubTitle>{fes.subname}</FesSubTitle>
             </FesContent>
           </FesCard>
