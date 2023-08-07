@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from "axios";
 import placeService from "./placeService";
-import tourService from "./tourService";
 import festivalService from "./festivalService";
 import foodService from "./foodService";
 import authService from "./authService";
@@ -16,7 +15,6 @@ export const axiosInstance: AxiosInstance = axios.create({
 
 const apiService = {
   placeService,
-  tourService,
   festivalService,
   foodService,
   authService,
