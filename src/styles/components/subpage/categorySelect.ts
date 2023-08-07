@@ -1,11 +1,14 @@
 import styled, { css } from "styled-components";
-import { theme } from "styles/theme";
+import { media, theme } from "styles/theme";
 
 export const SelectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
   max-width: 75%;
+  ${media.tabletMin} {
+    max-width: 100%;
+  }
 `;
 
 export const SelectItem = styled.span<{ $active: boolean }>`

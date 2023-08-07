@@ -3,7 +3,7 @@ import apiService from "api";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "store/auth";
-import { AuthForm, AuthInput, AuthSubmit, AuthWrapper, SignupBtn, BtnContainer } from "styles/subpage/auth";
+import { AuthForm, AuthInput, AuthSubmit, AuthWrapper, SignupBtn, BtnContainer, AuthTitle } from "styles/subpage/auth";
 
 const Login = () => {
   const [form, setForm] = useState({ id: "", password: "" });
@@ -34,11 +34,12 @@ const Login = () => {
 
   return (
     <AuthWrapper>
+      <AuthTitle>로그인</AuthTitle>
       <AuthForm onSubmit={e => postLogin(e)}>
         <AuthInput type="text" name="id" placeholder="ID" value={id} onChange={valueChange} />
         <AuthInput type="password" name="password" placeholder="PASSWORD" value={password} onChange={valueChange} />
         <BtnContainer>
-          <SignupBtn to="/join">회원가입</SignupBtn>
+          <SignupBtn to="/signup">회원가입</SignupBtn>
           <AuthSubmit type="submit">Login</AuthSubmit>
         </BtnContainer>
       </AuthForm>

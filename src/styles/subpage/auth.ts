@@ -6,8 +6,16 @@ export const AuthWrapper = styled.div`
   width: 100vw;
   height: 60vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const AuthTitle = styled.h1`
+  color: ${theme.color.deepBlue};
+  font-weight: 600;
+  font-size: ${theme.fontSize.xl};
+  margin-bottom: 15px;
 `;
 
 export const AuthForm = styled.form`

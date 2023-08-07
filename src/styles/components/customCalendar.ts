@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../theme";
+import { media, theme } from "../theme";
 
 export const CalendarContainer = styled.div`
   .fc-day-sun .fc-col-header-cell-cushion,
@@ -53,5 +53,10 @@ export const CalendarContainer = styled.div`
     line-height: 20px;
     padding-left: 5px;
     cursor: pointer;
+
+    ${media.tabletMin} {
+      height: 20px;
+      line-height: 15px;
+    }
   }
 `;

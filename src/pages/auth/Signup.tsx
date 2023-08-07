@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import apiService from "api";
-import { AuthForm, AuthInput, AuthSubmit, AuthWrapper } from "styles/subpage/auth";
+import { AuthForm, AuthInput, AuthSubmit, AuthTitle, AuthWrapper } from "styles/subpage/auth";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -28,6 +28,7 @@ const Signup = () => {
 
   return (
     <AuthWrapper>
+      <AuthTitle>회원가입</AuthTitle>
       <AuthForm onSubmit={e => signup(e)}>
         <AuthInput type="text" name="id" placeholder="ID" value={id} onChange={valueChange} />
         <AuthInput type="text" name="username" placeholder="USERNAME" value={username} onChange={valueChange} />

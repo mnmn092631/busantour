@@ -5,6 +5,10 @@ import { GrFormClose } from "react-icons/gr";
 export const CardElement = styled.div<{ $active?: number }>`
   position: relative;
   margin-bottom: 2%;
+  margin-right: calc(8% / 3);
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
   width: 23%;
   border-radius: 10px;
   box-shadow: 10px 10px 15px #bebebe, -10px -10px 15px #ffffff;

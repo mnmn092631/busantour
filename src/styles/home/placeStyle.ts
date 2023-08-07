@@ -41,6 +41,7 @@ export const PlaceListContainer = styled.div`
 `;
 
 export const MapCardTitle = styled(CardTitle)`
+  padding: 0;
   text-align: left;
 `;
 

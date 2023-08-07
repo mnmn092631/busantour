@@ -33,7 +33,7 @@ const BusanMap = ({ selectedGugun, setSelectedGugun }: BusanMapProps) => {
         height: "90vmax",
         position: "absolute",
         top: "55%",
-        right: "-5%",
+        right: "0",
         transform: "translateY(-50%)",
       }}
     >
