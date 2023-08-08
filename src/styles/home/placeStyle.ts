@@ -5,7 +5,8 @@ import { theme } from "styles/theme";
 export const PlaceContainer = styled.section`
   position: relative;
   width: 100%;
-  height: 100vmin;
+  height: 100vh;
+  max-height: 1080px;
   padding: 5%;
   overflow: hidden;
 `;

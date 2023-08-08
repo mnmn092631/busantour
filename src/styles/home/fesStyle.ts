@@ -5,10 +5,13 @@ export const FesContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
+  max-height: 1080px;
+  overflow: hidden;
 `;
 
 export const Carousel = styled.div<{ $count: number }>`
+  width: 100%;
+  height: 100%;
   display: flex;
   transition: ${({ $count }) => ($count === 0 ? "" : "all 750ms ease-in-out")};
   transform: ${({ $count }) => `translateX(-${$count * 100}%)`};
@@ -16,13 +19,14 @@ export const Carousel = styled.div<{ $count: number }>`
 
 export const FesCard = styled.div`
   width: 100%;
+  height: 100%;
   position: relative;
   flex: 0 0 auto;
 `;
 
 export const FesImg = styled.img`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const FesContent = styled.div`

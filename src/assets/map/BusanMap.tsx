@@ -27,10 +27,12 @@ const BusanMap = ({ selectedGugun, setSelectedGugun }: BusanMapProps) => {
       xmlns="http://www.w3.org/2000/svg"
       baseProfile="tiny"
       version="1.2"
-      viewBox="0 0 3407 2480"
+      viewBox="0 100 3007 2480"
       style={{
-        width: "70vmax",
-        height: "90vmax",
+        width: "100vmax",
+        height: "100vmin",
+        maxWidth: "1344px",
+        maxHeight: "972px",
         position: "absolute",
         top: "55%",
         right: "0",

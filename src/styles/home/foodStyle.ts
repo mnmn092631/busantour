@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const FoodContainer = styled.section`
   width: 100%;
   height: 100vh;
+  max-height: 1080px;
   padding: 5%;
   display: flex;
   flex-direction: column;
