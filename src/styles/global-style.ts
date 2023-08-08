@@ -50,6 +50,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   input, button, textarea {
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 100%;
     border: none;
   }

@@ -7,7 +7,7 @@ export const SelectContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
-  max-width: 80%;
+  max-width: 75%;
 
   ${media.tabletMin} {
     max-width: 100%;

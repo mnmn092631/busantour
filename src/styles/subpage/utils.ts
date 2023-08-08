@@ -12,23 +12,34 @@ export const ContentContainer = styled.div`
 `;
 
 export const PaginationContainer = styled.div`
-  padding: 0 16%;
   width: 70vw;
+  max-width: 1000px;
   margin: 0 auto;
   margin-bottom: 3%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
-export const PageBtn = styled.div<{ $active?: boolean }>`
+export const PageBtn = styled.button<{ $active?: boolean }>`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
   ${({ $active }) =>
     $active &&
     css`
+      padding: 0 5px;
       color: ${theme.color.deepBlue};
       font-weight: 600;
-      transform: scale(1.2);
-      transition: all 350ms ease-in-out;
+      transform: scale(1.3);
     `}
-  transition:all 350ms ease-in-out;
-  cursor: pointer;
+
+  & > svg {
+    margin-top: 3px;
+    & > * {
+      stroke: ${({ disabled }) => disabled && theme.color.lightGray};
+    }
+  }
 `;

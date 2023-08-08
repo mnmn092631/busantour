@@ -1,15 +1,17 @@
 import React from "react";
 import { PaginationContainer, PageBtn } from "styles/subpage/utils";
 import { PaginationProps } from "types/components";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
 const Pagination = ({ cate, page, setSearchParams, numPage }: PaginationProps) => {
   if (!numPage || numPage < 2) return null;
 
   return (
     <PaginationContainer>
-      <button onClick={() => setSearchParams({ cate, page: (page - 1).toString() })} disabled={page === 1}>
-        &lt;prev
-      </button>
+      <PageBtn onClick={() => setSearchParams({ cate, page: (page - 1).toString() })} disabled={page === 1}>
+        <GrFormPrevious />
+        이전
+      </PageBtn>
       {Array(numPage)
         .fill(null)
         .map((_, i) => (
@@ -17,9 +19,10 @@ const Pagination = ({ cate, page, setSearchParams, numPage }: PaginationProps) =
             {i + 1}
           </PageBtn>
         ))}
-      <button onClick={() => setSearchParams({ cate, page: (page + 1).toString() })} disabled={page === numPage}>
-        next&gt;
-      </button>
+      <PageBtn onClick={() => setSearchParams({ cate, page: (page + 1).toString() })} disabled={page === numPage}>
+        다음
+        <GrFormNext />
+      </PageBtn>
     </PaginationContainer>
   );
 };
