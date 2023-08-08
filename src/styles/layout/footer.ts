@@ -20,6 +20,7 @@ export const FooterHeader = styled.header`
 export const FLogo = styled(Logo)`
   margin-right: 5%;
   cursor: default;
+  flex-grow: 0;
 `;
 
 export const SocialIcons = styled.div`
