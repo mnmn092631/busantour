@@ -21,6 +21,8 @@ export const GlobalStyle = createGlobalStyle`
     font-display: fallback;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    max-width: 1920px;
+    margin: 0 auto;
 
     ${media.pc}{
       font-size: 16px;

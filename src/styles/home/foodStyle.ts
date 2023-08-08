@@ -2,7 +2,7 @@ import { media, theme } from "styles/theme";
 import styled from "styled-components";
 
 export const FoodContainer = styled.section`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   padding: 5%;
   display: flex;

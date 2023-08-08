@@ -5,7 +5,7 @@ import { Logo } from "./header";
 export const FooterContainer = styled.footer`
   position: relative;
   padding: 5%;
-  width: 100vw;
+  width: 100%;
   background-color: ${theme.color.deepBlue};
   color: ${theme.color.white};
 `;

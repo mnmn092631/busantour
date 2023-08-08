@@ -52,7 +52,6 @@ const FesSection = () => {
       },
       flag.current ? 0 : 3000,
     );
-
     return () => {
       clearInterval(timer);
     };

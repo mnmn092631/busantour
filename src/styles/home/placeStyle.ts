@@ -4,7 +4,7 @@ import { theme } from "styles/theme";
 
 export const PlaceContainer = styled.section`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vmin;
   padding: 5%;
   overflow: hidden;

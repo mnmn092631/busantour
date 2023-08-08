@@ -2,7 +2,7 @@ import { theme } from "styles/theme";
 import styled from "styled-components";
 
 export const TourContainer = styled.section`
-  width: 100vw;
+  width: 100%;
   background-color: ${theme.color.deepBlue};
   padding: 5%;
 `;

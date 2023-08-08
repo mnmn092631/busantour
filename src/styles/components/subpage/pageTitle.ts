@@ -5,7 +5,7 @@ export const TitleContainer = styled.div`
   position: relative;
 
   & > img {
-    width: 100vw;
+    width: 100%;
     height: 70vh;
   }
 `;

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 export const FesContainer = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow-x: hidden;
 `;
@@ -11,15 +11,17 @@ export const FesContainer = styled.div`
 export const Carousel = styled.div<{ $count: number }>`
   display: flex;
   transition: ${({ $count }) => ($count === 0 ? "" : "all 750ms ease-in-out")};
-  transform: ${({ $count }) => `translateX(-${$count * 100}vw)`};
+  transform: ${({ $count }) => `translateX(-${$count * 100}%)`};
 `;
 
 export const FesCard = styled.div`
+  width: 100%;
   position: relative;
+  flex: 0 0 auto;
 `;
 
 export const FesImg = styled.img`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 `;
 

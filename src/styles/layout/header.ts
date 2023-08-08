@@ -7,13 +7,15 @@ export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isLoginPage: 
   position: fixed;
   height: 70px;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 2;
+  max-width: 1920px;
+  width: 100%;
 
   ${({ $bgWhite, $isLoginPage, $isOpen }) =>
     $bgWhite || $isLoginPage || $isOpen
