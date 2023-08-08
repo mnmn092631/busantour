@@ -41,7 +41,7 @@ const TourSection = () => {
 
     scroll.addEventListener("wheel", e => onWheel(e));
     return () => scroll.removeEventListener("wheel", e => onWheel(e));
-  }, []);
+  }, [scrollRef.current?.clientWidth]);
 
   return (
     <TourContainer>
