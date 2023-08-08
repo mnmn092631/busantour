@@ -17,8 +17,8 @@ export const SectionTitle = styled.h2`
 
 export const TagContainer = styled.div`
   width: 100%;
-  height: 125px;
-  padding: 0 300px;
+  height: 7.813rem;
+  padding: 0 18.75rem;
   display: flex;
   align-items: center;
   overflow-x: scroll;
@@ -37,8 +37,8 @@ export const TagContainer = styled.div`
 `;
 
 export const Tag = styled.button`
-  width: 180px;
-  height: 50px;
+  width: 11.25rem;
+  height: 3.125rem;
   margin: 0 8px;
   flex-shrink: 0;
   border: 2px solid ${theme.color.white};
