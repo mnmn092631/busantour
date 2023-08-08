@@ -26,10 +26,13 @@ export interface TourData {
   id: number;
   name: string;
   gugun: string;
-  category: string;
   lat: number;
   lng: number;
   plage: string;
+  cate_with: string;
+  cate_season: string;
+  cate_nature: string;
+  cate_plan: string;
   tags: string;
   title: string;
   subtitle: string;
@@ -45,9 +48,12 @@ export interface TourData {
   main_img_t: string;
 }
 
-export interface TourTagsData {
-  tagWord: string;
-  tagCount: number;
+export interface ParsedTourData extends TourData {
+  cateArr_with: string[];
+  cateArr_season: string[];
+  cateArr_nature: string[];
+  cateArr_plan: string[];
+  tagsArr: string[];
 }
 
 export interface FoodData {

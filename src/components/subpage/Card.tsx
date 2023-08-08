@@ -7,7 +7,9 @@ const Card = ({ item, subCategories, onClick }: CardProps) => {
     <CardItem onClick={() => onClick()}>
       <CardImg src={item.main_img_n} alt={item.name} />
       <CardTitle>
-        {subCategories && <CardCategory $category={subCategories[item.category]}>{item.category}</CardCategory>}
+        {subCategories && "category" in item && (
+          <CardCategory $category={subCategories[item.category]}>{item.category}</CardCategory>
+        )}
         {item.name}
       </CardTitle>
     </CardItem>

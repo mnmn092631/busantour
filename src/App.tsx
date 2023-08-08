@@ -14,6 +14,7 @@ import Signup from "pages/auth/Signup";
 import { Provider as ReduxProvider } from "react-redux";
 import { useStore } from "store";
 import Modal from "components/modal/Modal";
+import Tour from "pages/subpage/Tour";
 
 function App() {
   const store = useStore();
@@ -28,6 +29,7 @@ function App() {
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/place" element={<Places />} />
+            <Route path="/tour" element={<Tour />} />
             <Route path="/food" element={<Foods />} />
             <Route path="/festival" element={<Festival />}></Route>
             <Route path="/login" element={<Login />} />

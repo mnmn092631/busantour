@@ -45,6 +45,9 @@ const Header = () => {
             <Link to="/place">관광명소</Link>
           </li>
           <li>
+            <Link to="/tour">테마여행</Link>
+          </li>
+          <li>
             <Link to="/food">맛집정보</Link>
           </li>
           <li>
