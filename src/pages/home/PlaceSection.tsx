@@ -12,7 +12,6 @@ import {
 } from "styles/home/placeStyle";
 import { PlaceData } from "types/api";
 import { CardCategory } from "styles/components/subpage/card";
-import { turncate } from "components/turncate";
 import { useNavigate } from "react-router-dom";
 
 const PlaceSection = () => {
@@ -47,7 +46,7 @@ const PlaceSection = () => {
                   <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
                   {place.name}
                 </MapCardTitle>
-                <MapCardContent>{turncate(place.addr, 24)}</MapCardContent>
+                <MapCardContent>{place.addr}</MapCardContent>
               </div>
             ))}
         </PlaceListContainer>

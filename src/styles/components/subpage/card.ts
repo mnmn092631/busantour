@@ -5,7 +5,7 @@ import { GrFormClose } from "react-icons/gr";
 export const CardItem = styled.div<{ $active?: number }>`
   position: relative;
   margin-right: calc(8% / 3);
-  margin-bottom: calc(60vh * 0.1 / 2);
+  margin-bottom: calc(70vh * 0.1 / 2);
   &:nth-child(4n) {
     margin-right: 0;
   }
@@ -35,18 +35,21 @@ export const CardImg = styled.img`
 `;
 
 export const CardTitle = styled.h2`
+  line-height: calc(70vh * 0.3 * 0.2 - 1.25rem);
+  padding: 0.625rem 1.25rem;
   width: 100%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
   height: 20%;
-  font-size: ${theme.fontSize.md};
+  text-align: center;
+  font-size: ${theme.fontSize.base};
   font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 export const CardCategory = styled.strong<{ $category?: number }>`
-  padding: 2px 3px;
-  margin-right: 3px;
+  padding: 0.125rem 0.313rem;
+  margin-right: 0.25rem;
   border-radius: 5px;
   color: ${theme.color.white};
   font-size: ${theme.fontSize.sm};

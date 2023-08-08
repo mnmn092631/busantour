@@ -13,7 +13,7 @@ export const TitleContainer = styled.div`
 export const Title = styled.h2`
   position: absolute;
   bottom: 5%;
-  left: 15%;
+  left: 10%;
   text-align: center;
   font-size: ${theme.fontSize.xxl};
   font-weight: 600;

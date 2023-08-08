@@ -7,12 +7,12 @@ export const CardContainer = styled.div`
   justify-content: flex-start;
   align-content: flex-start;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   margin-bottom: 40px;
 `;
 
 export const ContentContainer = styled.div`
-  padding: 2% 16%;
+  padding: 2% 10%;
 `;
 
 export const PaginationContainer = styled.div`
