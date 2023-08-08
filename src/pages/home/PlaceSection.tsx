@@ -45,7 +45,7 @@ const PlaceSection = () => {
               <div key={place.id}>
                 <MapCardTitle>
                   <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
-                  {turncate(place.name, 14)}
+                  {place.name}
                 </MapCardTitle>
                 <MapCardContent>{turncate(place.addr, 24)}</MapCardContent>
               </div>

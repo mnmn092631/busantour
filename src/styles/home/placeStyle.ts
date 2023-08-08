@@ -42,8 +42,10 @@ export const PlaceListContainer = styled.div`
 `;
 
 export const MapCardTitle = styled(CardTitle)`
+  display: block;
+  height: auto;
   padding: 0;
-  text-align: left;
+  margin-bottom: 10px;
 `;
 
 export const MapCardContent = styled(CardContent)`
