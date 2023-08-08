@@ -30,7 +30,6 @@ const TourSection = () => {
 
     const onWheel = (e: WheelEvent) => {
       if (e.deltaY === 0) return;
-      e.preventDefault();
       if (scroll.scrollLeft + e.deltaY > 0 && scroll.scrollLeft + e.deltaY <= scrollWidth - clientWidth) {
         e.preventDefault();
       }
