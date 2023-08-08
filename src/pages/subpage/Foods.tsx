@@ -53,8 +53,8 @@ const Foods = () => {
               .slice(offset, offset + 12)
               .map(food => <Card key={food.id} item={food} onClick={() => dispatch(openModal("foods", food.id))} />)}
         </CardContainer>
+        <Pagination cate={cate} page={page} setSearchParams={setSearchParams} numPage={numPage} />
       </ContentContainer>
-      <Pagination cate={cate} page={page} setSearchParams={setSearchParams} numPage={numPage} />
     </>
   );
 };

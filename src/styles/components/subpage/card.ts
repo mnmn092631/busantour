@@ -4,12 +4,16 @@ import { GrFormClose } from "react-icons/gr";
 
 export const CardItem = styled.div<{ $active?: number }>`
   position: relative;
-  margin-bottom: 2%;
   margin-right: calc(8% / 3);
+  margin-bottom: calc(60vh * 0.1 / 2);
   &:nth-child(4n) {
     margin-right: 0;
   }
+  &:nth-child(n + 9):nth-child(-n + 12) {
+    margin-bottom: 0;
+  }
   width: 23%;
+  height: 30%;
   border-radius: 10px;
   box-shadow: 10px 10px 15px #bebebe, -10px -10px 15px #ffffff;
   overflow: hidden;

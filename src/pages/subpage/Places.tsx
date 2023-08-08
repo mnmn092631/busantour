@@ -80,8 +80,8 @@ const Places = () => {
                 />
               ))}
         </CardContainer>
+        <Pagination cate={cate} page={page} setSearchParams={setSearchParams} numPage={numPage} />
       </ContentContainer>
-      <Pagination cate={cate} page={page} setSearchParams={setSearchParams} numPage={numPage} />
     </>
   );
 };

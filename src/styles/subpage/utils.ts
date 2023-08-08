@@ -4,7 +4,11 @@ import styled, { css } from "styled-components";
 export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
   width: 100%;
+  height: 60vh;
+  margin-bottom: 40px;
 `;
 
 export const ContentContainer = styled.div`
@@ -15,7 +19,6 @@ export const PaginationContainer = styled.div`
   width: 70vw;
   max-width: 1000px;
   margin: 0 auto;
-  margin-bottom: 3%;
   display: flex;
   justify-content: space-around;
 `;
