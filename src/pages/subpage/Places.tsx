@@ -47,7 +47,6 @@ const Places = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    // setPage(1);
     places.length !== 0 &&
       setNumPage(
         Math.ceil(

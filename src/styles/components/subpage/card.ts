@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { theme } from "styles/theme";
 import { GrFormClose } from "react-icons/gr";
 
-export const CardElement = styled.div<{ $active?: number }>`
+export const CardItem = styled.div<{ $active?: number }>`
   position: relative;
   margin-bottom: 2%;
   margin-right: calc(8% / 3);
@@ -27,20 +27,21 @@ export const CloseBtn = styled(GrFormClose)`
 
 export const CardImg = styled.img`
   width: 100%;
-  height: 60%;
-  margin-bottom: 10px;
+  height: 80%;
 `;
 
 export const CardTitle = styled.h2`
-  padding: 0 10px;
-  text-align: center;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
   font-size: ${theme.fontSize.md};
   font-weight: 600;
-  margin-bottom: 5px;
 `;
 
 export const CardCategory = styled.strong<{ $category?: number }>`
-  padding: 0 3px;
+  padding: 2px 3px;
   margin-right: 3px;
   border-radius: 5px;
   color: ${theme.color.white};
