@@ -1,4 +1,4 @@
-import { theme } from "styles/theme";
+import { media, theme } from "styles/theme";
 import styled from "styled-components";
 import { Logo } from "./header";
 
@@ -48,6 +48,10 @@ export const FNav = styled.ul`
   align-items: center;
   margin-bottom: 3%;
 
+  ${media.mobile} {
+    flex-direction: column;
+  }
+
   & > li {
     width: 25%;
     height: 25px;
@@ -56,6 +60,13 @@ export const FNav = styled.ul`
     display: block;
     text-align: center;
     cursor: pointer;
+
+    ${media.mobile} {
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      margin: 5px 0;
+    }
   }
 
   & > li::after {
@@ -67,6 +78,13 @@ export const FNav = styled.ul`
     height: 25px;
     background-color: ${theme.color.white};
     transform: translate(-50%, -50%);
+
+    ${media.mobile} {
+      width: 25px;
+      height: 1px;
+      top: -5px;
+      left: 50%;
+    }
   }
 
   & > li:first-child::after {
