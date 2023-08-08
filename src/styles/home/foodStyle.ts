@@ -5,6 +5,9 @@ export const FoodContainer = styled.section`
   width: 100vw;
   height: 100vh;
   padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const FoodTitle = styled.h2`
