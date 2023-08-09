@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme } from "styles/theme";
 import { GrFormClose } from "react-icons/gr";
+import { DataTitle } from "styles/utils";
 
 export const CardItem = styled.div<{ $active?: number }>`
   position: relative;
@@ -34,21 +35,12 @@ export const CardImg = styled.img`
   height: 80%;
 `;
 
-export const CardTitle = styled.h2`
+export const CardTitle = styled(DataTitle)`
   line-height: calc(70vh * 0.3 * 0.2 - 1.25rem);
   padding: 0.625rem 1.25rem;
-  width: 100%;
   height: 20%;
   text-align: center;
-  font-size: ${theme.fontSize.base};
-  font-weight: 600;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-`;
-
-export const CardContent = styled.p`
-  padding: 0 15px 10px;
-  text-align: center;
-  font-size: ${theme.fontSize.sm};
 `;

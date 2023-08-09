@@ -3,12 +3,12 @@ import apiService from "api";
 import BusanMap from "assets/map/BusanMap";
 import {
   GugunName,
-  MapCardContent,
-  MapCardTitle,
   PlaceContainer,
   PlaceInfo,
   PlaceListContainer,
   MorePlaceBtn,
+  MapDataTitle,
+  MapDataAddr,
 } from "styles/home/placeStyle";
 import { PlaceData } from "types/api";
 import { useNavigate } from "react-router-dom";
@@ -42,11 +42,11 @@ const PlaceSection = () => {
             .filter(place => place.gugun === selectedGugun)
             .map(place => (
               <div key={place.id}>
-                <MapCardTitle>
+                <MapDataTitle>
                   <DataCate $category={category[place.category]}>{place.category}</DataCate>
                   {place.name}
-                </MapCardTitle>
-                <MapCardContent>{place.addr}</MapCardContent>
+                </MapDataTitle>
+                <MapDataAddr>{place.addr}</MapDataAddr>
               </div>
             ))}
         </PlaceListContainer>

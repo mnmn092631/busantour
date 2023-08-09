@@ -36,3 +36,12 @@ export const DataCate = styled.strong<{ $category?: number }>`
           background-color: #8c0303;
         `}
 `;
+
+export const DataTitle = styled.h2`
+  font-size: ${theme.fontSize.base};
+  font-weight: 600;
+`;
+
+export const DataAddr = styled.p`
+  font-size: ${theme.fontSize.sm};
+`;

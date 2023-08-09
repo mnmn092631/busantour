@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { CardContent, CardTitle } from "styles/components/subpage/card";
 import { theme } from "styles/theme";
+import { DataAddr, DataTitle } from "styles/utils";
 
 export const PlaceContainer = styled.section`
   position: relative;
@@ -41,16 +41,11 @@ export const PlaceListContainer = styled.div`
   }
 `;
 
-export const MapCardTitle = styled(CardTitle)`
-  display: block;
-  height: auto;
-  padding: 3px 0;
+export const MapDataTitle = styled(DataTitle)`
   margin-bottom: 10px;
-  text-align: left;
 `;
 
-export const MapCardContent = styled(CardContent)`
-  padding: 0;
+export const MapDataAddr = styled(DataAddr)`
   text-align: left;
 `;
 
