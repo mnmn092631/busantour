@@ -43,7 +43,7 @@ const Signup = () => {
       case "username":
         if (username.length === 0) return;
         else if (!/^[a-zA-Z가-힣]*$/.test(username)) return "Username은 영문 대소문자, 한글로만 이루어져야 합니다.";
-        else if (username.length < 3 || username.length > 10) return "Username은 5자 이상 15자 이하여야 합니다.";
+        else if (username.length < 3 || username.length > 10) return "Username은 3자 이상 10자 이하여야 합니다.";
         else return;
     }
   };
