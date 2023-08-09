@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-import { PiHeartLight } from "react-icons/pi";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
-import {
-  ModalAddr,
-  ModalContent,
-  ModalInfo,
-  ModalLikeBtn,
-  ModalMenu,
-  ModalMenuContainer,
-  ModalViewImg,
-  ModalViewTitle,
-} from "styles/components/modal";
+import { ModalAddr, ModalContent, ModalInfo, ModalViewImg } from "styles/components/modal";
+import SubpageModalMenu from "./SubpageModalMenu";
+import SubpageModalTitle from "./SubpageModalTitle";
 
 const TourModal = () => {
   const { dataId } = useSelector((state: AppState) => state.modal);
@@ -40,25 +32,8 @@ const TourModal = () => {
   return (
     <>
       <ModalViewImg src={main_img_n} alt={name} />
-      <div>
-        <ModalLikeBtn>
-          <PiHeartLight />
-          {/* <PiHeartFill /> */}
-          {likecnt}
-        </ModalLikeBtn>
-      </div>
-      <ModalViewTitle>{name}</ModalViewTitle>
-      <ModalMenuContainer>
-        <ModalMenu $active={selectMenu === "상세정보"} onClick={() => setSelectMenu("상세정보")}>
-          상세정보
-        </ModalMenu>
-        <ModalMenu $active={selectMenu === "이용안내"} onClick={() => setSelectMenu("이용안내")}>
-          이용안내
-        </ModalMenu>
-        <ModalMenu $active={selectMenu === "댓글"} onClick={() => setSelectMenu("댓글")}>
-          댓글
-        </ModalMenu>
-      </ModalMenuContainer>
+      <SubpageModalTitle likecnt={likecnt} name={name} />
+      <SubpageModalMenu selectMenu={selectMenu} setSelectMenu={setSelectMenu} />
       {selectMenu === "상세정보" && (
         <ModalContent>
           <ModalAddr>{addr}</ModalAddr>
