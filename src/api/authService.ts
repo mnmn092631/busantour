@@ -10,8 +10,6 @@ const signup = ({ id, username, password }: JoinData) =>
     password: password,
   });
 
-const checkIdAvailability = (id: string) => axiosInstance.post("/api/sign/checkIdAvailability", id);
-
-const authService = { login, signup, checkIdAvailability };
+const authService = { login, signup };
 
 export default authService;
