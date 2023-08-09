@@ -11,11 +11,11 @@ import {
   FesTitle,
   PageBtn,
 } from "styles/home/fesStyle";
-import { FestivalData } from "types/api";
+import { RawFestivalData } from "types/api";
 import apiService from "api";
 
 const FesSection = () => {
-  const [festivals, setFestivals] = useState<FestivalData[]>([]);
+  const [festivals, setFestivals] = useState<RawFestivalData[]>([]);
   const [count, setCount] = useState<number>(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -24,7 +24,7 @@ const FesSection = () => {
     const fetchFestivals = async () => {
       try {
         const { data } = await apiService.festivalService.getFestivalUpcoming();
-        const parsedData: FestivalData[] = data.map((item: FestivalData) => ({
+        const parsedData: RawFestivalData[] = data.map((item: RawFestivalData) => ({
           ...item,
           startDate: new Date(item.startDate),
           endDate: new Date(item.endDate),

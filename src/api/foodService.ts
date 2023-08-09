@@ -1,7 +1,7 @@
 import { axiosInstance } from "api";
-import { FoodData } from "types/api";
+import { RawFoodData } from "types/api";
 
-const getFood = () => axiosInstance.get<FoodData[]>("/busanfood");
+const getFood = () => axiosInstance.get<RawFoodData[]>("/busanfood");
 
 const foodService = { getFood };
 

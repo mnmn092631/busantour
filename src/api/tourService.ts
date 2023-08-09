@@ -1,7 +1,7 @@
-import { TourData } from "types/api";
+import { RawTourData } from "types/api";
 import { axiosInstance } from "./index";
 
-const getTour = () => axiosInstance.get<TourData[]>("/busantour");
+const getTour = () => axiosInstance.get<RawTourData[]>("/busantour");
 
 const getTourTags = () => axiosInstance.get<string[]>("/tourtags");
 

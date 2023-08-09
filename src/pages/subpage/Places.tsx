@@ -33,7 +33,6 @@ const Places = () => {
     "중구",
     "해운대구",
   ];
-  const category: { [key: string]: number } = { 공원: 1, 문화: 2, 역사: 3, 자연: 4, 체험: 5 };
 
   const [searchParams, setSearchParams] = useSearchParams();
   const cate = searchParams.get("cate") || "전체";
@@ -72,12 +71,7 @@ const Places = () => {
               })
               .slice(offset, offset + 12)
               .map(place => (
-                <Card
-                  key={place.id}
-                  item={place}
-                  onClick={() => dispatch(openModal("places", place.id))}
-                  subCategories={category}
-                />
+                <Card key={place.id} item={place} onClick={() => dispatch(openModal("places", place.id))} />
               ))}
         </CardContainer>
         <Pagination cate={cate} page={page} setSearchParams={setSearchParams} numPage={numPage} />

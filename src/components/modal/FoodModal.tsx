@@ -8,7 +8,7 @@ const FoodModal = () => {
   const data = useSelector((state: AppState) => state.foods.find(food => food.id === dataId));
 
   if (!data) return null;
-  const { main_img_n, name, category, addr, itemcntnts } = data;
+  const { main_img_n, name, category, addr, itemcntnts, likecnt } = data;
 
   return (
     <>
@@ -19,6 +19,7 @@ const FoodModal = () => {
       </ModalViewTitle>
       <ModalAddr>{addr}</ModalAddr>
       <p>{itemcntnts}</p>
+      <p>{likecnt}</p>
     </>
   );
 };

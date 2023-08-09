@@ -1,7 +1,7 @@
 import { GrClose } from "react-icons/gr";
 import styled from "styled-components";
 import { theme } from "styles/theme";
-import { DataCate } from "styles/utils";
+import { DataCate, LikeBtn } from "styles/utils";
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -19,6 +19,7 @@ export const ModalBackdrop = styled.div`
 `;
 
 export const ModalView = styled.div`
+  padding: 3% 4%;
   width: 50%;
   height: 70%;
   position: absolute;
@@ -30,24 +31,33 @@ export const ModalView = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${theme.color.gray};
+    border-radius: 50px;
+  }
 `;
 
 export const ModalViewImg = styled.img`
   width: 100%;
-  height: 50%;
-  margin-bottom: 10px;
-  border-radius: 10px 10px 0 0;
+  height: 60%;
+  margin-bottom: 15px;
 `;
 
 export const CloseModalBtn = styled(GrClose)`
   position: absolute;
-  top: 1%;
-  right: 1%;
+  top: 2%;
+  right: 2%;
   font-size: ${theme.fontSize.xl};
   cursor: pointer;
 
   & > path {
-    stroke: ${theme.color.white};
+    stroke: ${theme.color.black};
   }
 `;
 
@@ -65,4 +75,16 @@ export const ModalCategory = styled(DataCate)`
 export const ModalAddr = styled.span`
   display: block;
   text-align: center;
+  margin-bottom: 10px;
+`;
+
+export const ModalContent = styled.p`
+  width: 90%;
+  font-size: ${theme.fontSize.md};
+  margin-bottom: 15px;
+  line-height: 25px;
+`;
+
+export const ModalInfo = styled.div`
+  width: 90%;
 `;

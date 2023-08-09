@@ -15,11 +15,7 @@ const TourModal = () => {
       <ModalViewImg src={main_img_n} alt={name} />
       <ModalViewTitle>{name}</ModalViewTitle>
       <ModalAddr>{addr}</ModalAddr>
-      <p>
-        {tagsArr.map((item, idx) => (
-          <button key={idx}>#{item}</button>
-        ))}
-      </p>
+      <p>{tagsArr && tagsArr.map((item: string, idx: number) => <button key={idx}>#{item}</button>)}</p>
     </>
   );
 };

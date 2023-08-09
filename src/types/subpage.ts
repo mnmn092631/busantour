@@ -15,6 +15,5 @@ export interface CategorySelectProps {
 
 export interface CardProps {
   item: PlaceData | FoodData | TourData;
-  subCategories?: { [key: string]: number };
   onClick: () => void;
 }

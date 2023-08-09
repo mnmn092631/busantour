@@ -1,29 +1,60 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { AppState } from "store";
-import { ModalAddr, ModalCategory, ModalViewImg, ModalViewTitle } from "styles/components/modal";
+import {
+  ModalAddr,
+  ModalCategory,
+  ModalContent,
+  ModalInfo,
+  ModalViewImg,
+  ModalViewTitle,
+} from "styles/components/modal";
+import { IoHomeSharp } from "react-icons/io5";
 
 const PlaceModal = () => {
   const { dataId } = useSelector((state: AppState) => state.modal);
   const data = useSelector((state: AppState) => state.places.find(place => place.id === dataId));
 
   if (!data) return null;
-  const { main_img_n, name, category, addr, tags, itemcntnts } = data;
-  const tagList = tags.split(", ");
+  const {
+    categoryColor,
+    main_img_n,
+    name,
+    category,
+    addr,
+    itemcntnts,
+    likecnt,
+    trfc_info,
+    homepage_u,
+    hldy_info,
+    usage_time,
+    usage_amou,
+    middle_siz,
+  } = data;
+
   return (
     <>
-      <ModalViewImg src={main_img_n} alt={name} />
       <ModalViewTitle>
-        <ModalCategory>{category}</ModalCategory>
+        <ModalCategory $category={categoryColor}>{category}</ModalCategory>
         {name}
       </ModalViewTitle>
       <ModalAddr>{addr}</ModalAddr>
-      <p>{itemcntnts}</p>
-      <p>
-        {tagList.map((item, idx) => (
-          <button key={idx}>#{item}</button>
-        ))}
-      </p>
+      <ModalViewImg src={main_img_n} alt={name} />
+      <ModalContent>{itemcntnts}</ModalContent>
+      <ModalInfo>
+        {homepage_u && (
+          <Link to={homepage_u} target="_blank">
+            <IoHomeSharp />
+            홈페이지
+          </Link>
+        )}
+        <p>운영요일 및 시간 : {usage_time}</p>
+        {usage_amou && <p>이용요금 : {usage_amou}</p>}
+        {hldy_info && <p>휴무일 : {hldy_info}</p>}
+        {middle_siz && <p>편의시설 : {middle_siz}</p>}
+        <p>교통정보 : {trfc_info}</p>
+      </ModalInfo>
     </>
   );
 };

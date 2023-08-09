@@ -19,7 +19,7 @@ const FestivalModal = () => {
         <ModalCategory>{category}</ModalCategory>
         {name}
       </ModalViewTitle>
-      <p> {subname}</p>
+      <p>{subname}</p>
       <p>
         {startDate.toISOString().slice(0, 10)} ~ {endDate.toISOString().slice(0, 10)}
       </p>

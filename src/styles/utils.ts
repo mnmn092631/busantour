@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { theme } from "./theme";
 
 export const Logo = styled.h1`
@@ -7,34 +7,14 @@ export const Logo = styled.h1`
   z-index: 1;
 `;
 
-export const DataCate = styled.strong<{ $category?: number }>`
+export const DataCate = styled.strong<{ $category?: string }>`
   padding: 0.125rem 0.313rem;
   margin-right: 0.25rem;
   border-radius: 5px;
   color: ${theme.color.white};
   font-size: ${theme.fontSize.sm};
   font-weight: 400;
-
-  ${({ $category }) =>
-    $category === 1
-      ? css`
-          background-color: #6e8c03;
-        `
-      : $category === 2
-      ? css`
-          background-color: #d98b2b;
-        `
-      : $category === 3
-      ? css`
-          background-color: #585859;
-        `
-      : $category === 4
-      ? css`
-          background-color: #049dd9;
-        `
-      : css`
-          background-color: #8c0303;
-        `}
+  background-color: ${({ $category }) => $category};
 `;
 
 export const DataTitle = styled.h2`
@@ -44,4 +24,13 @@ export const DataTitle = styled.h2`
 
 export const DataAddr = styled.p`
   font-size: ${theme.fontSize.base};
+`;
+
+export const LikeBtn = styled.button`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: ${theme.fontSize.md};
+  background-color: ${theme.color.white};
+  cursor: pointer;
 `;

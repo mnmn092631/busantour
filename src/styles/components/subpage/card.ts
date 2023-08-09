@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "styles/theme";
 import { GrFormClose } from "react-icons/gr";
-import { DataTitle } from "styles/utils";
+import { DataTitle, LikeBtn } from "styles/utils";
 
 export const CardItem = styled.div<{ $active?: number }>`
   position: relative;
@@ -43,4 +43,13 @@ export const CardTitle = styled(DataTitle)`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+`;
+
+export const CardLikeBtn = styled(LikeBtn)`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(80% - 40px);
+  right: 10px;
 `;

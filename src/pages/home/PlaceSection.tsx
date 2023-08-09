@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import apiService from "api";
 import BusanMap from "assets/map/BusanMap";
 import {
   GugunName,
@@ -11,26 +10,20 @@ import {
   MapDataAddr,
   MapDataCate,
 } from "styles/home/placeStyle";
-import { PlaceData } from "types/api";
 import { useNavigate } from "react-router-dom";
+import { getPlaceAsync } from "store/place";
+import { useDispatch, useSelector } from "react-redux";
+import { AppState } from "store";
 
 const PlaceSection = () => {
+  const dispatch = useDispatch();
+  const places: AppState["places"] = useSelector((state: AppState) => state.places);
   const [selectedGugun, setSelectedGugun] = useState<string>("금정구");
-  const [places, setPlaces] = useState<PlaceData[]>([]);
-  const category: { [key: string]: number } = { 공원: 1, 문화: 2, 역사: 3, 자연: 4, 체험: 5 };
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchPlaces = async () => {
-      try {
-        const response = await apiService.placeService.getPlace();
-        setPlaces(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchPlaces();
-  }, []);
+    dispatch<any>(getPlaceAsync());
+  }, [dispatch]);
 
   return (
     <PlaceContainer>
@@ -43,7 +36,7 @@ const PlaceSection = () => {
             .map(place => (
               <div key={place.id}>
                 <MapDataTitle>
-                  <MapDataCate $category={category[place.category]}>{place.category}</MapDataCate>
+                  <MapDataCate $category={place.categoryColor}>{place.category}</MapDataCate>
                   {place.name}
                 </MapDataTitle>
                 <MapDataAddr>{place.addr}</MapDataAddr>

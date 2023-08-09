@@ -1,4 +1,4 @@
-export interface PlaceData {
+export interface RawPlaceData {
   id: number;
   name: string;
   gugun: string;
@@ -11,7 +11,6 @@ export interface PlaceData {
   tags: string;
   homepage_u: string;
   trfc_info: string;
-  usage_day: string;
   hldy_info: string;
   usage_time: string;
   usage_amou: string;
@@ -20,9 +19,15 @@ export interface PlaceData {
   main_img_t: string;
   itemcntnts: string;
   geometry: string;
+  likecnt: number;
 }
 
-export interface TourData {
+export interface PlaceData extends RawPlaceData {
+  categoryColor: string;
+  tagsArr: string[];
+}
+
+export interface RawTourData {
   id: number;
   name: string;
   gugun: string;
@@ -46,9 +51,10 @@ export interface TourData {
   middle_siz: string;
   main_img_n: string;
   main_img_t: string;
+  likecnt: number;
 }
 
-export interface ParsedTourData extends TourData {
+export interface TourData extends RawTourData {
   cateArr_with: string[];
   cateArr_season: string[];
   cateArr_nature: string[];
@@ -56,7 +62,7 @@ export interface ParsedTourData extends TourData {
   tagsArr: string[];
 }
 
-export interface FoodData {
+export interface RawFoodData {
   id: number;
   name: string;
   gugun: string;
@@ -72,9 +78,15 @@ export interface FoodData {
   main_img_t: string;
   itemcntnts: string;
   geometry: string;
+  likecnt: number;
 }
 
-export interface FestivalData {
+export interface FoodData extends RawFoodData {
+  categoryColor: string;
+  menuArr: string[];
+}
+
+export interface RawFestivalData {
   id: number;
   name: string;
   subname: string;
@@ -86,6 +98,12 @@ export interface FestivalData {
   hosting_method: string;
   tags: string;
   main_img_n: string;
+  likecnt: number;
+}
+
+export interface FestivalData extends RawFestivalData {
+  categoryColor: string;
+  tagsArr: string[];
 }
 
 export interface JoinData {
