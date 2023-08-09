@@ -1,5 +1,6 @@
 import { GrClose } from "react-icons/gr";
 import styled from "styled-components";
+import { css } from "styled-components";
 import { theme } from "styles/theme";
 import { DataCate, LikeBtn } from "styles/utils";
 
@@ -19,7 +20,6 @@ export const ModalBackdrop = styled.div`
 `;
 
 export const ModalView = styled.div`
-  padding: 3% 4%;
   width: 50%;
   height: 70%;
   position: absolute;
@@ -31,22 +31,13 @@ export const ModalView = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: auto;
-  &::-webkit-scrollbar {
-    display: block;
-    width: 8px;
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: ${theme.color.gray};
-    border-radius: 50px;
-  }
 `;
 
 export const ModalViewImg = styled.img`
   width: 100%;
-  height: 60%;
+  height: 50%;
   margin-bottom: 15px;
+  border-radius: 10px 10px 0 0;
 `;
 
 export const CloseModalBtn = styled(GrClose)`
@@ -57,7 +48,8 @@ export const CloseModalBtn = styled(GrClose)`
   cursor: pointer;
 
   & > path {
-    stroke: ${theme.color.black};
+    stroke: ${theme.color.white};
+    stroke-width: 4;
   }
 `;
 
@@ -78,8 +70,33 @@ export const ModalAddr = styled.span`
   margin-bottom: 10px;
 `;
 
+export const ModalMenuContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 25px;
+`;
+
+export const ModalMenu = styled.button<{ $active?: boolean }>`
+  width: 33%;
+  padding: 1% 3%;
+  font-weight: 600;
+  transition: all 250ms ease-in-out;
+  color: ${theme.color.gray};
+  border-bottom: 2px solid ${theme.color.gray};
+
+  ${({ $active }) =>
+    $active &&
+    css`
+      color: ${theme.color.blue};
+      border-bottom: 2px solid ${theme.color.blue};
+    `}
+`;
+
+export const ModalLikeBtn = styled(LikeBtn)``;
+
 export const ModalContent = styled.p`
-  width: 90%;
+  width: 85%;
   font-size: ${theme.fontSize.md};
   margin-bottom: 15px;
   line-height: 25px;
