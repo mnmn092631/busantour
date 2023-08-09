@@ -60,7 +60,7 @@ const Header = () => {
           <LoginBtn to="/login">로그인/회원가입</LoginBtn>
         )}
       </Navbar>
-      <Hamburger className="tabletMin-mobile-only" onClick={() => setIsOpen(!isOpen)} />
+      <Hamburger className="tablet-moblie-only" onClick={() => setIsOpen(!isOpen)} />
     </HeaderContainer>
   );
 };

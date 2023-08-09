@@ -41,7 +41,7 @@ export const HLogo = styled(Logo)`
   &:hover {
     color: ${theme.color.blue};
   }
-  ${media.tabletMin} {
+  ${media.tabletMax} {
     flex-grow: 0;
   }
 `;
@@ -52,7 +52,7 @@ export const Navbar = styled.nav<{ $isOpen: boolean }>`
   align-items: center;
   flex-grow: 1;
 
-  ${media.tabletMin} {
+  ${media.tabletMax} {
     position: absolute;
     top: 70px;
     left: 0;
@@ -99,7 +99,7 @@ export const NavUl = styled.ul<{ $bgWhite: boolean; $isLoginPage: boolean; $isOp
       content: "";
       transition: all 350ms cubic-bezier(0.54, 0, 0.53, 1);
       z-index: -1;
-      ${media.tabletMin} {
+      ${media.tabletMax} {
         top: 0;
         height: 100%;
       }
@@ -118,7 +118,7 @@ export const NavUl = styled.ul<{ $bgWhite: boolean; $isLoginPage: boolean; $isOp
     }
   }
 
-  ${media.tabletMin} {
+  ${media.tabletMax} {
     flex-direction: column;
   }
 `;
@@ -135,7 +135,7 @@ export const LoginBtn = styled(Link)`
     transform: scale(1.05);
   }
 
-  ${media.tabletMin} {
+  ${media.tabletMax} {
     margin: 15px 0;
   }
 `;
@@ -150,7 +150,7 @@ export const LogoutBtn = styled.button`
     transform: scale(1.05);
   }
 
-  ${media.tabletMin} {
+  ${media.tabletMax} {
     width: 100%;
     text-align: center;
     margin: 15px 0;
