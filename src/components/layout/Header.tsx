@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Hamburger, HeaderContainer, LoginBtn, Logo, LogoutBtn, NavUl, Navbar } from "styles/layout/header";
+import { Hamburger, HeaderContainer, LoginBtn, HLogo, LogoutBtn, NavUl, Navbar } from "styles/layout/header";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
@@ -36,9 +36,9 @@ const Header = () => {
 
   return (
     <HeaderContainer $bgWhite={bgWhite} ref={headerRef} $isLoginPage={isLoginPage} $isOpen={isOpen}>
-      <Logo>
+      <HLogo>
         <Link to="/">Busan Tour</Link>
-      </Logo>
+      </HLogo>
       <Navbar $isOpen={isOpen}>
         <NavUl $bgWhite={bgWhite} $isLoginPage={isLoginPage} $isOpen={isOpen}>
           <li>

@@ -1,6 +1,6 @@
 import { media, theme } from "styles/theme";
 import styled from "styled-components";
-import { Logo } from "./header";
+import { Logo } from "styles/utils";
 
 export const FooterContainer = styled.footer`
   position: relative;
@@ -19,8 +19,6 @@ export const FooterHeader = styled.header`
 
 export const FLogo = styled(Logo)`
   margin-right: 5%;
-  cursor: default;
-  flex-grow: 0;
 `;
 
 export const SocialIcons = styled.div`

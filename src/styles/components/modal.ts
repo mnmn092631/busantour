@@ -1,7 +1,7 @@
 import { GrClose } from "react-icons/gr";
 import styled from "styled-components";
 import { theme } from "styles/theme";
-import { CardCategory } from "./subpage/card";
+import { DataCate } from "styles/utils";
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -58,7 +58,7 @@ export const ModalViewTitle = styled.h1`
   margin-bottom: 5px;
 `;
 
-export const ModalCategory = styled(CardCategory)`
+export const ModalCategory = styled(DataCate)`
   line-height: 24px;
 `;
 

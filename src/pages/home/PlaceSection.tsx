@@ -11,8 +11,8 @@ import {
   MorePlaceBtn,
 } from "styles/home/placeStyle";
 import { PlaceData } from "types/api";
-import { CardCategory } from "styles/components/subpage/card";
 import { useNavigate } from "react-router-dom";
+import { DataCate } from "styles/utils";
 
 const PlaceSection = () => {
   const [selectedGugun, setSelectedGugun] = useState<string>("금정구");
@@ -43,7 +43,7 @@ const PlaceSection = () => {
             .map(place => (
               <div key={place.id}>
                 <MapCardTitle>
-                  <CardCategory $category={category[place.category]}>{place.category}</CardCategory>
+                  <DataCate $category={category[place.category]}>{place.category}</DataCate>
                   {place.name}
                 </MapCardTitle>
                 <MapCardContent>{place.addr}</MapCardContent>

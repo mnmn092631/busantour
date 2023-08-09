@@ -2,6 +2,7 @@ import { media, theme } from "styles/theme";
 import { css, styled } from "styled-components";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Logo } from "styles/utils";
 
 export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isLoginPage: boolean; $isOpen: boolean }>`
   position: fixed;
@@ -32,12 +33,11 @@ export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isLoginPage: 
         `}
 `;
 
-export const Logo = styled.h1`
-  font-size: ${theme.fontSize.xxl};
-  font-weight: 600;
+export const HLogo = styled(Logo)`
   z-index: 1;
   flex-grow: 1;
   transition: all 350ms ease-in-out;
+  cursor: pointer;
   &:hover {
     color: ${theme.color.blue};
   }

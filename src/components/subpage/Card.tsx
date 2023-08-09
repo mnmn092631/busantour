@@ -1,5 +1,6 @@
 import React from "react";
-import { CardCategory, CardImg, CardItem, CardTitle } from "styles/components/subpage/card";
+import { CardImg, CardItem, CardTitle } from "styles/components/subpage/card";
+import { DataCate } from "styles/utils";
 import { CardProps } from "types/subpage";
 
 const Card = ({ item, subCategories, onClick }: CardProps) => {
@@ -8,7 +9,7 @@ const Card = ({ item, subCategories, onClick }: CardProps) => {
       <CardImg src={item.main_img_n} alt={item.name} />
       <CardTitle>
         {subCategories && "category" in item && (
-          <CardCategory $category={subCategories[item.category]}>{item.category}</CardCategory>
+          <DataCate $category={subCategories[item.category]}>{item.category}</DataCate>
         )}
         {item.name}
       </CardTitle>
