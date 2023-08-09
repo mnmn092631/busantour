@@ -23,22 +23,7 @@ const BusanMap = ({ selectedGugun, setSelectedGugun }: BusanMapProps) => {
   };
 
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      baseProfile="tiny"
-      version="1.2"
-      viewBox="0 100 3007 2480"
-      style={{
-        width: "100vmax",
-        height: "100vmin",
-        maxWidth: "1344px",
-        maxHeight: "972px",
-        position: "absolute",
-        top: "55%",
-        right: "0",
-        transform: "translateY(-50%)",
-      }}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" baseProfile="tiny" version="1.2" viewBox="300 400 2607 1880">
       <Buk onClick={onClick} selectedGugun={selectedGugun} />
       <Dong onClick={onClick} selectedGugun={selectedGugun} />
       <Busanjin onClick={onClick} selectedGugun={selectedGugun} />

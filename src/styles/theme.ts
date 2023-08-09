@@ -28,8 +28,8 @@ export const MIXINS = {};
 
 export const media = {
   custom: customMediaQuery,
-  pc: customMediaQuery(1279),
-  tabletMax: customMediaQuery(1023),
-  tabletMin: customMediaQuery(767),
-  mobile: customMediaQuery(479),
+  pc: customMediaQuery(1281),
+  tabletMax: customMediaQuery(1025),
+  tabletMin: customMediaQuery(769),
+  mobile: customMediaQuery(481),
 };

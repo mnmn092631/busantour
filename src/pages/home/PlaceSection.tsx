@@ -9,10 +9,10 @@ import {
   MorePlaceBtn,
   MapDataTitle,
   MapDataAddr,
+  MapDataCate,
 } from "styles/home/placeStyle";
 import { PlaceData } from "types/api";
 import { useNavigate } from "react-router-dom";
-import { DataCate } from "styles/utils";
 
 const PlaceSection = () => {
   const [selectedGugun, setSelectedGugun] = useState<string>("금정구");
@@ -43,7 +43,7 @@ const PlaceSection = () => {
             .map(place => (
               <div key={place.id}>
                 <MapDataTitle>
-                  <DataCate $category={category[place.category]}>{place.category}</DataCate>
+                  <MapDataCate $category={category[place.category]}>{place.category}</MapDataCate>
                   {place.name}
                 </MapDataTitle>
                 <MapDataAddr>{place.addr}</MapDataAddr>
