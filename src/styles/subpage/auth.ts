@@ -42,6 +42,11 @@ export const AuthInput = styled.input`
   }
 `;
 
+export const AuthInputMessage = styled.p`
+  height: 16px;
+  color: red;
+`;
+
 export const BtnContainer = styled.div`
   width: 100%;
   display: flex;
