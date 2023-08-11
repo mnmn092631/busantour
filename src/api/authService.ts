@@ -1,9 +1,17 @@
+import { axiosInstance } from "api";
 import { JoinData, LoginData } from "types/api";
-import { axiosInstance } from "./index";
 
-const login = ({ id, password }: LoginData) => axiosInstance.post("/api/login", { id, password });
+/**
+ * 로그인 요청
+ * @param body 로그인 하는데 필요한 데이터들(id, password)
+ */
+const login = (body: LoginData) => axiosInstance.post("/api/login", body);
 
-const signup = ({ id, username, password }: JoinData) => axiosInstance.post("/api/signup", { id, username, password });
+/**
+ * 회원가입 요청
+ * @param body 회원가입 하는데 필요한 데이터들(id, username, password)
+ */
+const signup = (body: JoinData) => axiosInstance.post("/api/signup", body);
 
 const authService = { login, signup };
 

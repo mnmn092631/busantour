@@ -3,8 +3,6 @@ import { RawPlaceData } from "types/api";
 
 const getPlace = () => axiosInstance.get<RawPlaceData[]>("/busanplace");
 
-const getPlaceById = (id: number) => axiosInstance.get<RawPlaceData>(`/busanplace/${id}`);
-
-const placeService = { getPlace, getPlaceById };
+const placeService = { getPlace };
 
 export default placeService;
