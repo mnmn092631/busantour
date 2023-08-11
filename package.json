@@ -62,5 +62,5 @@
     "babel-plugin-styled-components": "^2.1.4",
     "react-scripts": "^5.0.1"
   },
-  "proxy": "http://10.125.121.178:8080"
+  "proxy": "http://localhost:8080"
 }

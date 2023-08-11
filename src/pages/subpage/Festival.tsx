@@ -36,7 +36,7 @@ const Festival = () => {
     setEvents(festivals.map(convertToFestivalEvent));
   }, [festivals]);
 
-  if (festivals.length === 0) return;
+  if (festivals.length === 0) return null;
 
   return (
     <>
