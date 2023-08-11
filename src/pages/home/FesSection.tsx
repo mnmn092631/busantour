@@ -67,8 +67,8 @@ const FesSection = () => {
   return (
     <FesContainer>
       <Carousel $count={count} ref={carouselRef}>
-        {festivals.map(fes => (
-          <FesCard key={fes.id}>
+        {festivals.map((fes, idx) => (
+          <FesCard key={idx}>
             <FesImg src={fes.main_img_n} alt={fes.name} />
             <FesContent>
               <FesTitle>{fes.name}</FesTitle>

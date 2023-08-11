@@ -27,7 +27,10 @@ const Login = () => {
     if (!id || !password) return;
 
     try {
-      const { data, status }: { data: string; status: number } = await apiService.authService.login({ id, password });
+      const { data, status }: { data: string; status: number } = await apiService.authService.login({
+        username: id,
+        password,
+      });
       if (status === 200) {
         dispatch(login(id, data));
         navigate("/");

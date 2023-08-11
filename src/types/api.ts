@@ -106,14 +106,8 @@ export interface FestivalData extends RawFestivalData {
   tagsArr: string[];
 }
 
-export interface JoinData {
-  id: string;
+export interface AuthData {
   username: string;
-  password: string;
-}
-
-export interface LoginData {
-  id: string;
   password: string;
 }
 

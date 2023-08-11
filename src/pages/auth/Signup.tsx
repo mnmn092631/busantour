@@ -5,24 +5,24 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
-  const [form, setForm] = useState({ id: "", password: "", username: "" });
-  const { id, username, password } = form;
+  const [form, setForm] = useState({ id: "", password: "" });
+  const { id, password } = form;
   const [isIDExist, setIsIDExist] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const signup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!id || !password || !username) return;
+    if (!id || !password) return;
 
     try {
-      const { status } = await apiService.authService.signup({ id, username, password });
+      const { status } = await apiService.authService.signup({ username: id, password });
       if (status === 201) navigate("/login");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         const status = error.response?.status;
         if (status === 409) {
           setIsIDExist(true);
-          setForm({ id: "", password, username });
+          setForm({ id: "", password });
           return;
         }
       } else {
@@ -30,22 +30,14 @@ const Signup = () => {
       }
     }
 
-    setForm({ id: "", password: "", username: "" });
+    setForm({ id: "", password: "" });
   };
 
-  const validateInput = (fieldName: string) => {
-    switch (fieldName) {
-      case "id":
-        if (id.length === 0) return;
-        else if (!/^[a-zA-Z0-9]*$/.test(id)) return "ID는 영문 대소문자, 숫자로만 이루어져야 합니다.";
-        else if (id.length < 5 || id.length > 15) return "ID는 5자 이상 15자 이하여야 합니다.";
-        else return;
-      case "username":
-        if (username.length === 0) return;
-        else if (!/^[a-zA-Z가-힣]*$/.test(username)) return "Username은 영문 대소문자, 한글로만 이루어져야 합니다.";
-        else if (username.length < 3 || username.length > 10) return "Username은 3자 이상 10자 이하여야 합니다.";
-        else return;
-    }
+  const validateInput = () => {
+    if (id.length === 0) return;
+    else if (!/^[a-z0-9]*$/.test(id)) return "ID는 영문 소문자, 숫자로만 이루어져야 합니다.";
+    else if (id.length < 3 || id.length > 10) return "ID는 3자 이상 10자 이하여야 합니다.";
+    else return;
   };
 
   const valueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,24 +55,12 @@ const Signup = () => {
           placeholder="ID"
           value={id}
           onChange={valueChange}
-          pattern="^[a-zA-Z0-9]*$"
+          pattern="^[a-z0-9]*$"
           minLength={5}
           maxLength={15}
           required
         />
-        <AuthInputMessage>{isIDExist ? "이미 존재하는 아이디입니다." : validateInput("id")}</AuthInputMessage>
-        <AuthInput
-          type="text"
-          name="username"
-          placeholder="USERNAME"
-          value={username}
-          onChange={valueChange}
-          pattern="^[a-zA-Z가-힣]*$"
-          minLength={3}
-          maxLength={10}
-          required
-        />
-        <AuthInputMessage>{validateInput("username")}</AuthInputMessage>
+        <AuthInputMessage>{isIDExist ? "이미 존재하는 아이디입니다." : validateInput()}</AuthInputMessage>
         <AuthInput
           type="password"
           name="password"

@@ -43,17 +43,16 @@ const TourSection = () => {
     return () => scroll.removeEventListener("wheel", e => onWheel(e));
   }, [scrollRef.current?.clientWidth]);
 
-  if (tags.length === 0) return null;
-
   return (
     <TourContainer>
       <SectionTitle>#테마여행</SectionTitle>
       <TagContainer ref={scrollRef}>
-        {tags.slice(0, 10).map((tag, idx) => (
-          <Tag key={idx} onClick={() => navigate(`/tour?cate=${tag}`)}>
-            {tag}
-          </Tag>
-        ))}
+        {tags.length !== 0 &&
+          tags.slice(0, 10).map((tag, idx) => (
+            <Tag key={idx} onClick={() => navigate(`/tour?cate=${tag}`)}>
+              {tag}
+            </Tag>
+          ))}
       </TagContainer>
     </TourContainer>
   );
