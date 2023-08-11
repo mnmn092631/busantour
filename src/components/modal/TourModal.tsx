@@ -11,22 +11,23 @@ const TourModal = () => {
   const [selectMenu, setSelectMenu] = useState<string>("상세정보");
 
   if (!data) return null;
+
   const {
-    main_img_n,
     name,
-    addr,
-    tagsArr,
     cate_with,
     cate_season,
     cate_nature,
     cate_plan,
+    tagsArr,
+    addr,
     trfc_info,
     usage_day,
+    hldy_info,
     usage_time,
     usage_amou,
-    likecnt,
-    hldy_info,
     middle_siz,
+    main_img_n,
+    likecnt,
   } = data;
 
   return (

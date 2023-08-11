@@ -57,22 +57,23 @@ const Places = () => {
       );
   }, [places, cate]);
 
+  if (places.length === 0) return null;
+
   return (
     <>
-      {places.length !== 0 && <PageTitle pageName="관광명소" imgSrc={places[1].main_img_n} imgName={places[1].name} />}
+      <PageTitle pageName="관광명소" imgSrc={places[1].main_img_n} imgName={places[1].name} />
       <ContentContainer>
         <CategorySelect categories={placeCate} cate={cate} setSearchParams={setSearchParams} />
         <CardContainer>
-          {places.length !== 0 &&
-            places
-              .filter(place => {
-                if (cate === "전체") return place;
-                else return place.gugun === cate;
-              })
-              .slice(offset, offset + 12)
-              .map(place => (
-                <Card key={place.id} item={place} onClick={() => dispatch(openModal("places", place.id))} />
-              ))}
+          {places
+            .filter(place => {
+              if (cate === "전체") return place;
+              else return place.gugun === cate;
+            })
+            .slice(offset, offset + 12)
+            .map(place => (
+              <Card key={place.id} item={place} onClick={() => dispatch(openModal("places", place.id))} />
+            ))}
         </CardContainer>
         <Pagination cate={cate} page={page} setSearchParams={setSearchParams} numPage={numPage} />
       </ContentContainer>

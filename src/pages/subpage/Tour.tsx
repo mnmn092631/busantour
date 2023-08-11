@@ -52,20 +52,23 @@ const Tour = () => {
       );
   }, [tours, tag]);
 
+  if (tours.length === 0) return null;
+
   return (
     <>
-      {tours.length !== 0 && <PageTitle pageName="테마여행" imgSrc={tours[1].main_img_n} imgName={tours[1].name} />}
+      <PageTitle pageName="테마여행" imgSrc={tours[1].main_img_n} imgName={tours[1].name} />
       <ContentContainer>
         <CategorySelect categories={tags} cate={tag} setSearchParams={setSearchParams} />
         <CardContainer>
-          {tours.length !== 0 &&
-            tours
-              .filter(tour => {
-                if (tag === "전체") return tour;
-                else return tour.tags.indexOf(tag) !== -1;
-              })
-              .slice(offset, offset + 12)
-              .map(tour => <Card key={tour.id} item={tour} onClick={() => dispatch(openModal("tours", tour.id))} />)}
+          {tours
+            .filter(tour => {
+              if (tag === "전체") return tour;
+              else return tour.tags.indexOf(tag) !== -1;
+            })
+            .slice(offset, offset + 12)
+            .map(tour => (
+              <Card key={tour.id} item={tour} onClick={() => dispatch(openModal("tours", tour.id))} />
+            ))}
         </CardContainer>
         <Pagination cate={tag} page={page} setSearchParams={setSearchParams} numPage={numPage} />
       </ContentContainer>

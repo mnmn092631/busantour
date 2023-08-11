@@ -1,6 +1,5 @@
 import apiService from "api";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
 import { ModalCommentInput, ModalCommentBtn } from "styles/components/modal";

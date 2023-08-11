@@ -11,18 +11,19 @@ const FoodModal = () => {
   const [selectMenu, setSelectMenu] = useState<string>("상세정보");
 
   if (!data) return null;
+
   const {
-    main_img_n,
     name,
     category,
-    addr,
-    itemcntnts,
-    likecnt,
     categoryColor,
+    addr,
     usage_open,
     usage_close,
     usage_breaktime,
     menuArr,
+    main_img_n,
+    itemcntnts,
+    likecnt,
   } = data;
 
   return (

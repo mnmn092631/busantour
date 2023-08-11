@@ -15,20 +15,21 @@ const FoodSection = () => {
     dispatch<any>(getFoodAsync());
   }, [dispatch]);
 
+  if (foods.length === 0) return null;
+
   return (
     <FoodContainer>
       <FoodTitle>부산맛집</FoodTitle>
       <CardContainer>
-        {foods.length !== 0 &&
-          foodCate.map((cate, idx) => (
-            <FoodCard key={idx} onClick={() => navigate(`/food?cate=${cate}`)}>
-              <FoodImg
-                src={foods.filter(food => food.category === cate)[0].main_img_n}
-                alt={foods.filter(food => food.category === cate)[0].name}
-              />
-              <FoodContent>{cate}</FoodContent>
-            </FoodCard>
-          ))}
+        {foodCate.map((cate, idx) => (
+          <FoodCard key={idx} onClick={() => navigate(`/food?cate=${cate}`)}>
+            <FoodImg
+              src={foods.filter(food => food.category === cate)[0].main_img_n}
+              alt={foods.filter(food => food.category === cate)[0].name}
+            />
+            <FoodContent>{cate}</FoodContent>
+          </FoodCard>
+        ))}
       </CardContainer>
     </FoodContainer>
   );

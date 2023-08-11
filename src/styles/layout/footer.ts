@@ -6,8 +6,8 @@ export const FooterContainer = styled.footer`
   position: relative;
   padding: 5%;
   width: 100%;
-  background-color: ${theme.color.deepBlue};
   color: ${theme.color.white};
+  background-color: ${theme.color.deepBlue};
 `;
 
 export const FooterHeader = styled.header`
@@ -22,17 +22,17 @@ export const FLogo = styled(Logo)`
 `;
 
 export const SocialIcons = styled.div`
-  max-width: 150px;
-  width: 35%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-bottom: -2px;
+  max-width: 150px;
+  width: 35%;
 
   & > * {
     font-size: ${theme.fontSize.xl};
-    cursor: pointer;
     transition: all 250ms ease-in-out;
+    cursor: pointer;
   }
 
   & > *:hover {
@@ -51,19 +51,19 @@ export const FNav = styled.ul`
   }
 
   & > li {
+    position: relative;
+    display: block;
     width: 25%;
     height: 25px;
     line-height: 25px;
-    position: relative;
-    display: block;
     text-align: center;
     cursor: pointer;
 
     ${media.mobile} {
+      margin: 5px 0;
       width: 100%;
       height: 30px;
       line-height: 30px;
-      margin: 5px 0;
     }
   }
 
@@ -78,10 +78,10 @@ export const FNav = styled.ul`
     transform: translate(-50%, -50%);
 
     ${media.mobile} {
-      width: 25px;
-      height: 1px;
       top: -5px;
       left: 50%;
+      width: 25px;
+      height: 1px;
     }
   }
 

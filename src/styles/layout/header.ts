@@ -4,22 +4,22 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Logo } from "styles/utils";
 
-export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isLoginPage: boolean; $isOpen: boolean }>`
+export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isAuthPage: boolean; $isOpen: boolean }>`
   position: fixed;
-  height: 70px;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
-  padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 2;
+  padding: 0 5%;
   max-width: 1920px;
   width: 100%;
+  height: 70px;
+  transform: translateX(-50%);
+  z-index: 2;
 
-  ${({ $bgWhite, $isLoginPage, $isOpen }) =>
-    $bgWhite || $isLoginPage || $isOpen
+  ${({ $bgWhite, $isAuthPage, $isOpen }) =>
+    $bgWhite || $isAuthPage || $isOpen
       ? css`
           color: ${theme.color.black};
           background-color: ${theme.color.white};
@@ -34,8 +34,8 @@ export const HeaderContainer = styled.header<{ $bgWhite: boolean; $isLoginPage: 
 `;
 
 export const HLogo = styled(Logo)`
-  z-index: 1;
   flex-grow: 1;
+  z-index: 1;
   transition: all 350ms ease-in-out;
   cursor: pointer;
   &:hover {
@@ -69,7 +69,7 @@ export const Navbar = styled.nav<{ $isOpen: boolean }>`
   }
 `;
 
-export const NavUl = styled.ul<{ $bgWhite: boolean; $isLoginPage: boolean; $isOpen: boolean }>`
+export const NavUl = styled.ul<{ $bgWhite: boolean; $isAuthPage: boolean; $isOpen: boolean }>`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -79,24 +79,24 @@ export const NavUl = styled.ul<{ $bgWhite: boolean; $isLoginPage: boolean; $isOp
   & > li {
     position: relative;
     display: block;
-    height: 100%;
-    flex-shrink: 0;
     margin: 0 15px;
     padding: 20px 10px;
-    cursor: pointer;
+    height: 100%;
+    flex-shrink: 0;
     z-index: 1;
+    cursor: pointer;
     ${media.tabletMin} {
       text-align: center;
       width: 100%;
     }
 
     &::after {
+      content: "";
       position: absolute;
       top: 50%;
       left: 0;
       right: 0;
       height: 30%;
-      content: "";
       transition: all 350ms cubic-bezier(0.54, 0, 0.53, 1);
       z-index: -1;
       ${media.tabletMax} {
@@ -108,8 +108,8 @@ export const NavUl = styled.ul<{ $bgWhite: boolean; $isLoginPage: boolean; $isOp
     &:hover::after {
       background-color: ${theme.color.blue};
 
-      ${({ $bgWhite, $isLoginPage, $isOpen }) =>
-        ($bgWhite || $isLoginPage || $isOpen) &&
+      ${({ $bgWhite, $isAuthPage, $isOpen }) =>
+        ($bgWhite || $isAuthPage || $isOpen) &&
         css`
           opacity: 0.7;
         `}
@@ -151,9 +151,9 @@ export const LogoutBtn = styled.button`
   }
 
   ${media.tabletMax} {
+    margin: 15px 0;
     width: 100%;
     text-align: center;
-    margin: 15px 0;
   }
 `;
 

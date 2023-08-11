@@ -10,13 +10,13 @@ const Header = () => {
   const [bgWhite, setBgWhite] = useState<boolean>(false);
   const headerRef = useRef<HTMLHeadElement>(null);
   const loc = useLocation().pathname;
-  const isLoginPage = loc === "/login" || loc === "/signup";
+  const isAuthPage = loc === "/login" || loc === "/signup";
   const isLoggedIn = useSelector((state: AppState) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const scrollEvent = () => {
-      if (isLoginPage) return;
+      if (isAuthPage) return;
       if (!headerRef.current) return;
 
       const clientHeight = headerRef.current.clientHeight;
@@ -28,19 +28,19 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", scrollEvent);
     };
-  }, [isLoginPage]);
+  }, [isAuthPage]);
 
   useEffect(() => {
     setIsOpen(false);
   }, [loc]);
 
   return (
-    <HeaderContainer $bgWhite={bgWhite} ref={headerRef} $isLoginPage={isLoginPage} $isOpen={isOpen}>
+    <HeaderContainer $bgWhite={bgWhite} ref={headerRef} $isAuthPage={isAuthPage} $isOpen={isOpen}>
       <HLogo>
         <Link to="/">Busan Tour</Link>
       </HLogo>
       <Navbar $isOpen={isOpen}>
-        <NavUl $bgWhite={bgWhite} $isLoginPage={isLoginPage} $isOpen={isOpen}>
+        <NavUl $bgWhite={bgWhite} $isAuthPage={isAuthPage} $isOpen={isOpen}>
           <li>
             <Link to="/place">관광명소</Link>
           </li>

@@ -38,20 +38,23 @@ const Foods = () => {
       );
   }, [foods, cate]);
 
+  if (foods.length === 0) return null;
+
   return (
     <>
-      {foods.length !== 0 && <PageTitle pageName="맛집정보" imgSrc={foods[2].main_img_n} imgName={foods[2].name} />}
+      <PageTitle pageName="맛집정보" imgSrc={foods[2].main_img_n} imgName={foods[2].name} />
       <ContentContainer>
         <CategorySelect categories={foodCate} cate={cate} setSearchParams={setSearchParams} />
         <CardContainer>
-          {foods.length !== 0 &&
-            foods
-              .filter(food => {
-                if (cate === "전체") return food;
-                else return food.category === cate;
-              })
-              .slice(offset, offset + 12)
-              .map(food => <Card key={food.id} item={food} onClick={() => dispatch(openModal("foods", food.id))} />)}
+          {foods
+            .filter(food => {
+              if (cate === "전체") return food;
+              else return food.category === cate;
+            })
+            .slice(offset, offset + 12)
+            .map(food => (
+              <Card key={food.id} item={food} onClick={() => dispatch(openModal("foods", food.id))} />
+            ))}
         </CardContainer>
         <Pagination cate={cate} page={page} setSearchParams={setSearchParams} numPage={numPage} />
       </ContentContainer>

@@ -12,21 +12,22 @@ const PlaceModal = () => {
   const [selectMenu, setSelectMenu] = useState<string>("상세정보");
 
   if (!data) return null;
+
   const {
     id,
-    categoryColor,
-    main_img_n,
     name,
-    category,
     addr,
-    itemcntnts,
-    likecnt,
-    trfc_info,
+    category,
+    categoryColor,
     homepage_u,
+    trfc_info,
     hldy_info,
     usage_time,
     usage_amou,
     middle_siz,
+    main_img_n,
+    itemcntnts,
+    likecnt,
   } = data;
 
   return (

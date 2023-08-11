@@ -11,9 +11,8 @@ const FestivalModal = () => {
   const [selectMenu, setSelectMenu] = useState<string>("상세정보");
 
   if (!data) return null;
-  const { main_img_n, name, category, tags, startDate, endDate, subname, place, categoryColor, likecnt } = data;
 
-  const tagList = tags.split(", ");
+  const { name, subname, category, categoryColor, startDate, endDate, place, tagsArr, main_img_n, likecnt } = data;
 
   return (
     <>
@@ -27,7 +26,7 @@ const FestivalModal = () => {
             {startDate.toISOString().slice(0, 10)} ~ {endDate.toISOString().slice(0, 10)}
           </p>
           <p>
-            {tagList.map((item, idx) => (
+            {tagsArr.map((item, idx) => (
               <button key={idx}>#{item}</button>
             ))}
           </p>
