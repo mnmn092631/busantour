@@ -4,6 +4,7 @@ import { AppState } from "store";
 import { ModalContent, ModalInfo, ModalViewImg } from "styles/components/modal";
 import SubpageModalMenu from "./SubpageModalMenu";
 import SubpageModalTitle from "./SubpageModalTitle";
+import ModalComment from "./ModalComment";
 
 const PlaceModal = () => {
   const { dataId } = useSelector((state: AppState) => state.modal);
@@ -12,6 +13,7 @@ const PlaceModal = () => {
 
   if (!data) return null;
   const {
+    id,
     categoryColor,
     main_img_n,
     name,
@@ -49,6 +51,7 @@ const PlaceModal = () => {
           <p>교통정보 : {trfc_info}</p>
         </ModalInfo>
       )}
+      {selectMenu === "댓글" && <ModalComment post_id={id} type="place" />}
     </>
   );
 };

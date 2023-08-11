@@ -5,6 +5,7 @@ import * as Festival from "./festival";
 import * as Tour from "./tour";
 import * as Modal from "./modal";
 import * as Auth from "./auth";
+import * as Comment from "./comment";
 
 export const rootReducer = combineReducers({
   places: Place.reducer,
@@ -13,4 +14,5 @@ export const rootReducer = combineReducers({
   tours: Tour.reducer,
   modal: Modal.reducer,
   auth: Auth.reducer,
+  comment: Comment.reducer,
 });

@@ -116,3 +116,12 @@ export interface LoginData {
   id: string;
   password: string;
 }
+
+export interface CommentData {
+  id: number;
+  comment: string;
+  created_at: Date;
+  post_id: number;
+  type: "place" | "tour" | "festival" | "food";
+  user_id: string;
+}

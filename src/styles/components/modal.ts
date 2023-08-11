@@ -105,3 +105,12 @@ export const ModalContent = styled.div`
 export const ModalInfo = styled.div`
   width: 90%;
 `;
+
+export const ModalCommentInput = styled.input`
+  border: 1px solid ${theme.color.blue};
+`;
+
+export const ModalCommentBtn = styled.button`
+  background-color: ${theme.color.blue};
+  border-radius: 5px;
+`;
