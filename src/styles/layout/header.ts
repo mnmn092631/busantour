@@ -85,7 +85,7 @@ export const NavUl = styled.ul<{ $bgWhite: boolean; $isAuthPage: boolean; $isOpe
     flex-shrink: 0;
     z-index: 1;
     cursor: pointer;
-    ${media.tabletMin} {
+    ${media.tabletMax} {
       text-align: center;
       width: 100%;
     }
