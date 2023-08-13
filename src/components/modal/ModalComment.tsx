@@ -1,6 +1,6 @@
 import apiService from "api";
 import localStorageMethod from "common/localStorage";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { ModalCommentInput, ModalCommentBtn } from "styles/components/modal";
 import { CommentData } from "types/api";
 import ModalCommentItem from "./ModalCommentItem";
@@ -15,24 +15,30 @@ const ModalComment = ({ type_id, type }: ModalCommentProps) => {
   const [newComment, setNewComment] = useState<string>("");
   const username = localStorageMethod.getUser();
 
-  useEffect(() => {
-    const fetchCommentList = async () => {
-      try {
-        const { data } = await apiService.commentService.getComment(type, type_id);
-        setCommentList(data);
-      } catch (error) {
-        console.error("Error fetching comment list:", error);
-      }
-    };
-    fetchCommentList();
+  const fetchCommentList = useCallback(async () => {
+    try {
+      const { data } = await apiService.commentService.getComment(type, type_id);
+      const parsedData: CommentData[] = data.map((item: CommentData) => ({
+        ...item,
+        createdAt: new Date(item.createdAt),
+      }));
+      setCommentList(parsedData);
+    } catch (error) {
+      console.error("Error fetching comment list:", error);
+    }
   }, [type, type_id]);
+
+  useEffect(() => {
+    fetchCommentList();
+  }, [fetchCommentList]);
 
   const addComment = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!newComment || !username) return;
 
-    apiService.commentService.postComment({ comment: newComment, type, type_id });
+    await apiService.commentService.postComment({ comment: newComment, type, typeId: type_id });
+
+    fetchCommentList();
     setNewComment("");
   };
 
@@ -44,7 +50,9 @@ const ModalComment = ({ type_id, type }: ModalCommentProps) => {
     <>
       <ul>
         {commentList.length !== 0 &&
-          commentList.map(comment => <ModalCommentItem key={comment.id} comment={comment}></ModalCommentItem>)}
+          commentList.map(comment => (
+            <ModalCommentItem key={comment.id} comment={comment} fetchCommentList={fetchCommentList} />
+          ))}
       </ul>
       <form onSubmit={e => addComment(e)}>
         <ModalCommentInput type="text" value={newComment} onChange={onChange} />

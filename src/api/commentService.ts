@@ -4,13 +4,13 @@ import { CommentData } from "types/api";
 
 const getComment = (type: string, type_id: number) => axiosInstance.get<CommentData[]>(`/comment/${type}/${type_id}`);
 
-const postComment = ({ comment, type_id, type }: Omit<CommentData, "id" | "created_at" | "username">) =>
+const postComment = ({ comment, type, typeId }: Omit<CommentData, "id" | "createdAt" | "username">) =>
   axiosInstance.post(
     "/comment/add",
     {
       comment,
       type,
-      typeId: type_id,
+      typeId,
     },
     {
       headers: { Authorization: `Bearer ${cookieMethod.getCookie("accessToken")}` },

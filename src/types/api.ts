@@ -110,8 +110,8 @@ export interface AuthData {
 export interface CommentData {
   id: number;
   comment: string;
-  created_at: Date;
+  createdAt: Date;
   type: "place" | "tour" | "food" | "festival";
-  type_id: number;
+  typeId: number;
   username: string;
 }
