@@ -2,7 +2,7 @@ import { GrClose } from "react-icons/gr";
 import styled from "styled-components";
 import { css } from "styled-components";
 import { theme } from "styles/theme";
-import { DataCate, LikeBtn } from "styles/utils";
+import { DataCate } from "styles/utils";
 
 export const ModalContainer = styled.div`
   position: fixed;

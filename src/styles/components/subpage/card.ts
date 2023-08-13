@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "styles/theme";
 import { GrFormClose } from "react-icons/gr";
-import { DataTitle, LikeBtn } from "styles/utils";
+import { DataTitle } from "styles/utils";
 
 export const CardItem = styled.div<{ $active?: number }>`
   position: relative;
