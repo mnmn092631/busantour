@@ -27,13 +27,12 @@ const TourModal = () => {
     usage_amou,
     middle_siz,
     main_img_n,
-    likecnt,
   } = data;
 
   return (
     <>
       <ModalViewImg src={main_img_n} alt={name} />
-      <SubpageModalTitle likecnt={likecnt} name={name} />
+      <SubpageModalTitle name={name} />
       <SubpageModalMenu selectMenu={selectMenu} setSelectMenu={setSelectMenu} />
       {selectMenu === "상세정보" && (
         <ModalContent>

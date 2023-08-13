@@ -12,12 +12,12 @@ const FestivalModal = () => {
 
   if (!data) return null;
 
-  const { name, subname, category, categoryColor, startDate, endDate, place, tagsArr, main_img_n, likecnt } = data;
+  const { name, subname, category, categoryColor, startDate, endDate, place, tagsArr, main_img_n } = data;
 
   return (
     <>
       <ModalViewImg src={main_img_n} alt={name} />
-      <SubpageModalTitle likecnt={likecnt} categoryColor={categoryColor} category={category} name={name} />
+      <SubpageModalTitle categoryColor={categoryColor} category={category} name={name} />
       <SubpageModalMenu selectMenu={selectMenu} setSelectMenu={setSelectMenu} />
       {selectMenu === "상세정보" && (
         <ModalContent>

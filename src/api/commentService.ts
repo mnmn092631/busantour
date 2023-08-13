@@ -8,8 +8,8 @@ const postComment = ({ comment, type_id, type }: Omit<CommentData, "id" | "creat
   axiosInstance.post(
     "/comment/add",
     {
-      comment: comment,
-      type: type,
+      comment,
+      type,
       typeId: type_id,
     },
     {
@@ -17,10 +17,19 @@ const postComment = ({ comment, type_id, type }: Omit<CommentData, "id" | "creat
     },
   );
 
-const putComment = ({ id, comment, username }: Pick<CommentData, "id" | "comment" | "username">) =>
-  axiosInstance.put(`/comment/edit/${id}`, { comment, username });
+const putComment = ({ id, comment }: Pick<CommentData, "id" | "comment">) =>
+  axiosInstance.put(
+    `/comment/edit/${id}`,
+    { comment },
+    {
+      headers: { Authorization: `Bearer ${cookieMethod.getCookie("accessToken")}` },
+    },
+  );
 
-const deleteComment = (id: number) => axiosInstance.delete(`/comment/delete/${id}`);
+const deleteComment = (id: number) =>
+  axiosInstance.delete(`/comment/delete/${id}`, {
+    headers: { Authorization: `Bearer ${cookieMethod.getCookie("accessToken")}` },
+  });
 
 const commentService = { getComment, postComment, putComment, deleteComment };
 

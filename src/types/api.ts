@@ -19,7 +19,6 @@ export interface RawPlaceData {
   main_img_t: string;
   itemcntnts: string;
   geometry: string;
-  likecnt: number;
 }
 
 export interface PlaceData extends RawPlaceData {
@@ -51,7 +50,6 @@ export interface RawTourData {
   middle_siz: string;
   main_img_n: string;
   main_img_t: string;
-  likecnt: number;
 }
 
 export interface TourData extends RawTourData {
@@ -78,7 +76,6 @@ export interface RawFoodData {
   main_img_t: string;
   itemcntnts: string;
   geometry: string;
-  likecnt: number;
 }
 
 export interface FoodData extends RawFoodData {
@@ -98,7 +95,6 @@ export interface RawFestivalData {
   hosting_method: string;
   tags: string;
   main_img_n: string;
-  likecnt: number;
 }
 
 export interface FestivalData extends RawFestivalData {

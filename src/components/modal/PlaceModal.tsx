@@ -27,20 +27,12 @@ const PlaceModal = () => {
     middle_siz,
     main_img_n,
     itemcntnts,
-    likecnt,
   } = data;
 
   return (
     <>
       <ModalViewImg src={main_img_n} alt={name} />
-      <SubpageModalTitle
-        url={homepage_u}
-        likecnt={likecnt}
-        categoryColor={categoryColor}
-        category={category}
-        name={name}
-        addr={addr}
-      />
+      <SubpageModalTitle url={homepage_u} categoryColor={categoryColor} category={category} name={name} addr={addr} />
       <SubpageModalMenu selectMenu={selectMenu} setSelectMenu={setSelectMenu} />
       {selectMenu === "상세정보" && <ModalContent>{itemcntnts}</ModalContent>}
       {selectMenu === "이용안내" && (

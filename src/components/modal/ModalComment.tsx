@@ -3,6 +3,7 @@ import localStorageMethod from "common/localStorage";
 import React, { useEffect, useState } from "react";
 import { ModalCommentInput, ModalCommentBtn } from "styles/components/modal";
 import { CommentData } from "types/api";
+import ModalCommentItem from "./ModalCommentItem";
 
 interface ModalCommentProps {
   type_id: number;
@@ -41,7 +42,10 @@ const ModalComment = ({ type_id, type }: ModalCommentProps) => {
 
   return (
     <>
-      <ul>{commentList.length !== 0 && commentList.map(comment => <li key={comment.id}>{comment.comment}</li>)}</ul>
+      <ul>
+        {commentList.length !== 0 &&
+          commentList.map(comment => <ModalCommentItem key={comment.id} comment={comment}></ModalCommentItem>)}
+      </ul>
       <form onSubmit={e => addComment(e)}>
         <ModalCommentInput type="text" value={newComment} onChange={onChange} />
         <ModalCommentBtn type="submit">확인</ModalCommentBtn>
