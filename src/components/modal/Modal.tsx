@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { closeModal } from "store/modal";
 import { CloseModalBtn, ModalBackdrop, ModalContainer, ModalView } from "styles/components/modal";
-import PlaceModal from "./PlaceModal";
-import FoodModal from "./FoodModal";
-import FestivalModal from "./FestivalModal";
-import TourModal from "./TourModal";
+import PlaceModal from "./subpageModal/PlaceModal";
+import FoodModal from "./subpageModal/FoodModal";
+import FestivalModal from "./subpageModal/FestivalModal";
+import TourModal from "./subpageModal/TourModal";
 
 const MODAL_COMPONENT = [
   { type: "places", component: <PlaceModal /> },

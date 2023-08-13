@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
 import { ModalContent, ModalInfo, ModalViewImg } from "styles/components/modal";
-import SubpageModalMenu from "./SubpageModalMenu";
-import SubpageModalTitle from "./SubpageModalTitle";
+import SubpageModalMenu from "./utils/SubpageModalMenu";
+import SubpageModalTitle from "./utils/SubpageModalTitle";
+import ModalComment from "./utils/ModalComment";
 
 const FoodModal = () => {
   const { dataId } = useSelector((state: AppState) => state.modal);
@@ -13,6 +14,7 @@ const FoodModal = () => {
   if (!data) return null;
 
   const {
+    id,
     name,
     category,
     categoryColor,
@@ -40,6 +42,7 @@ const FoodModal = () => {
           <p>메뉴 : {menuArr.join(", ")}</p>
         </ModalInfo>
       )}
+      {selectMenu === "댓글" && <ModalComment type_id={id} type="food" />}
     </>
   );
 };

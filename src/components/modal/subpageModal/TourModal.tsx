@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
 import { ModalAddr, ModalContent, ModalInfo, ModalViewImg } from "styles/components/modal";
-import SubpageModalMenu from "./SubpageModalMenu";
-import SubpageModalTitle from "./SubpageModalTitle";
+import SubpageModalMenu from "./utils/SubpageModalMenu";
+import SubpageModalTitle from "./utils/SubpageModalTitle";
+import ModalComment from "./utils/ModalComment";
 
 const TourModal = () => {
   const { dataId } = useSelector((state: AppState) => state.modal);
@@ -13,6 +14,7 @@ const TourModal = () => {
   if (!data) return null;
 
   const {
+    id,
     name,
     cate_with,
     cate_season,
@@ -53,6 +55,7 @@ const TourModal = () => {
           <p>교통정보 : {trfc_info}</p>
         </ModalInfo>
       )}
+      {selectMenu === "댓글" && <ModalComment type_id={id} type="tour" />}
     </>
   );
 };

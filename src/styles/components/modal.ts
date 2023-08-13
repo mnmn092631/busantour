@@ -20,8 +20,8 @@ export const ModalBackdrop = styled.div`
 `;
 
 export const ModalView = styled.div`
-  width: 50%;
-  height: 70%;
+  width: 60%;
+  height: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,11 +31,12 @@ export const ModalView = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 `;
 
 export const ModalViewImg = styled.img`
   width: 100%;
-  height: 50%;
+  height: 45%;
   margin-bottom: 15px;
   border-radius: 10px 10px 0 0;
 `;
@@ -101,14 +102,85 @@ export const ModalContent = styled.div`
 `;
 
 export const ModalInfo = styled.div`
-  width: 90%;
+  width: 85%;
+`;
+
+export const ModalCommentContainer = styled.div`
+  width: 85%;
+`;
+
+export const ModalCommentForm = styled.form`
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 0 10% 2%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: ${theme.color.white};
 `;
 
 export const ModalCommentInput = styled.input`
-  border: 1px solid ${theme.color.blue};
+  flex-grow: 1;
+  margin-right: 15px;
+  border: 1.5px solid ${theme.color.blue};
+  padding: 5px 10px;
 `;
 
 export const ModalCommentBtn = styled.button`
+  padding: 5px 10px;
   background-color: ${theme.color.blue};
   border-radius: 5px;
+  color: ${theme.color.white};
+`;
+
+export const ModalCommentList = styled.ul`
+  width: 100%;
+`;
+
+export const ModalListItem = styled.li`
+  width: 100%;
+  padding: 2%;
+
+  & + & {
+    border-top: 2px solid ${theme.color.lightGray};
+  }
+`;
+
+export const ModalCommentInfo = styled.p`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+
+  & > strong {
+    font-weight: 600;
+  }
+`;
+
+export const ModalCommentContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const ModalCommentTxt = styled.input`
+  margin-right: 20px;
+  flex-grow: 1;
+  ${({ readOnly }) =>
+    !readOnly &&
+    css`
+      border-bottom: 1.5px solid ${theme.color.lightBlue};
+    `}
+`;
+
+export const ModalCommentBtns = styled.div`
+  & > button {
+    font-size: ${theme.fontSize.md};
+    padding: 5px;
+    transition: all 250ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      color: ${theme.color.blue};
+    }
+  }
 `;

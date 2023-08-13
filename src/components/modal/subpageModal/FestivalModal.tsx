@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
 import { ModalContent, ModalInfo, ModalViewImg } from "styles/components/modal";
-import SubpageModalMenu from "./SubpageModalMenu";
-import SubpageModalTitle from "./SubpageModalTitle";
+import SubpageModalMenu from "./utils/SubpageModalMenu";
+import SubpageModalTitle from "./utils/SubpageModalTitle";
+import ModalComment from "./utils/ModalComment";
 
 const FestivalModal = () => {
   const { dataId } = useSelector((state: AppState) => state.modal);
@@ -12,7 +13,7 @@ const FestivalModal = () => {
 
   if (!data) return null;
 
-  const { name, subname, category, categoryColor, startDate, endDate, place, tagsArr, main_img_n } = data;
+  const { id, name, subname, category, categoryColor, startDate, endDate, place, tagsArr, main_img_n } = data;
 
   return (
     <>
@@ -37,6 +38,7 @@ const FestivalModal = () => {
           <p>{place}</p>
         </ModalInfo>
       )}
+      {selectMenu === "댓글" && <ModalComment type_id={id} type="festival" />}
     </>
   );
 };

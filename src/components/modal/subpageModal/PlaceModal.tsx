@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
 import { ModalContent, ModalInfo, ModalViewImg } from "styles/components/modal";
-import SubpageModalMenu from "./SubpageModalMenu";
-import SubpageModalTitle from "./SubpageModalTitle";
-import ModalComment from "./ModalComment";
+import SubpageModalMenu from "./utils/SubpageModalMenu";
+import SubpageModalTitle from "./utils/SubpageModalTitle";
+import ModalComment from "./utils/ModalComment";
 
 const PlaceModal = () => {
   const { dataId } = useSelector((state: AppState) => state.modal);
