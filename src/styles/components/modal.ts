@@ -93,8 +93,6 @@ export const ModalMenu = styled.button<{ $active?: boolean }>`
     `}
 `;
 
-export const ModalLikeBtn = styled(LikeBtn)``;
-
 export const ModalContent = styled.div`
   width: 85%;
   font-size: ${theme.fontSize.md};

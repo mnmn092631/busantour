@@ -44,12 +44,3 @@ export const CardTitle = styled(DataTitle)`
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
-
-export const CardLikeBtn = styled(LikeBtn)`
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  position: absolute;
-  top: calc(80% - 40px);
-  right: 10px;
-`;
