@@ -52,7 +52,7 @@ const PlaceModal = () => {
           <p>교통정보 : {trfc_info}</p>
         </ModalInfo>
       )}
-      {selectMenu === "댓글" && <ModalComment post_id={id} type="place" />}
+      {selectMenu === "댓글" && <ModalComment type_id={id} type="place" />}
     </>
   );
 };

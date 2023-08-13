@@ -3,8 +3,6 @@ import * as Food from "./food";
 import * as Festival from "./festival";
 import * as Tour from "./tour";
 import * as Modal from "./modal";
-import * as Auth from "./auth";
-import * as Comment from "./comment";
 
 export type AppState = {
   places: Place.State;
@@ -12,6 +10,4 @@ export type AppState = {
   festivals: Festival.State;
   tours: Tour.State;
   modal: Modal.State;
-  auth: Auth.State;
-  comment: Comment.State;
 };

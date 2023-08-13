@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import apiService from "api";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { login } from "store/auth";
 import {
   AuthForm,
   AuthInput,
@@ -14,12 +11,14 @@ import {
   AuthInputMessage,
 } from "styles/subpage/auth";
 import axios from "axios";
+import cookieMethod from "common/cookie";
+import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [form, setForm] = useState({ id: "", password: "" });
   const { id, password } = form;
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [failedLoginMessage, setFailedLoginMessage] = useState<string>("");
 
   const postLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,19 +26,25 @@ const Login = () => {
     if (!id || !password) return;
 
     try {
-      const { data, status }: { data: string; status: number } = await apiService.authService.login({
+      const response = await apiService.authService.login({
         username: id,
         password,
       });
-      if (status === 200) {
-        dispatch(login(id, data));
-        navigate("/");
-      }
+
+      const token = response.headers.authorization.split(" ")[1];
+
+      const decodedUserInfo: { username: string; exp: number } = jwtDecode(token);
+      const expires = new Date(decodedUserInfo.exp * 1000);
+
+      cookieMethod.setCookie("accessToken", token, { path: "/", expires });
+      localStorage.setItem("userInfo", JSON.stringify(decodedUserInfo.username));
+      navigate("/");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (!error.response) return;
         const { data } = error.response;
-        setFailedLoginMessage(data);
+        console.log(error);
+        // setFailedLoginMessage(data);
       } else {
         console.error(error);
       }
@@ -64,7 +69,7 @@ const Login = () => {
       <AuthTitle>로그인</AuthTitle>
       <AuthForm onSubmit={e => postLogin(e)}>
         <AuthInput type="text" name="id" placeholder="ID" value={id} onChange={valueChange} required />
-        <AuthInputMessage>{failedLoginMessage?.slice(0, 2) === "ID" && failedLoginMessage}</AuthInputMessage>
+        {/* <AuthInputMessage>{failedLoginMessage?.slice(0, 2) === "ID" && failedLoginMessage}</AuthInputMessage> */}
         <AuthInput
           type="password"
           name="password"
@@ -73,7 +78,7 @@ const Login = () => {
           onChange={valueChange}
           required
         />
-        <AuthInputMessage>{failedLoginMessage?.slice(0, 8) === "Password" && failedLoginMessage}</AuthInputMessage>
+        {/* <AuthInputMessage>{failedLoginMessage?.slice(0, 8) === "Password" && failedLoginMessage}</AuthInputMessage> */}
         <BtnContainer>
           <SignupBtn to="/signup">회원가입</SignupBtn>
           <AuthSubmit type="submit">Login</AuthSubmit>

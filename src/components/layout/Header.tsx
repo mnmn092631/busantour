@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Hamburger, HeaderContainer, LoginBtn, HLogo, LogoutBtn, NavUl, Navbar } from "styles/layout/header";
-import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { AppState } from "store";
-import { logout } from "store/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import localStorageMethod from "common/localStorage";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -11,8 +9,7 @@ const Header = () => {
   const headerRef = useRef<HTMLHeadElement>(null);
   const loc = useLocation().pathname;
   const isAuthPage = loc === "/login" || loc === "/signup";
-  const isLoggedIn = useSelector((state: AppState) => state.auth.isLoggedIn);
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const scrollEvent = () => {
@@ -54,8 +51,15 @@ const Header = () => {
             <Link to="/festival">지역축제</Link>
           </li>
         </NavUl>
-        {isLoggedIn ? (
-          <LogoutBtn onClick={() => dispatch(logout())}>로그아웃</LogoutBtn>
+        {localStorageMethod.getUser() ? (
+          <LogoutBtn
+            onClick={() => {
+              localStorageMethod.removeUser();
+              navigate("/");
+            }}
+          >
+            로그아웃
+          </LogoutBtn>
         ) : (
           <LoginBtn to="/login">로그인/회원가입</LoginBtn>
         )}

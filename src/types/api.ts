@@ -115,7 +115,7 @@ export interface CommentData {
   id: number;
   comment: string;
   created_at: Date;
-  post_id: number;
-  type: "place" | "tour" | "festival" | "food";
-  user_id: string;
+  type: "place" | "tour" | "food" | "festival";
+  type_id: number;
+  username: string;
 }

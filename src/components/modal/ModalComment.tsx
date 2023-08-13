@@ -1,38 +1,50 @@
 import apiService from "api";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { AppState } from "store";
+import localStorageMethod from "common/localStorage";
+import React, { useEffect, useState } from "react";
 import { ModalCommentInput, ModalCommentBtn } from "styles/components/modal";
+import { CommentData } from "types/api";
 
 interface ModalCommentProps {
-  post_id: number;
+  type_id: number;
   type: "place" | "food" | "festival" | "tour";
 }
 
-const ModalComment = ({ post_id, type }: ModalCommentProps) => {
-  const [comment, setComment] = useState<string>("");
-  const user_id = useSelector((state: AppState) => state.auth.user?.id);
-  const commentList = useSelector((state: AppState) => state.comment.filter(comment => comment.type === type));
+const ModalComment = ({ type_id, type }: ModalCommentProps) => {
+  const [commentList, setCommentList] = useState<CommentData[]>([]);
+  const [newComment, setNewComment] = useState<string>("");
+  const username = localStorageMethod.getUser();
+
+  useEffect(() => {
+    const fetchCommentList = async () => {
+      try {
+        const { data } = await apiService.commentService.getComment(type, type_id);
+        setCommentList(data);
+      } catch (error) {
+        console.error("Error fetching comment list:", error);
+      }
+    };
+    fetchCommentList();
+  }, [type, type_id]);
 
   const addComment = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!comment || !user_id) return;
+    if (!newComment || !username) return;
 
-    apiService.commentService.postComment({ comment, post_id, type, user_id });
-    setComment("");
+    apiService.commentService.postComment({ comment: newComment, type, type_id });
+    setNewComment("");
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setComment(e.target.value);
+    setNewComment(e.target.value);
   };
 
   return (
     <>
-      <ul>{commentList && commentList.map(comment => <li key={comment.id}>{comment.comment}</li>)}</ul>
+      <ul>{commentList.length !== 0 && commentList.map(comment => <li key={comment.id}>{comment.comment}</li>)}</ul>
       <form onSubmit={e => addComment(e)}>
-        <ModalCommentInput type="text" value={comment} onChange={onChange} />
-        <ModalCommentBtn>확인</ModalCommentBtn>
+        <ModalCommentInput type="text" value={newComment} onChange={onChange} />
+        <ModalCommentBtn type="submit">확인</ModalCommentBtn>
       </form>
     </>
   );
