@@ -2,7 +2,7 @@ import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { css } from "styled-components";
-import { theme } from "styles/theme";
+import { media, theme } from "styles/theme";
 import { DataCate } from "styles/utils";
 
 export const ModalContainer = styled.div`
@@ -140,20 +140,25 @@ export const ModalCommentForm = styled.form`
   display: flex;
   justify-content: space-around;
   background-color: ${theme.color.white};
+
+  ${media.tabletMin} {
+    padding: 0;
+  }
 `;
 
 export const ModalCommentInput = styled.input`
-  flex-grow: 1;
-  margin-right: 15px;
+  margin-right: 0.938rem;
   border: 1.5px solid ${theme.color.blue};
-  padding: 5px 10px;
+  padding: 0.313rem 0.625rem;
+  width: 75%;
 `;
 
 export const ModalCommentBtn = styled.button`
-  padding: 5px 10px;
+  padding: 0.313rem 0.625rem;
   background-color: ${theme.color.blue};
   border-radius: 5px;
   color: ${theme.color.white};
+  width: 20%;
 `;
 
 export const ModalListItem = styled.li`

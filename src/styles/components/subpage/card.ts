@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "styles/theme";
+import { media, theme } from "styles/theme";
 import { GrFormClose } from "react-icons/gr";
 import { DataTitle } from "styles/utils";
 
@@ -19,6 +19,40 @@ export const CardItem = styled.div<{ $active?: number }>`
   box-shadow: 10px 10px 15px #bebebe, -10px -10px 15px #ffffff;
   overflow: hidden;
   cursor: pointer;
+
+  ${media.tabletMin} {
+    width: 30%;
+    height: 23%;
+    margin-right: calc(8% / 2);
+    margin-bottom: calc(70vh * 0.08 / 3);
+    &:nth-child(4n) {
+      margin-right: calc(8% / 2);
+    }
+    &:nth-child(n + 9):nth-child(-n + 12) {
+      margin-bottom: calc(70vh * 0.08 / 3);
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    &:nth-child(n + 10):nth-child(-n + 12) {
+      margin-bottom: 0;
+    }
+  }
+
+  ${media.mobile} {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: calc(100vh * 0.08 / 3);
+    &:nth-child(4n),
+    &:nth-child(3n) {
+      margin: 0 auto;
+      margin-bottom: calc(100vh * 0.08 / 3);
+    }
+    &:nth-child(n + 10):nth-child(-n + 12) {
+      margin-bottom: calc(100vh * 0.08 / 3);
+    }
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+  }
 `;
 
 export const CloseBtn = styled(GrFormClose)`
@@ -43,4 +77,12 @@ export const CardTitle = styled(DataTitle)`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  ${media.tabletMin} {
+    line-height: calc(70vh * 0.23 * 0.2 - 1.25rem);
+  }
+
+  ${media.mobile} {
+    line-height: calc(100vh * 0.23 * 0.2 - 1.25rem);
+  }
 `;

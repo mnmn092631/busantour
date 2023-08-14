@@ -46,10 +46,17 @@ const ModalComment = ({ type_id, type }: ModalCommentProps) => {
     setNewComment(e.target.value);
   };
 
+  const onFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (!username) {
+      alert("로그인이 필요합니다.");
+      e.target.blur();
+    }
+  };
+
   return (
     <ModalContent>
       <ModalCommentForm onSubmit={e => addComment(e)}>
-        <ModalCommentInput type="text" value={newComment} onChange={onChange} />
+        <ModalCommentInput type="text" value={newComment} onChange={onChange} onFocus={e => onFocus(e)} />
         <ModalCommentBtn type="submit">확인</ModalCommentBtn>
       </ModalCommentForm>
       <ul>

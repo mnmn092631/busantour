@@ -1,4 +1,4 @@
-import { theme } from "styles/theme";
+import { media, theme } from "styles/theme";
 import styled, { css } from "styled-components";
 
 export const CardContainer = styled.div`
@@ -9,6 +9,11 @@ export const CardContainer = styled.div`
   width: 100%;
   height: 70vh;
   margin-bottom: 40px;
+
+  ${media.mobile} {
+    height: 100vh;
+    overflow: auto;
+  }
 `;
 
 export const ContentContainer = styled.div`
