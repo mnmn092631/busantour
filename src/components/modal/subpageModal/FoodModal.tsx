@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
-import { ModalContent, ModalInfo, ModalViewImg } from "styles/components/modal";
+import { ModalContent, ModalViewImg } from "styles/components/modal";
 import SubpageModalMenu from "./utils/SubpageModalMenu";
 import SubpageModalTitle from "./utils/SubpageModalTitle";
 import ModalComment from "./utils/ModalComment";
@@ -34,13 +34,15 @@ const FoodModal = () => {
       <SubpageModalMenu selectMenu={selectMenu} setSelectMenu={setSelectMenu} />
       {selectMenu === "상세정보" && <ModalContent>{itemcntnts}</ModalContent>}
       {selectMenu === "이용안내" && (
-        <ModalInfo>
-          <p>
-            영업시간 : {usage_open}~{usage_close}
-          </p>
-          <p>브레이크타임 : {usage_breaktime}</p>
-          <p>메뉴 : {menuArr.join(", ")}</p>
-        </ModalInfo>
+        <ModalContent>
+          {(usage_open || usage_close) && (
+            <p>
+              영업시간 : {usage_open}~{usage_close}
+            </p>
+          )}
+          {usage_breaktime && <p>브레이크타임 : {usage_breaktime}</p>}
+          {menuArr.length !== 0 && <p>메뉴 : {menuArr.join(", ")}</p>}
+        </ModalContent>
       )}
       {selectMenu === "댓글" && <ModalComment type_id={id} type="food" />}
     </>

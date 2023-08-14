@@ -15,7 +15,7 @@ export const getTourAsync =
         cateArr_season: item.cate_season?.split(", "),
         cateArr_nature: item.cate_nature?.split(", "),
         cateArr_plan: item.cate_plan?.split(", "),
-        tagsArr: item.tags?.split(", "),
+        tagsArr: item.tags?.split(", ") || [],
       }));
       dispatch(setTour(parsedData));
     } catch (error) {

@@ -1,4 +1,5 @@
 import { GrClose } from "react-icons/gr";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { css } from "styled-components";
 import { theme } from "styles/theme";
@@ -61,6 +62,15 @@ export const ModalViewTitle = styled.h1`
   margin-bottom: 5px;
 `;
 
+export const ModalHompageUrl = styled(Link)`
+  padding: 3px 5px;
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    color: ${theme.color.blue};
+  }
+`;
+
 export const ModalCategory = styled(DataCate)`
   line-height: 24px;
 `;
@@ -75,7 +85,7 @@ export const ModalMenuContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 `;
 
 export const ModalMenu = styled.button<{ $active?: boolean }>`
@@ -96,17 +106,29 @@ export const ModalMenu = styled.button<{ $active?: boolean }>`
 
 export const ModalContent = styled.div`
   width: 85%;
-  font-size: ${theme.fontSize.md};
-  margin-bottom: 15px;
   line-height: 25px;
+  font-size: ${theme.fontSize.md};
 `;
 
-export const ModalInfo = styled.div`
-  width: 85%;
+export const ModalContentTitle = styled.h2`
+  font-size: ${theme.fontSize.lg};
+  font-weight: 600;
+  margin-bottom: 15px;
 `;
 
-export const ModalCommentContainer = styled.div`
-  width: 85%;
+export const ModalContentDes = styled.p`
+  margin-bottom: 10px;
+`;
+
+export const ModalTagBtn = styled.button`
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0;
+  }
+  padding: 2px 8px;
+  background-color: ${theme.color.blue};
+  color: ${theme.color.white};
+  border-radius: 5px;
 `;
 
 export const ModalCommentForm = styled.form`
@@ -132,10 +154,6 @@ export const ModalCommentBtn = styled.button`
   background-color: ${theme.color.blue};
   border-radius: 5px;
   color: ${theme.color.white};
-`;
-
-export const ModalCommentList = styled.ul`
-  width: 100%;
 `;
 
 export const ModalListItem = styled.li`

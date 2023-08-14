@@ -1,13 +1,7 @@
 import apiService from "api";
 import localStorageMethod from "common/localStorage";
 import React, { useEffect, useState, useCallback } from "react";
-import {
-  ModalCommentInput,
-  ModalCommentBtn,
-  ModalCommentContainer,
-  ModalCommentForm,
-  ModalCommentList,
-} from "styles/components/modal";
+import { ModalCommentInput, ModalCommentBtn, ModalCommentForm, ModalContent } from "styles/components/modal";
 import { CommentData } from "types/api";
 import ModalCommentItem from "./ModalCommentItem";
 
@@ -53,18 +47,18 @@ const ModalComment = ({ type_id, type }: ModalCommentProps) => {
   };
 
   return (
-    <ModalCommentContainer>
+    <ModalContent>
       <ModalCommentForm onSubmit={e => addComment(e)}>
         <ModalCommentInput type="text" value={newComment} onChange={onChange} />
         <ModalCommentBtn type="submit">확인</ModalCommentBtn>
       </ModalCommentForm>
-      <ModalCommentList>
+      <ul>
         {commentList.length !== 0 &&
           commentList.map(comment => (
             <ModalCommentItem key={comment.id} comment={comment} fetchCommentList={fetchCommentList} />
           ))}
-      </ModalCommentList>
-    </ModalCommentContainer>
+      </ul>
+    </ModalContent>
   );
 };
 

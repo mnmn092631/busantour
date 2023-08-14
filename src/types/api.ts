@@ -50,6 +50,7 @@ export interface RawTourData {
   middle_siz: string;
   main_img_n: string;
   main_img_t: string;
+  itemcntnts: string;
 }
 
 export interface TourData extends RawTourData {

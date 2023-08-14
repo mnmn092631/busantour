@@ -46,7 +46,7 @@ const Tour = () => {
         Math.ceil(
           tours.filter(tour => {
             if (tag === "전체") return tour;
-            else return tour.tags.indexOf(tag) !== -1;
+            else return tour.tagsArr.includes(tag);
           }).length / 12,
         ),
       );
@@ -63,7 +63,7 @@ const Tour = () => {
           {tours
             .filter(tour => {
               if (tag === "전체") return tour;
-              else return tour.tags.indexOf(tag) !== -1;
+              else return tour.tagsArr.includes(tag);
             })
             .slice(offset, offset + 12)
             .map(tour => (
