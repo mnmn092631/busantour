@@ -15,7 +15,13 @@ export const AuthTitle = styled.h1`
   color: ${theme.color.deepBlue};
   font-weight: 600;
   font-size: ${theme.fontSize.xl};
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+`;
+
+export const FailedMessage = styled.p`
+  height: 16px;
+  color: red;
+  margin-bottom: 5px;
 `;
 
 export const AuthForm = styled.form`
@@ -25,9 +31,16 @@ export const AuthForm = styled.form`
   align-items: center;
 `;
 
+export const AuthLabel = styled.label`
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+`;
+
 export const AuthInput = styled.input`
   width: 250px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding: 5px;
   border-bottom: 3px solid ${theme.color.deepBlue};
   transition: all 250ms ease-in-out;
@@ -40,11 +53,6 @@ export const AuthInput = styled.input`
   &::placeholder {
     color: ${theme.color.lightGray};
   }
-`;
-
-export const AuthInputMessage = styled.p`
-  height: 16px;
-  color: red;
 `;
 
 export const BtnContainer = styled.div`

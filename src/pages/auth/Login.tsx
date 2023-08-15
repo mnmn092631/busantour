@@ -8,7 +8,8 @@ import {
   SignupBtn,
   BtnContainer,
   AuthTitle,
-  AuthInputMessage,
+  FailedMessage,
+  AuthLabel,
 } from "styles/subpage/auth";
 import axios from "axios";
 import cookieMethod from "common/cookie";
@@ -41,10 +42,7 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        if (!error.response) return;
-        const { data } = error.response;
-        console.log(error);
-        // setFailedLoginMessage(data);
+        setFailedLoginMessage("로그인에 실패하였습니다.");
       } else {
         console.error(error);
       }
@@ -67,18 +65,12 @@ const Login = () => {
   return (
     <AuthWrapper>
       <AuthTitle>로그인</AuthTitle>
+      <FailedMessage>{failedLoginMessage}</FailedMessage>
       <AuthForm onSubmit={e => postLogin(e)}>
-        <AuthInput type="text" name="id" placeholder="ID" value={id} onChange={valueChange} required />
-        {/* <AuthInputMessage>{failedLoginMessage?.slice(0, 2) === "ID" && failedLoginMessage}</AuthInputMessage> */}
-        <AuthInput
-          type="password"
-          name="password"
-          placeholder="PASSWORD"
-          value={password}
-          onChange={valueChange}
-          required
-        />
-        {/* <AuthInputMessage>{failedLoginMessage?.slice(0, 8) === "Password" && failedLoginMessage}</AuthInputMessage> */}
+        <AuthLabel htmlFor="id">아이디</AuthLabel>
+        <AuthInput type="text" name="id" id="id" value={id} onChange={valueChange} required />
+        <AuthLabel htmlFor="password">비밀번호</AuthLabel>
+        <AuthInput type="password" name="password" id="password" value={password} onChange={valueChange} required />
         <BtnContainer>
           <SignupBtn to="/signup">회원가입</SignupBtn>
           <AuthSubmit type="submit">Login</AuthSubmit>

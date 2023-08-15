@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import apiService from "api";
-import { AuthForm, AuthInput, AuthInputMessage, AuthSubmit, AuthTitle, AuthWrapper } from "styles/subpage/auth";
+import { AuthForm, AuthInput, AuthLabel, AuthSubmit, AuthTitle, AuthWrapper, FailedMessage } from "styles/subpage/auth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -48,27 +48,22 @@ const Signup = () => {
   return (
     <AuthWrapper>
       <AuthTitle>회원가입</AuthTitle>
+      <FailedMessage>{isIDExist ? "이미 존재하는 아이디입니다." : validateInput()}</FailedMessage>
       <AuthForm onSubmit={e => signup(e)}>
+        <AuthLabel htmlFor="id">아이디</AuthLabel>
         <AuthInput
           type="text"
           name="id"
-          placeholder="ID"
+          id="id"
           value={id}
           onChange={valueChange}
           pattern="^[a-z0-9]*$"
-          minLength={5}
-          maxLength={15}
+          minLength={3}
+          maxLength={10}
           required
         />
-        <AuthInputMessage>{isIDExist ? "이미 존재하는 아이디입니다." : validateInput()}</AuthInputMessage>
-        <AuthInput
-          type="password"
-          name="password"
-          placeholder="PASSWORD"
-          value={password}
-          onChange={valueChange}
-          required
-        />
+        <AuthLabel htmlFor="password">비밀번호</AuthLabel>
+        <AuthInput type="password" name="password" id="password" value={password} onChange={valueChange} required />
         <AuthSubmit type="submit">회원가입</AuthSubmit>
       </AuthForm>
     </AuthWrapper>
