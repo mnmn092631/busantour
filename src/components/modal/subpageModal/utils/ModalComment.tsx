@@ -55,8 +55,8 @@ const ModalComment = ({ type_id, type }: ModalCommentProps) => {
 
   return (
     <ModalContent>
-      <ModalCommentForm onSubmit={e => addComment(e)}>
-        <ModalCommentInput type="text" value={newComment} onChange={onChange} onFocus={e => onFocus(e)} />
+      <ModalCommentForm onSubmit={addComment}>
+        <ModalCommentInput type="text" value={newComment} onChange={onChange} onFocus={onFocus} />
         <ModalCommentBtn type="submit">확인</ModalCommentBtn>
       </ModalCommentForm>
       <ul>

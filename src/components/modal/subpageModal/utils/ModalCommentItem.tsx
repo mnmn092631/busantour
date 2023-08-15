@@ -11,7 +11,12 @@ import {
   ModalListItem,
 } from "styles/components/modal";
 
-const ModalCommentItem = ({ comment, fetchCommentList }: { comment: CommentData; fetchCommentList: () => void }) => {
+interface ModalCommentItemProps {
+  comment: CommentData;
+  fetchCommentList: () => void;
+}
+
+const ModalCommentItem = ({ comment, fetchCommentList }: ModalCommentItemProps) => {
   const [commentTxt, setCommentTxt] = useState<string>(comment.comment);
   const [isRead, setIsRead] = useState(true);
   const username = localStorageMethod.getUser();

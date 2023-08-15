@@ -25,12 +25,3 @@ export const DataTitle = styled.h2`
 export const DataAddr = styled.p`
   font-size: ${theme.fontSize.base};
 `;
-
-export const LikeBtn = styled.button`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  font-size: ${theme.fontSize.md};
-  background-color: ${theme.color.white};
-  cursor: pointer;
-`;
