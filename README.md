@@ -1,11 +1,13 @@
 # 부산 관광 정보
 
+<div>
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=000">
 <img src="https://img.shields.io/badge/StyledComponents-DB7093?style=flat-square&logo=styledcomponents&logoColor=fff">
 <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/>
 <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/>
+</div>
 
-### 부산광역시의 명소, 추천투어, 맛집, 축제 관련 정보를 소개하는 웹페이지
+> 부산광역시의 명소, 추천투어, 맛집, 축제 관련 정보를 소개하는 웹페이지
 
 ## 실행 방법
 
