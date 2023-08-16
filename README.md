@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# 부산 관광 정보
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=000">
+<img src="https://img.shields.io/badge/StyledComponents-DB7093?style=flat-square&logo=styledcomponents&logoColor=fff">
+<img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/>
+<img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/>
 
-## Available Scripts
+> 부산광역시의 명소, 추천투어, 맛집, 축제 관련 정보를 소개하는 웹페이지
 
-In the project directory, you can run:
+## 실행 방법
 
-### `npm start`
+**백엔드(Backend): [icecaptin github](https://github.com/icecaptin/JAVA_SpringBoot/tree/main/BusanProject)**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```sh
+npm start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 기능 예시
 
-### `npm test`
+![Home_festival](./public/img/fes.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+메인 페이지 축제 영역 : 캐러셀 적용
 
-### `npm run build`
+![Home_place](./public/img/place.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+메인 페이지 명소 영역 : QGIS로 명소 지도 생성
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Home_tourNfood](./public/img/tour_food.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+메인 페이지 투어 영역 : 가로 스크롤
 
-### `npm run eject`
+![Subpage_place](./public/img/subpage_place.png)
+관광명소, 테마여행, 맛집정보 상세 페이지 : pagination 구현
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Subpage_modal](./public/img/subpage_modal.png)
+상세 페이지 모달 구현
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Subpage_festival](./public/img/subpage_fes.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+축제 상세 페이지 : react-fullcalendar 사용
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 부족한 부분
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- styled-components 중복되는 부분들이 여전히 많음
+- React.memo, useCallback을 사용하여 컴포넌트 성능 최적화 필요
