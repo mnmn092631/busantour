@@ -19,7 +19,7 @@ npm start
 
 ![Home_festival](./public/img/fes.png)
 
-### 메인 페이지 축제 영역
+**메인 페이지 축제 영역**
 
 - 캐러셀 구현
 
@@ -27,7 +27,7 @@ npm start
 
 ![Home_place](./public/img/place.png)
 
-### 메인 페이지 명소 영역
+**메인 페이지 명소 영역**
 
 - QGIS로 명소 지도 생성
 
@@ -35,7 +35,7 @@ npm start
 
 ![Home_tourNfood](./public/img/tour_food.png)
 
-### 메인 페이지 투어 영역
+**메인 페이지 투어 영역**
 
 - 가로 스크롤 구현
 
@@ -43,7 +43,7 @@ npm start
 
 ![Subpage_place](./public/img/subpage_place.png)
 
-### 관광명소, 테마여행, 맛집정보 상세 페이지
+**관광명소, 테마여행, 맛집정보 상세 페이지**
 
 - pagination 구현
 
@@ -51,7 +51,7 @@ npm start
 
 ![Subpage_modal](./public/img/subpage_modal.png)
 
-### 상세 페이지
+**상세 페이지**
 
 - 모달 구현
 
@@ -59,11 +59,11 @@ npm start
 
 ![Subpage_festival](./public/img/subpage_fes.png)
 
-### 축제 상세 페이지
+**축제 상세 페이지**
 
 - fullcalendar 사용
 
 ## 부족한 부분
 
-- styled-components 중복되는 부분들이 여전히 많음
+- styled-components 중복 최소화 필요
 - React.memo, useCallback을 사용하여 컴포넌트 성능 최적화 필요
