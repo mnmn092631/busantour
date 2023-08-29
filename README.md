@@ -1,4 +1,4 @@
-# 부산 관광 정보
+# 부산광역시 관광 정보
 
 <div>
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=000">
@@ -7,7 +7,15 @@
 <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/>
 </div>
 
+개발 기간: 2023.07.24 ~ 2023.08.17
+
 > 부산광역시의 명소, 추천투어, 맛집, 축제 관련 정보를 소개하는 웹페이지
+
+## 목차
+
+[실행 방법](#실행-방법)
+[기능 예시](#기능-예시)
+[부족한 부분](#부족한-부분)
 
 ## 실행 방법
 
@@ -69,3 +77,4 @@ npm start
 
 - styled-components 중복 최소화 필요
 - React.memo, useCallback을 사용하여 컴포넌트 성능 최적화 필요
+- 환경변수 활용
