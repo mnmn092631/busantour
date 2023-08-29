@@ -7,7 +7,7 @@
 <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/>
 </div>
 
-개발 기간: 2023.07.24 ~ 2023.08.17
+개발 기간: 2023.07.24. ~ 2023.08.17.
 
 > 부산광역시의 명소, 추천투어, 맛집, 축제 관련 정보를 소개하는 웹페이지
 
